@@ -1346,123 +1346,6 @@ function $f_Ldungeon_pathfinding_Navigatable__bestDirectionTo__Lmath_Position__L
   var closed = $f_Ldungeon_pathfinding_Navigatable__ClosedNodes$2__pLdungeon_pathfinding_Navigatable__sr_LazyRef__Ldungeon_pathfinding_Navigatable$ClosedNodes$4$($thiz, ClosedNodes$module).apply__sci_Map__Ldungeon_pathfinding_Navigatable$ClosedNodes$3($as_sci_Map($m_s_Predef$().Map$2.apply__sc_Seq__sc_GenMap($m_sci_Nil$())));
   return $f_Ldungeon_pathfinding_Navigatable__iteration$1__pLdungeon_pathfinding_Navigatable__Ldungeon_pathfinding_Navigatable$OpenNodes$3__Ldungeon_pathfinding_Navigatable$ClosedNodes$3__Lmath_Position__Lmath_Position__sr_LazyRef__sr_LazyRef__sr_LazyRef__s_Option($thiz, open, closed, source, destination, OpenNodes$module, ClosedNodes$module, Node$module)
 }
-function $f_Lgame_ActionTarget__outcomes__F1($thiz) {
-  var this$1 = $thiz.possibleOutcomes__sci_Set();
-  var this$2 = $m_sci_List$();
-  var cbf = this$2.ReusableCBFInstance$2;
-  var this$9 = $as_sci_List($f_sc_TraversableLike__to__scg_CanBuildFrom__O(this$1, cbf));
-  var f = (function($this) {
-    return (function(x0$1$2) {
-      var x0$1 = $as_Lgame_Outcome(x0$1$2);
-      if ($is_Lgame_CertainOutcome(x0$1)) {
-        var x2 = $as_Lgame_CertainOutcome(x0$1);
-        $m_sci_List$();
-        var jsx$2 = $m_Lrandom_RNG$();
-        var array = [x2];
-        if (($uI(array.length) === 0)) {
-          var jsx$1 = $m_sci_Set$EmptySet$()
-        } else {
-          var b = new $c_scm_SetBuilder().init___sc_Set($m_sci_Set$EmptySet$());
-          var i = 0;
-          var len = $uI(array.length);
-          while ((i < len)) {
-            var index = i;
-            var arg1 = array[index];
-            b.$$plus$eq__O__scm_SetBuilder(arg1);
-            i = ((1 + i) | 0)
-          };
-          var jsx$1 = b.elems$1
-        };
-        var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array([jsx$2.unit__O__F1(jsx$1)]);
-        var this$5 = $m_sci_List$();
-        var cbf$1 = this$5.ReusableCBFInstance$2;
-        return $as_sci_List($f_sc_TraversableLike__to__scg_CanBuildFrom__O(xs, cbf$1))
-      } else if ($is_Lgame_RandomOutcome(x0$1)) {
-        var x3 = $as_Lgame_RandomOutcome(x0$1);
-        $m_sci_List$();
-        var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([x3.outcomes__F1()]);
-        var this$7 = $m_sci_List$();
-        var cbf$2 = this$7.ReusableCBFInstance$2;
-        return $as_sci_List($f_sc_TraversableLike__to__scg_CanBuildFrom__O(xs$1, cbf$2))
-      } else {
-        throw new $c_s_MatchError().init___O(x0$1)
-      }
-    })
-  })($thiz);
-  var this$8 = $m_sci_List$();
-  var bf = this$8.ReusableCBFInstance$2;
-  if ((bf === $m_sci_List$().ReusableCBFInstance$2)) {
-    if ((this$9 === $m_sci_Nil$())) {
-      var jsx$3 = $m_sci_Nil$()
-    } else {
-      var rest = this$9;
-      var found = new $c_sr_BooleanRef().init___Z(false);
-      var h = new $c_sr_ObjectRef().init___O(null);
-      var t = new $c_sr_ObjectRef().init___O(null);
-      while ((rest !== $m_sci_Nil$())) {
-        var arg1$1 = rest.head__O();
-        $as_sc_GenTraversableOnce(f(arg1$1)).seq__sc_TraversableOnce().foreach__F1__V(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this$1, found$1, h$1, t$1) {
-          return (function(b$2) {
-            if ((!found$1.elem$1)) {
-              h$1.elem$1 = new $c_sci_$colon$colon().init___O__sci_List(b$2, $m_sci_Nil$());
-              t$1.elem$1 = $as_sci_$colon$colon(h$1.elem$1);
-              found$1.elem$1 = true
-            } else {
-              var nx = new $c_sci_$colon$colon().init___O__sci_List(b$2, $m_sci_Nil$());
-              $as_sci_$colon$colon(t$1.elem$1).tl$5 = nx;
-              t$1.elem$1 = nx
-            }
-          })
-        })(this$9, found, h, t)));
-        rest = $as_sci_List(rest.tail__O())
-      };
-      var jsx$3 = ((!found.elem$1) ? $m_sci_Nil$() : $as_sci_$colon$colon(h.elem$1))
-    }
-  } else {
-    $m_sci_List$();
-    var b$1 = new $c_scm_ListBuffer().init___();
-    var these = this$9;
-    while ((!these.isEmpty__Z())) {
-      var arg1$2 = these.head__O();
-      var xs$2 = $as_sc_GenTraversableOnce(f(arg1$2)).seq__sc_TraversableOnce();
-      b$1.$$plus$plus$eq__sc_TraversableOnce__scm_ListBuffer(xs$2);
-      these = $as_sci_List(these.tail__O())
-    };
-    var jsx$3 = b$1.toList__sci_List()
-  };
-  var randomOutcomes = $as_sci_List(jsx$3);
-  var rand = $m_Lrandom_RNG$().sequence__sci_List__F1(randomOutcomes);
-  return new $c_Lrandom_RNG$randOps().init___F1(rand).map__F1__F1(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2$1) {
-    return (function(x$2$2) {
-      var x$2 = $as_sci_List(x$2$2);
-      $m_sci_List$();
-      var b$3 = new $c_scm_ListBuffer().init___();
-      var these$1 = x$2;
-      while ((!these$1.isEmpty__Z())) {
-        var arg1$3 = these$1.head__O();
-        var xs$3 = $as_sc_GenTraversableOnce(arg1$3).seq__sc_TraversableOnce();
-        b$3.$$plus$plus$eq__sc_TraversableOnce__scm_ListBuffer(xs$3);
-        these$1 = $as_sci_List(these$1.tail__O())
-      };
-      var this$16 = b$3.toList__sci_List();
-      var this$17 = $m_sci_Set$();
-      var cbf$3 = new $c_scg_GenSetFactory$$anon$1().init___scg_GenSetFactory(this$17);
-      return $as_sci_Set($f_sc_TraversableLike__to__scg_CanBuildFrom__O(this$16, cbf$3))
-    })
-  })($thiz)))
-}
-function $is_Lgame_ActionTarget(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_ActionTarget)))
-}
-function $as_Lgame_ActionTarget(obj) {
-  return (($is_Lgame_ActionTarget(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "game.ActionTarget"))
-}
-function $isArrayOf_Lgame_ActionTarget(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lgame_ActionTarget)))
-}
-function $asArrayOf_Lgame_ActionTarget(obj, depth) {
-  return (($isArrayOf_Lgame_ActionTarget(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.ActionTarget;", depth))
-}
 function $is_Lgame_Command(obj) {
   return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_Command)))
 }
@@ -1474,6 +1357,18 @@ function $isArrayOf_Lgame_Command(obj, depth) {
 }
 function $asArrayOf_Lgame_Command(obj, depth) {
   return (($isArrayOf_Lgame_Command(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.Command;", depth))
+}
+function $is_Lgame_Event(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_Event)))
+}
+function $as_Lgame_Event(obj) {
+  return (($is_Lgame_Event(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "game.Event"))
+}
+function $isArrayOf_Lgame_Event(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lgame_Event)))
+}
+function $asArrayOf_Lgame_Event(obj, depth) {
+  return (($isArrayOf_Lgame_Event(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.Event;", depth))
 }
 function $is_Lgame_Item(obj) {
   return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_Item)))
@@ -1499,20 +1394,20 @@ function $isArrayOf_Lgame_Notification(obj, depth) {
 function $asArrayOf_Lgame_Notification(obj, depth) {
   return (($isArrayOf_Lgame_Notification(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.Notification;", depth))
 }
-function $is_Lgame_Outcome(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_Outcome)))
-}
-function $as_Lgame_Outcome(obj) {
-  return (($is_Lgame_Outcome(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "game.Outcome"))
-}
-function $isArrayOf_Lgame_Outcome(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lgame_Outcome)))
-}
-function $asArrayOf_Lgame_Outcome(obj, depth) {
-  return (($isArrayOf_Lgame_Outcome(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.Outcome;", depth))
-}
 function $f_Lgame_being_Damagable__$$init$__V($thiz) {
   $thiz.game$being$Damagable$$undsetter$und$destroyed$und$eq__Z__V(($thiz.health__I() <= 0))
+}
+function $is_Lgame_being_Damagable(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_being_Damagable)))
+}
+function $as_Lgame_being_Damagable(obj) {
+  return (($is_Lgame_being_Damagable(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "game.being.Damagable"))
+}
+function $isArrayOf_Lgame_being_Damagable(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lgame_being_Damagable)))
+}
+function $asArrayOf_Lgame_being_Damagable(obj, depth) {
+  return (($isArrayOf_Lgame_being_Damagable(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.being.Damagable;", depth))
 }
 function $f_Lgame_being_Sighted__positionsWithinRangeTouchedByPerimeterRay__Lmath_Position__Ldungeon_Dungeon__sci_Set($thiz, position, dungeon) {
   var elem = $as_sci_Set($m_s_Predef$().Set$2.apply__sc_Seq__sc_GenTraversable($m_sci_Nil$()));
@@ -1814,10 +1709,6 @@ function $f_sci_VectorPointer__gotoNextBlockStart__I__I__V($thiz, index, xor) {
     throw new $c_jl_IllegalArgumentException().init___()
   }
 }
-function $f_sci_VectorPointer__gotoFreshPosWritable1__I__I__I__V($thiz, oldIndex, newIndex, xor) {
-  $f_sci_VectorPointer__stabilize__I__V($thiz, oldIndex);
-  $f_sci_VectorPointer__gotoFreshPosWritable0__I__I__I__V($thiz, oldIndex, newIndex, xor)
-}
 function $f_sci_VectorPointer__getElem__I__I__O($thiz, index, xor) {
   if ((xor < 32)) {
     return $thiz.display0__AO().get((31 & index))
@@ -1833,88 +1724,6 @@ function $f_sci_VectorPointer__getElem__I__I__O($thiz, index, xor) {
     return $asArrayOf_O($asArrayOf_O($asArrayOf_O($asArrayOf_O($asArrayOf_O($thiz.display5__AO().get((31 & ((index >>> 25) | 0))), 1).get((31 & ((index >>> 20) | 0))), 1).get((31 & ((index >>> 15) | 0))), 1).get((31 & ((index >>> 10) | 0))), 1).get((31 & ((index >>> 5) | 0))), 1).get((31 & index))
   } else {
     throw new $c_jl_IllegalArgumentException().init___()
-  }
-}
-function $f_sci_VectorPointer__gotoFreshPosWritable0__I__I__I__V($thiz, oldIndex, newIndex, xor) {
-  if ((xor >= 32)) {
-    if ((xor < 1024)) {
-      if (($thiz.depth__I() === 1)) {
-        $thiz.display1$und$eq__AO__V($newArrayObject($d_O.getArrayOf(), [32]));
-        $thiz.display1__AO().set((31 & ((oldIndex >>> 5) | 0)), $thiz.display0__AO());
-        $thiz.depth$und$eq__I__V(((1 + $thiz.depth__I()) | 0))
-      };
-      $thiz.display0$und$eq__AO__V($newArrayObject($d_O.getArrayOf(), [32]))
-    } else if ((xor < 32768)) {
-      if (($thiz.depth__I() === 2)) {
-        $thiz.display2$und$eq__AO__V($newArrayObject($d_O.getArrayOf(), [32]));
-        $thiz.display2__AO().set((31 & ((oldIndex >>> 10) | 0)), $thiz.display1__AO());
-        $thiz.depth$und$eq__I__V(((1 + $thiz.depth__I()) | 0))
-      };
-      $thiz.display1$und$eq__AO__V($asArrayOf_O($thiz.display2__AO().get((31 & ((newIndex >>> 10) | 0))), 1));
-      if (($thiz.display1__AO() === null)) {
-        $thiz.display1$und$eq__AO__V($newArrayObject($d_O.getArrayOf(), [32]))
-      };
-      $thiz.display0$und$eq__AO__V($newArrayObject($d_O.getArrayOf(), [32]))
-    } else if ((xor < 1048576)) {
-      if (($thiz.depth__I() === 3)) {
-        $thiz.display3$und$eq__AO__V($newArrayObject($d_O.getArrayOf(), [32]));
-        $thiz.display3__AO().set((31 & ((oldIndex >>> 15) | 0)), $thiz.display2__AO());
-        $thiz.depth$und$eq__I__V(((1 + $thiz.depth__I()) | 0))
-      };
-      $thiz.display2$und$eq__AO__V($asArrayOf_O($thiz.display3__AO().get((31 & ((newIndex >>> 15) | 0))), 1));
-      if (($thiz.display2__AO() === null)) {
-        $thiz.display2$und$eq__AO__V($newArrayObject($d_O.getArrayOf(), [32]))
-      };
-      $thiz.display1$und$eq__AO__V($asArrayOf_O($thiz.display2__AO().get((31 & ((newIndex >>> 10) | 0))), 1));
-      if (($thiz.display1__AO() === null)) {
-        $thiz.display1$und$eq__AO__V($newArrayObject($d_O.getArrayOf(), [32]))
-      };
-      $thiz.display0$und$eq__AO__V($newArrayObject($d_O.getArrayOf(), [32]))
-    } else if ((xor < 33554432)) {
-      if (($thiz.depth__I() === 4)) {
-        $thiz.display4$und$eq__AO__V($newArrayObject($d_O.getArrayOf(), [32]));
-        $thiz.display4__AO().set((31 & ((oldIndex >>> 20) | 0)), $thiz.display3__AO());
-        $thiz.depth$und$eq__I__V(((1 + $thiz.depth__I()) | 0))
-      };
-      $thiz.display3$und$eq__AO__V($asArrayOf_O($thiz.display4__AO().get((31 & ((newIndex >>> 20) | 0))), 1));
-      if (($thiz.display3__AO() === null)) {
-        $thiz.display3$und$eq__AO__V($newArrayObject($d_O.getArrayOf(), [32]))
-      };
-      $thiz.display2$und$eq__AO__V($asArrayOf_O($thiz.display3__AO().get((31 & ((newIndex >>> 15) | 0))), 1));
-      if (($thiz.display2__AO() === null)) {
-        $thiz.display2$und$eq__AO__V($newArrayObject($d_O.getArrayOf(), [32]))
-      };
-      $thiz.display1$und$eq__AO__V($asArrayOf_O($thiz.display2__AO().get((31 & ((newIndex >>> 10) | 0))), 1));
-      if (($thiz.display1__AO() === null)) {
-        $thiz.display1$und$eq__AO__V($newArrayObject($d_O.getArrayOf(), [32]))
-      };
-      $thiz.display0$und$eq__AO__V($newArrayObject($d_O.getArrayOf(), [32]))
-    } else if ((xor < 1073741824)) {
-      if (($thiz.depth__I() === 5)) {
-        $thiz.display5$und$eq__AO__V($newArrayObject($d_O.getArrayOf(), [32]));
-        $thiz.display5__AO().set((31 & ((oldIndex >>> 25) | 0)), $thiz.display4__AO());
-        $thiz.depth$und$eq__I__V(((1 + $thiz.depth__I()) | 0))
-      };
-      $thiz.display4$und$eq__AO__V($asArrayOf_O($thiz.display5__AO().get((31 & ((newIndex >>> 25) | 0))), 1));
-      if (($thiz.display4__AO() === null)) {
-        $thiz.display4$und$eq__AO__V($newArrayObject($d_O.getArrayOf(), [32]))
-      };
-      $thiz.display3$und$eq__AO__V($asArrayOf_O($thiz.display4__AO().get((31 & ((newIndex >>> 20) | 0))), 1));
-      if (($thiz.display3__AO() === null)) {
-        $thiz.display3$und$eq__AO__V($newArrayObject($d_O.getArrayOf(), [32]))
-      };
-      $thiz.display2$und$eq__AO__V($asArrayOf_O($thiz.display3__AO().get((31 & ((newIndex >>> 15) | 0))), 1));
-      if (($thiz.display2__AO() === null)) {
-        $thiz.display2$und$eq__AO__V($newArrayObject($d_O.getArrayOf(), [32]))
-      };
-      $thiz.display1$und$eq__AO__V($asArrayOf_O($thiz.display2__AO().get((31 & ((newIndex >>> 10) | 0))), 1));
-      if (($thiz.display1__AO() === null)) {
-        $thiz.display1$und$eq__AO__V($newArrayObject($d_O.getArrayOf(), [32]))
-      };
-      $thiz.display0$und$eq__AO__V($newArrayObject($d_O.getArrayOf(), [32]))
-    } else {
-      throw new $c_jl_IllegalArgumentException().init___()
-    }
   }
 }
 function $f_sci_VectorPointer__gotoPosWritable1__I__I__I__V($thiz, oldIndex, newIndex, xor) {
@@ -2019,11 +1828,6 @@ function $f_sci_VectorPointer__gotoPosWritable1__I__I__I__V($thiz, oldIndex, new
   } else {
     throw new $c_jl_IllegalArgumentException().init___()
   }
-}
-function $f_sci_VectorPointer__copyRange__AO__I__I__AO($thiz, array, oldLeft, newLeft) {
-  var elems = $newArrayObject($d_O.getArrayOf(), [32]);
-  $systemArraycopy(array, oldLeft, elems, newLeft, ((32 - ((newLeft > oldLeft) ? newLeft : oldLeft)) | 0));
-  return elems
 }
 function $f_sci_VectorPointer__gotoPos__I__I__V($thiz, index, xor) {
   if ((xor >= 32)) {
@@ -2212,57 +2016,6 @@ function $f_sci_VectorPointer__nullSlotAndCopy__AO__I__AO($thiz, array, index) {
   var a = $asArrayOf_O(x, 1);
   return $f_sci_VectorPointer__copyOf__AO__AO($thiz, a)
 }
-function $f_sci_VectorPointer__initFrom__sci_VectorPointer__I__V($thiz, that, depth) {
-  $thiz.depth$und$eq__I__V(depth);
-  var x1 = (((-1) + depth) | 0);
-  switch (x1) {
-    case (-1): {
-      break
-    }
-    case 0: {
-      $thiz.display0$und$eq__AO__V(that.display0__AO());
-      break
-    }
-    case 1: {
-      $thiz.display1$und$eq__AO__V(that.display1__AO());
-      $thiz.display0$und$eq__AO__V(that.display0__AO());
-      break
-    }
-    case 2: {
-      $thiz.display2$und$eq__AO__V(that.display2__AO());
-      $thiz.display1$und$eq__AO__V(that.display1__AO());
-      $thiz.display0$und$eq__AO__V(that.display0__AO());
-      break
-    }
-    case 3: {
-      $thiz.display3$und$eq__AO__V(that.display3__AO());
-      $thiz.display2$und$eq__AO__V(that.display2__AO());
-      $thiz.display1$und$eq__AO__V(that.display1__AO());
-      $thiz.display0$und$eq__AO__V(that.display0__AO());
-      break
-    }
-    case 4: {
-      $thiz.display4$und$eq__AO__V(that.display4__AO());
-      $thiz.display3$und$eq__AO__V(that.display3__AO());
-      $thiz.display2$und$eq__AO__V(that.display2__AO());
-      $thiz.display1$und$eq__AO__V(that.display1__AO());
-      $thiz.display0$und$eq__AO__V(that.display0__AO());
-      break
-    }
-    case 5: {
-      $thiz.display5$und$eq__AO__V(that.display5__AO());
-      $thiz.display4$und$eq__AO__V(that.display4__AO());
-      $thiz.display3$und$eq__AO__V(that.display3__AO());
-      $thiz.display2$und$eq__AO__V(that.display2__AO());
-      $thiz.display1$und$eq__AO__V(that.display1__AO());
-      $thiz.display0$und$eq__AO__V(that.display0__AO());
-      break
-    }
-    default: {
-      throw new $c_s_MatchError().init___O(x1)
-    }
-  }
-}
 function $f_sci_VectorPointer__gotoNextBlockStartWritable__I__I__V($thiz, index, xor) {
   if ((xor < 1024)) {
     if (($thiz.depth__I() === 1)) {
@@ -2326,6 +2079,57 @@ function $f_sci_VectorPointer__gotoNextBlockStartWritable__I__I__V($thiz, index,
     $thiz.display5__AO().set((31 & ((index >>> 25) | 0)), $thiz.display4__AO())
   } else {
     throw new $c_jl_IllegalArgumentException().init___()
+  }
+}
+function $f_sci_VectorPointer__initFrom__sci_VectorPointer__I__V($thiz, that, depth) {
+  $thiz.depth$und$eq__I__V(depth);
+  var x1 = (((-1) + depth) | 0);
+  switch (x1) {
+    case (-1): {
+      break
+    }
+    case 0: {
+      $thiz.display0$und$eq__AO__V(that.display0__AO());
+      break
+    }
+    case 1: {
+      $thiz.display1$und$eq__AO__V(that.display1__AO());
+      $thiz.display0$und$eq__AO__V(that.display0__AO());
+      break
+    }
+    case 2: {
+      $thiz.display2$und$eq__AO__V(that.display2__AO());
+      $thiz.display1$und$eq__AO__V(that.display1__AO());
+      $thiz.display0$und$eq__AO__V(that.display0__AO());
+      break
+    }
+    case 3: {
+      $thiz.display3$und$eq__AO__V(that.display3__AO());
+      $thiz.display2$und$eq__AO__V(that.display2__AO());
+      $thiz.display1$und$eq__AO__V(that.display1__AO());
+      $thiz.display0$und$eq__AO__V(that.display0__AO());
+      break
+    }
+    case 4: {
+      $thiz.display4$und$eq__AO__V(that.display4__AO());
+      $thiz.display3$und$eq__AO__V(that.display3__AO());
+      $thiz.display2$und$eq__AO__V(that.display2__AO());
+      $thiz.display1$und$eq__AO__V(that.display1__AO());
+      $thiz.display0$und$eq__AO__V(that.display0__AO());
+      break
+    }
+    case 5: {
+      $thiz.display5$und$eq__AO__V(that.display5__AO());
+      $thiz.display4$und$eq__AO__V(that.display4__AO());
+      $thiz.display3$und$eq__AO__V(that.display3__AO());
+      $thiz.display2$und$eq__AO__V(that.display2__AO());
+      $thiz.display1$und$eq__AO__V(that.display1__AO());
+      $thiz.display0$und$eq__AO__V(that.display0__AO());
+      break
+    }
+    default: {
+      throw new $c_s_MatchError().init___O(x1)
+    }
   }
 }
 var $d_scm_HashEntry = new $TypeData().initClass({
@@ -2850,18 +2654,6 @@ function $m_Ldungeon_generation_floorplan_BSPTree$() {
   };
   return $n_Ldungeon_generation_floorplan_BSPTree$
 }
-function $is_Lgame_CertainOutcome(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_CertainOutcome)))
-}
-function $as_Lgame_CertainOutcome(obj) {
-  return (($is_Lgame_CertainOutcome(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "game.CertainOutcome"))
-}
-function $isArrayOf_Lgame_CertainOutcome(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lgame_CertainOutcome)))
-}
-function $asArrayOf_Lgame_CertainOutcome(obj, depth) {
-  return (($isArrayOf_Lgame_CertainOutcome(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.CertainOutcome;", depth))
-}
 /** @constructor */
 function $c_Lgame_Command$() {
   $c_O.call(this)
@@ -3003,6 +2795,52 @@ function $asArrayOf_Lgame_DirectionalCommand(obj, depth) {
   return (($isArrayOf_Lgame_DirectionalCommand(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.DirectionalCommand;", depth))
 }
 /** @constructor */
+function $c_Lgame_DirectionalCommand$() {
+  $c_O.call(this)
+}
+$c_Lgame_DirectionalCommand$.prototype = new $h_O();
+$c_Lgame_DirectionalCommand$.prototype.constructor = $c_Lgame_DirectionalCommand$;
+/** @constructor */
+function $h_Lgame_DirectionalCommand$() {
+  /*<skip>*/
+}
+$h_Lgame_DirectionalCommand$.prototype = $c_Lgame_DirectionalCommand$.prototype;
+$c_Lgame_DirectionalCommand$.prototype.init___ = (function() {
+  return this
+});
+$c_Lgame_DirectionalCommand$.prototype.all__sci_Set = (function() {
+  var array = [$m_Lgame_Command$Up$(), $m_Lgame_Command$Down$(), $m_Lgame_Command$Right$(), $m_Lgame_Command$Left$()];
+  if (($uI(array.length) === 0)) {
+    var jsx$1 = $m_sci_Set$EmptySet$()
+  } else {
+    var b = new $c_scm_SetBuilder().init___sc_Set($m_sci_Set$EmptySet$());
+    var i = 0;
+    var len = $uI(array.length);
+    while ((i < len)) {
+      var index = i;
+      var arg1 = array[index];
+      b.$$plus$eq__O__scm_SetBuilder(arg1);
+      i = ((1 + i) | 0)
+    };
+    var jsx$1 = b.elems$1
+  };
+  return $as_sci_Set(jsx$1)
+});
+var $d_Lgame_DirectionalCommand$ = new $TypeData().initClass({
+  Lgame_DirectionalCommand$: 0
+}, false, "game.DirectionalCommand$", {
+  Lgame_DirectionalCommand$: 1,
+  O: 1
+});
+$c_Lgame_DirectionalCommand$.prototype.$classData = $d_Lgame_DirectionalCommand$;
+var $n_Lgame_DirectionalCommand$ = (void 0);
+function $m_Lgame_DirectionalCommand$() {
+  if ((!$n_Lgame_DirectionalCommand$)) {
+    $n_Lgame_DirectionalCommand$ = new $c_Lgame_DirectionalCommand$().init___()
+  };
+  return $n_Lgame_DirectionalCommand$
+}
+/** @constructor */
 function $c_Lgame_Game() {
   $c_O.call(this);
   this.displayAdapter$1 = null;
@@ -3019,146 +2857,122 @@ function $h_Lgame_Game() {
   /*<skip>*/
 }
 $h_Lgame_Game.prototype = $c_Lgame_Game.prototype;
+$c_Lgame_Game.prototype.withProcessedEnemyTurns$1__p1__Lgame_GameState = (function() {
+  var this$1 = this.gameState$1.dungeon$1.beingOfTypePositions__Lgame_being_BeingDescriptor__sci_Set($m_Lgame_being_Spider$());
+  var z = this.gameState$1;
+  var op = new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function($this) {
+    return (function(lastState$2, beingPosition$2) {
+      var lastState = $as_Lgame_GameState(lastState$2);
+      var beingPosition = $as_Lmath_Position(beingPosition$2);
+      var x1 = $as_Ldungeon_Cell(lastState.dungeon$1.cells$1.apply__O__O(beingPosition));
+      if ((x1 !== null)) {
+        var p2 = x1.being$1;
+        if ($is_s_Some(p2)) {
+          var x5 = $as_s_Some(p2);
+          var being = $as_Lgame_being_Being(x5.value$2);
+          var x1$2 = $as_T2(being.intelligence$1.nextCommand__Lmath_Position__Ldungeon_Dungeon__F1(beingPosition, lastState.dungeon$1).apply__O__O($this.rng$1));
+          if ((x1$2 === null)) {
+            throw new $c_s_MatchError().init___O(x1$2)
+          };
+          var commandOpt = $as_s_Option(x1$2.$$und1__O());
+          var newRng = $as_Lrandom_RNG(x1$2.$$und2__O());
+          $this.rng$1 = newRng;
+          var eta$0$1 = lastState.actionTargetMapping__Lmath_Position__sci_Map(beingPosition);
+          if (commandOpt.isEmpty__Z()) {
+            var x1$3 = $m_s_None$()
+          } else {
+            var arg1 = commandOpt.get__O();
+            var key = $as_Lgame_Command(arg1);
+            var x1$3 = eta$0$1.get__O__s_Option(key)
+          };
+          if ($is_s_Some(x1$3)) {
+            var x2 = $as_s_Some(x1$3);
+            var actionTarget = $as_sci_Set(x2.value$2);
+            var x1$4 = $as_T2($m_Lrandom_RNG$().nextInWeightedSet__sci_Set__F1(actionTarget).apply__O__O($this.rng$1));
+            if ((x1$4 === null)) {
+              throw new $c_s_MatchError().init___O(x1$4)
+            };
+            var outcome = $as_sci_List(x1$4.$$und1__O());
+            var newRng$3 = $as_Lrandom_RNG(x1$4.$$und2__O());
+            $this.rng$1 = newRng$3;
+            var acc = lastState;
+            var these = outcome;
+            while ((!these.isEmpty__Z())) {
+              var arg1$1 = acc;
+              var arg2 = these.head__O();
+              var x$8 = $as_Lgame_GameState(arg1$1);
+              var x$9 = $as_Lgame_Event(arg2);
+              acc = x$8.materialize__Lgame_Event__Lgame_GameState(x$9);
+              these = $as_sc_LinearSeqOptimized(these.tail__O())
+            };
+            return $as_Lgame_GameState(acc)
+          } else {
+            var x = $m_s_None$();
+            if ((x === x1$3)) {
+              return lastState
+            } else {
+              throw new $c_s_MatchError().init___O(x1$3)
+            }
+          }
+        }
+      };
+      return lastState
+    })
+  })(this));
+  return $as_Lgame_GameState($f_sc_TraversableOnce__foldLeft__O__F2__O(this$1, z, op))
+});
 $c_Lgame_Game.prototype.executeTurn__Lgame_Command__O = (function(playerCommand) {
   var this$1 = this.gameState$1.dungeon$1.playerPosition__s_Option();
   if ((!this$1.isEmpty__Z())) {
     var arg1 = this$1.get__O();
     var playerPosition = $as_Lmath_Position(arg1);
-    var x1 = this.gameState$1.actionTargetFromCommand__Lmath_Position__Lgame_Command__s_Option(playerPosition, playerCommand);
-    if ($is_s_Some(x1)) {
-      var x2 = $as_s_Some(x1);
-      var actionTarget = $as_Lgame_ActionTarget(x2.value$2);
-      var x1$2 = $as_T2($f_Lgame_ActionTarget__outcomes__F1(actionTarget).apply__O__O(this.rng$1));
-      if ((x1$2 === null)) {
-        throw new $c_s_MatchError().init___O(x1$2)
-      };
-      var certainOutcomes = $as_sci_Set(x1$2.$$und1__O());
-      var newRng = $as_Lrandom_RNG(x1$2.$$und2__O());
-      this.rng$1 = newRng;
-      var z = this.gameState$1;
-      var op = new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function($this, playerPosition$1) {
-        return (function(x$4$2, x$5$2) {
-          var x$4 = $as_Lgame_GameState(x$4$2);
-          var x$5 = $as_Lgame_CertainOutcome(x$5$2);
-          return x$4.materialize__Lmath_Position__Lgame_CertainOutcome__Lgame_GameState(playerPosition$1, x$5)
-        })
-      })(this, playerPosition));
-      var jsx$1 = $as_Lgame_GameState($f_sc_TraversableOnce__foldLeft__O__F2__O(certainOutcomes, z, op))
-    } else {
-      var x = $m_s_None$();
-      if ((!(x === x1))) {
-        throw new $c_s_MatchError().init___O(x1)
-      };
-      var jsx$1 = this.gameState$1
-    };
-    this.gameState$1 = jsx$1;
-    var x1$3 = this.gameState$1.dungeon$1.playerPosition__s_Option();
-    if ($is_s_Some(x1$3)) {
-      var x2$2 = $as_s_Some(x1$3);
-      var position = $as_Lmath_Position(x2$2.value$2);
-      var fresh$macro$3 = this.gameState$1;
-      var this$5 = new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(fresh$macro$3, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$2) {
-        return (function(fresh$macro$1$2, fresh$macro$2$2) {
-          var fresh$macro$1 = $as_Lgame_GameState(fresh$macro$1$2);
-          var fresh$macro$2 = $as_F1(fresh$macro$2$2);
-          var x$14 = $as_sci_Set(fresh$macro$2.apply__O__O(fresh$macro$1.revealedPositions$1));
-          var x$15 = fresh$macro$1.dungeon$1;
-          var x$16 = fresh$macro$1.notificationHistory$1;
-          return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(x$15, x$14, x$16)
-        })
-      })(this)));
-      var mod = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$3, position$1) {
-        return (function(x$7$2) {
-          var x$7 = $as_sci_Set(x$7$2);
-          var this$4 = $m_Lgame_being_Player$();
-          var dungeon = this$3.gameState$1.dungeon$1;
-          return $as_sci_Set(x$7.$$plus$plus__sc_GenTraversableOnce__sc_Set($f_Lgame_being_Sighted__positionsWithinRangeTouchedByPerimeterRay__Lmath_Position__Ldungeon_Dungeon__sci_Set(this$4, position$1, dungeon)))
-        })
-      })(this, position));
-      var jsx$2 = $as_Lgame_GameState(this$5.doModify$1.apply__O__O__O(this$5.obj$1, mod))
-    } else {
-      var jsx$2 = this.gameState$1
-    };
-    this.gameState$1 = jsx$2;
-    var this$6 = this.gameState$1.dungeon$1.beingOfTypePositions__Lgame_being_BeingDescriptor__sci_Set($m_Lgame_being_Spider$());
-    var z$1 = this.gameState$1;
-    var op$2 = new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$4$1) {
-      return (function(lastState$2, beingPosition$2) {
-        var lastState = $as_Lgame_GameState(lastState$2);
-        var beingPosition = $as_Lmath_Position(beingPosition$2);
-        var x1$1 = $as_Ldungeon_Cell(lastState.dungeon$1.cells$1.apply__O__O(beingPosition));
-        if ((x1$1 !== null)) {
-          var p2 = x1$1.being$1;
-          if ($is_s_Some(p2)) {
-            var x5 = $as_s_Some(p2);
-            var being = $as_Lgame_being_Being(x5.value$2);
-            var x1$2$1 = $as_T2(being.intelligence$1.nextCommand__Lmath_Position__Ldungeon_Dungeon__F1(beingPosition, lastState.dungeon$1).apply__O__O(this$4$1.rng$1));
-            if ((x1$2$1 === null)) {
-              throw new $c_s_MatchError().init___O(x1$2$1)
-            };
-            var commandOpt = $as_s_Option(x1$2$1.$$und1__O());
-            var newRng$1 = $as_Lrandom_RNG(x1$2$1.$$und2__O());
-            this$4$1.rng$1 = newRng$1;
-            if (commandOpt.isEmpty__Z()) {
-              var x1$3$1 = $m_s_None$()
-            } else {
-              var arg1$1 = commandOpt.get__O();
-              var x$9 = $as_Lgame_Command(arg1$1);
-              var x1$3$1 = lastState.actionTargetFromCommand__Lmath_Position__Lgame_Command__s_Option(beingPosition, x$9)
-            };
-            if ($is_s_Some(x1$3$1)) {
-              var x2$1 = $as_s_Some(x1$3$1);
-              var actionTarget$1 = $as_Lgame_ActionTarget(x2$1.value$2);
-              var x1$4 = $as_T2($f_Lgame_ActionTarget__outcomes__F1(actionTarget$1).apply__O__O(this$4$1.rng$1));
-              if ((x1$4 === null)) {
-                throw new $c_s_MatchError().init___O(x1$4)
-              };
-              var certainOutcomes$1 = $as_sci_Set(x1$4.$$und1__O());
-              var newRng$3 = $as_Lrandom_RNG(x1$4.$$und2__O());
-              this$4$1.rng$1 = newRng$3;
-              var op$1 = new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$2$1, beingPosition$1) {
-                return (function(x$11$2, x$12$2) {
-                  var x$11 = $as_Lgame_GameState(x$11$2);
-                  var x$12 = $as_Lgame_CertainOutcome(x$12$2);
-                  return x$11.materialize__Lmath_Position__Lgame_CertainOutcome__Lgame_GameState(beingPosition$1, x$12)
-                })
-              })(this$4$1, beingPosition));
-              return $as_Lgame_GameState($f_sc_TraversableOnce__foldLeft__O__F2__O(certainOutcomes$1, lastState, op$1))
-            } else {
-              var x$1 = $m_s_None$();
-              if ((x$1 === x1$3$1)) {
-                return lastState
-              } else {
-                throw new $c_s_MatchError().init___O(x1$3$1)
-              }
-            }
-          }
-        };
-        return lastState
-      })
-    })(this));
-    this.gameState$1 = $as_Lgame_GameState($f_sc_TraversableOnce__foldLeft__O__F2__O(this$6, z$1, op$2))
+    this.gameState$1 = this.withProcessedPlayerTurn$1__p1__Lmath_Position__Lgame_Command__Lgame_GameState(playerPosition, playerCommand);
+    this.gameState$1 = this.withProcessedEnemyTurns$1__p1__Lgame_GameState()
   };
-  var this$7 = this.gameState$1.dungeon$1.playerPosition__s_Option();
-  if ((!this$7.isEmpty__Z())) {
-    var arg1$2 = this$7.get__O();
-    var position$2 = $as_Lmath_Position(arg1$2);
-    var x$2 = this.gameState$1.actionTargets__Lmath_Position__sci_Set(position$2);
-    var this$9 = $m_s_Console$();
-    var this$10 = $as_Ljava_io_PrintStream(this$9.outVar$2.v$1);
-    this$10.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x$2 + "\n"))
-  };
-  var this$11 = this.gameState$1.dungeon$1.playerPosition__s_Option();
-  if ((!this$11.isEmpty__Z())) {
-    var arg1$3 = this$11.get__O();
-    var x$13 = $as_Lmath_Position(arg1$3);
-    this.redraw__p1__Lgame_GameState__Lmath_Position__V(this.gameState$1, x$13)
+  var this$2 = this.gameState$1.dungeon$1.playerPosition__s_Option();
+  if ((!this$2.isEmpty__Z())) {
+    var arg1$1 = this$2.get__O();
+    var x$10 = $as_Lmath_Position(arg1$1);
+    this.redraw__p1__Lgame_GameState__Lmath_Position__V(this.gameState$1, x$10)
   };
   return this.displayAdapter$1.updateState__Lgame_GameState__O(this.gameState$1)
 });
 $c_Lgame_Game.prototype.redraw__p1__Lgame_GameState__Lmath_Position__V = (function(gameState, cameraPosition) {
   this.displayAdapter$1.mainViewportDrawingContext$1.drawFromPerspective__Lgame_GameState__Lmath_Position__V(gameState, cameraPosition);
   this.displayAdapter$1.minimapDrawingContext$1.draw__Lgame_GameState__Lmath_Position__V(gameState, cameraPosition)
+});
+$c_Lgame_Game.prototype.withProcessedPlayerTurn$1__p1__Lmath_Position__Lgame_Command__Lgame_GameState = (function(playerPosition, playerCommand$1) {
+  var x1 = this.gameState$1.actionTargetMapping__Lmath_Position__sci_Map(playerPosition).get__O__s_Option(playerCommand$1);
+  if ($is_s_Some(x1)) {
+    var x2 = $as_s_Some(x1);
+    var actionTarget = $as_sci_Set(x2.value$2);
+    var x1$2 = $as_T2($m_Lrandom_RNG$().nextInWeightedSet__sci_Set__F1(actionTarget).apply__O__O(this.rng$1));
+    if ((x1$2 === null)) {
+      throw new $c_s_MatchError().init___O(x1$2)
+    };
+    var outcome = $as_sci_List(x1$2.$$und1__O());
+    var newRng = $as_Lrandom_RNG(x1$2.$$und2__O());
+    this.rng$1 = newRng;
+    var z = this.gameState$1;
+    var acc = z;
+    var these = outcome;
+    while ((!these.isEmpty__Z())) {
+      var arg1 = acc;
+      var arg2 = these.head__O();
+      var x$4 = $as_Lgame_GameState(arg1);
+      var x$5 = $as_Lgame_Event(arg2);
+      acc = x$4.materialize__Lgame_Event__Lgame_GameState(x$5);
+      these = $as_sc_LinearSeqOptimized(these.tail__O())
+    };
+    return $as_Lgame_GameState(acc).withUpdatedRevealedPositions__Lgame_GameState()
+  } else {
+    var x = $m_s_None$();
+    if ((x === x1)) {
+      return this.gameState$1
+    } else {
+      throw new $c_s_MatchError().init___O(x1)
+    }
+  }
 });
 $c_Lgame_Game.prototype.game$Game$$$anonfun$new$3__Lorg_scalajs_dom_raw_KeyboardEvent__V = (function(e) {
   var this$1 = $m_Lgame_Command$().fromKeyCode__I__s_Option($uI(e.keyCode));
@@ -3234,18 +3048,6 @@ function $isArrayOf_Lgame_Potion(obj, depth) {
 }
 function $asArrayOf_Lgame_Potion(obj, depth) {
   return (($isArrayOf_Lgame_Potion(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.Potion;", depth))
-}
-function $is_Lgame_RandomOutcome(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_RandomOutcome)))
-}
-function $as_Lgame_RandomOutcome(obj) {
-  return (($is_Lgame_RandomOutcome(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "game.RandomOutcome"))
-}
-function $isArrayOf_Lgame_RandomOutcome(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lgame_RandomOutcome)))
-}
-function $asArrayOf_Lgame_RandomOutcome(obj, depth) {
-  return (($isArrayOf_Lgame_RandomOutcome(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.RandomOutcome;", depth))
 }
 function $is_Lgame_Weapon(obj) {
   return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_Weapon)))
@@ -3483,6 +3285,49 @@ $h_Lrandom_RNG$.prototype = $c_Lrandom_RNG$.prototype;
 $c_Lrandom_RNG$.prototype.init___ = (function() {
   return this
 });
+$c_Lrandom_RNG$.prototype.nextInWeightedSet__sci_Set__F1 = (function(s) {
+  if (s.isEmpty__Z()) {
+    throw $m_sjsr_package$().unwrapJavaScriptException__jl_Throwable__O(new $c_jl_Exception().init___T("Weighted set cannot be empty"))
+  } else {
+    var rand = this.nextRatio__F1();
+    return new $c_Lrandom_RNG$randOps().init___F1(rand).map__F1__F1(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this, s$1) {
+      return (function(ratio$2) {
+        var ratio = $uD(ratio$2);
+        var this$1 = s$1.iterator__sc_Iterator();
+        var this$2 = $f_sc_TraversableOnce__reversed__sci_List(this$1);
+        var acc = 0;
+        var these = this$2;
+        while ((!these.isEmpty__Z())) {
+          var arg1 = acc;
+          var arg2 = these.head__O();
+          var x$18 = $as_T2(arg2);
+          var x$19 = $uI(arg1);
+          acc = ((x$18.$$und1$mcI$sp__I() + x$19) | 0);
+          these = $as_sc_LinearSeqOptimized(these.tail__O())
+        };
+        var sum = $uI(acc);
+        var x = (sum * ratio);
+        var this$7 = $m_sjsr_RuntimeLong$();
+        var value = $uD($g.Math.round(x));
+        var lo = this$7.scala$scalajs$runtime$RuntimeLong$$fromDoubleImpl__D__I(value);
+        var z = new $c_T2().init___O__O(0, $m_s_None$());
+        var op = new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$2$1, position) {
+          return (function(last$2, current$2) {
+            var last = $as_T2(last$2);
+            var current = $as_T2(current$2);
+            if ($as_s_Option(last.$$und2__O()).isDefined__Z()) {
+              return last
+            } else {
+              var currentSum = ((last.$$und1$mcI$sp__I() + current.$$und1$mcI$sp__I()) | 0);
+              return ((position <= currentSum) ? new $c_T2().init___O__O((-1), new $c_s_Some().init___O(current.$$und2__O())) : new $c_T2().init___O__O(currentSum, last.$$und2__O()))
+            }
+          })
+        })($this, lo));
+        return $as_s_Option($as_T2($f_sc_TraversableOnce__foldLeft__O__F2__O(s$1, z, op)).$$und2__O()).get__O()
+      })
+    })(this, s)))
+  }
+});
 $c_Lrandom_RNG$.prototype.nextRatio__F1 = (function() {
   var rand = this.nextPositiveInt__F1();
   return new $c_Lrandom_RNG$randOps().init___F1(rand).map__F1__F1(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this) {
@@ -3499,17 +3344,6 @@ $c_Lrandom_RNG$.prototype.unit__O__F1 = (function(a) {
       return new $c_T2().init___O__O(a$1, rng)
     })
   })(this, a))
-});
-$c_Lrandom_RNG$.prototype.nextCappedGaussian__D__F1 = (function(maxStd) {
-  var rand = this.nextPositiveInt__F1();
-  return new $c_Lrandom_RNG$randOps().init___F1(rand).map__F1__F1(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this, maxStd$1) {
-    return (function(x$11$2) {
-      var x$11 = $uI(x$11$2);
-      var this$1 = new $c_s_util_Random().init___I(x$11);
-      var x1 = this$1.self$1.nextGaussian__D();
-      return ((x1 > maxStd$1) ? maxStd$1 : ((x1 < (-maxStd$1)) ? (-maxStd$1) : x1))
-    })
-  })(this, maxStd)))
 });
 $c_Lrandom_RNG$.prototype.nextsFromSet__sci_Set__I__F1 = (function(s, n) {
   return new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this, s$1, n$1) {
@@ -3539,6 +3373,17 @@ $c_Lrandom_RNG$.prototype.nextsFromSet__sci_Set__I__F1 = (function(s, n) {
     })
   })(this, s, n))
 });
+$c_Lrandom_RNG$.prototype.nextCappedGaussian__D__F1 = (function(maxStd) {
+  var rand = this.nextPositiveInt__F1();
+  return new $c_Lrandom_RNG$randOps().init___F1(rand).map__F1__F1(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this, maxStd$1) {
+    return (function(x$11$2) {
+      var x$11 = $uI(x$11$2);
+      var this$1 = new $c_s_util_Random().init___I(x$11);
+      var x1 = this$1.self$1.nextGaussian__D();
+      return ((x1 > maxStd$1) ? maxStd$1 : ((x1 < (-maxStd$1)) ? (-maxStd$1) : x1))
+    })
+  })(this, maxStd)))
+});
 $c_Lrandom_RNG$.prototype.nextGaussianRatio__D__F1 = (function(maxStd) {
   var rand = this.nextCappedGaussian__D__F1(maxStd);
   return new $c_Lrandom_RNG$randOps().init___F1(rand).map__F1__F1(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this, maxStd$1) {
@@ -3556,6 +3401,15 @@ $c_Lrandom_RNG$.prototype.nextBoolean__F1 = (function() {
       return (((x$9 % 2) | 0) === 0)
     })
   })(this)))
+});
+$c_Lrandom_RNG$.prototype.nextPositiveGaussianRatio__D__F1 = (function(maxStd) {
+  var rand = this.nextCappedGaussian__D__F1(maxStd);
+  return new $c_Lrandom_RNG$randOps().init___F1(rand).map__F1__F1(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this, maxStd$1) {
+    return (function(x$2) {
+      var x = $uD(x$2);
+      return ($uD($g.Math.abs(x)) / maxStd$1)
+    })
+  })(this, maxStd)))
 });
 $c_Lrandom_RNG$.prototype.nextPositiveInt__F1 = (function() {
   return new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this) {
@@ -3584,15 +3438,6 @@ $c_Lrandom_RNG$.prototype.nextPositiveInt__F1 = (function() {
       return new $c_T2().init___O__O(posInt, newRng)
     })
   })(this))
-});
-$c_Lrandom_RNG$.prototype.nextPositiveGaussianRatio__D__F1 = (function(maxStd) {
-  var rand = this.nextCappedGaussian__D__F1(maxStd);
-  return new $c_Lrandom_RNG$randOps().init___F1(rand).map__F1__F1(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this, maxStd$1) {
-    return (function(x$2) {
-      var x = $uD(x$2);
-      return ($uD($g.Math.abs(x)) / maxStd$1)
-    })
-  })(this, maxStd)))
 });
 $c_Lrandom_RNG$.prototype.sequence__sci_List__F1 = (function(s) {
   return new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this, s$1) {
@@ -3724,6 +3569,70 @@ var $d_Lrandom_RNG$randOps = new $TypeData().initClass({
   O: 1
 });
 $c_Lrandom_RNG$randOps.prototype.$classData = $d_Lrandom_RNG$randOps;
+/** @constructor */
+function $c_Lui_Colors$Red$() {
+  $c_O.call(this);
+  this.Ketchup$1 = null;
+  this.Rust$1 = null
+}
+$c_Lui_Colors$Red$.prototype = new $h_O();
+$c_Lui_Colors$Red$.prototype.constructor = $c_Lui_Colors$Red$;
+/** @constructor */
+function $h_Lui_Colors$Red$() {
+  /*<skip>*/
+}
+$h_Lui_Colors$Red$.prototype = $c_Lui_Colors$Red$.prototype;
+$c_Lui_Colors$Red$.prototype.init___ = (function() {
+  $n_Lui_Colors$Red$ = this;
+  this.Ketchup$1 = $m_Lorg_scalajs_dom_ext_Color$().apply__T__Lorg_scalajs_dom_ext_Color("#F23C39");
+  this.Rust$1 = $m_Lorg_scalajs_dom_ext_Color$().apply__T__Lorg_scalajs_dom_ext_Color("#A94335");
+  return this
+});
+var $d_Lui_Colors$Red$ = new $TypeData().initClass({
+  Lui_Colors$Red$: 0
+}, false, "ui.Colors$Red$", {
+  Lui_Colors$Red$: 1,
+  O: 1
+});
+$c_Lui_Colors$Red$.prototype.$classData = $d_Lui_Colors$Red$;
+var $n_Lui_Colors$Red$ = (void 0);
+function $m_Lui_Colors$Red$() {
+  if ((!$n_Lui_Colors$Red$)) {
+    $n_Lui_Colors$Red$ = new $c_Lui_Colors$Red$().init___()
+  };
+  return $n_Lui_Colors$Red$
+}
+/** @constructor */
+function $c_Lui_Colors$Yellow$() {
+  $c_O.call(this);
+  this.Mustard$1 = null
+}
+$c_Lui_Colors$Yellow$.prototype = new $h_O();
+$c_Lui_Colors$Yellow$.prototype.constructor = $c_Lui_Colors$Yellow$;
+/** @constructor */
+function $h_Lui_Colors$Yellow$() {
+  /*<skip>*/
+}
+$h_Lui_Colors$Yellow$.prototype = $c_Lui_Colors$Yellow$.prototype;
+$c_Lui_Colors$Yellow$.prototype.init___ = (function() {
+  $n_Lui_Colors$Yellow$ = this;
+  this.Mustard$1 = $m_Lorg_scalajs_dom_ext_Color$().apply__T__Lorg_scalajs_dom_ext_Color("#FBC736");
+  return this
+});
+var $d_Lui_Colors$Yellow$ = new $TypeData().initClass({
+  Lui_Colors$Yellow$: 0
+}, false, "ui.Colors$Yellow$", {
+  Lui_Colors$Yellow$: 1,
+  O: 1
+});
+$c_Lui_Colors$Yellow$.prototype.$classData = $d_Lui_Colors$Yellow$;
+var $n_Lui_Colors$Yellow$ = (void 0);
+function $m_Lui_Colors$Yellow$() {
+  if ((!$n_Lui_Colors$Yellow$)) {
+    $n_Lui_Colors$Yellow$ = new $c_Lui_Colors$Yellow$().init___()
+  };
+  return $n_Lui_Colors$Yellow$
+}
 /** @constructor */
 function $c_Lui_DebugDrawingContext() {
   $c_O.call(this);
@@ -3990,7 +3899,6 @@ function $c_Lui_MainViewportDrawingContext() {
   this.renderingContext$1 = null;
   this.imageRepository$1 = null;
   this.drawingArea$1 = null;
-  this.viewportRange$1 = 0;
   this.cellEdge$1 = 0.0
 }
 $c_Lui_MainViewportDrawingContext.prototype = new $h_O();
@@ -4004,8 +3912,7 @@ $c_Lui_MainViewportDrawingContext.prototype.init___Lorg_scalajs_dom_raw_CanvasRe
   this.renderingContext$1 = renderingContext;
   this.imageRepository$1 = new $c_Lui_ImageRepository().init___Lorg_scalajs_dom_raw_CanvasRenderingContext2D(renderingContext);
   this.drawingArea$1 = new $c_Lmath_Area().init___Lmath_Position__Lmath_Size(new $c_Lmath_Position().init___I__I(0, 0), new $c_Lmath_Size().init___I__I($uI(renderingContext.canvas.width), $uI(renderingContext.canvas.height)));
-  this.viewportRange$1 = 5;
-  this.cellEdge$1 = (this.drawingArea$1.size$1.width$1 / ((1 + (this.viewportRange$1 << 1)) | 0));
+  this.cellEdge$1 = (this.drawingArea$1.size$1.width$1 / ((1 + ($m_Lui_MainViewportDrawingContext$().viewportRange$1 << 1)) | 0));
   return this
 });
 $c_Lui_MainViewportDrawingContext.prototype.drawGridCharacter$1__p1__Lmath_Position__C__Lorg_scalajs_dom_ext_Color__Lmath_Area__V = (function(position, character, color, viewport$1) {
@@ -4015,7 +3922,7 @@ $c_Lui_MainViewportDrawingContext.prototype.drawGridCharacter$1__p1__Lmath_Posit
   var jsx$1 = this.renderingContext$1;
   var s = color.toString__T();
   jsx$1.fillStyle = s;
-  this.renderingContext$1.font = "40px monospace";
+  this.renderingContext$1.font = "16px Verdana";
   this.renderingContext$1.textBaseline = "middle";
   this.renderingContext$1.textAlign = "center";
   this.renderingContext$1.fillText($as_T($g.String.fromCharCode(character)), (this.cellEdge$1 / 2), (this.cellEdge$1 / 2), this.cellEdge$1);
@@ -4024,15 +3931,8 @@ $c_Lui_MainViewportDrawingContext.prototype.drawGridCharacter$1__p1__Lmath_Posit
 $c_Lui_MainViewportDrawingContext.prototype.canvasVector$1__p1__Lmath_Vector__Lmath_Area__Lui_CanvasPosition = (function(vector, viewport$1) {
   return new $c_Lui_CanvasPosition().init___D__D((((vector.x$1 - viewport$1.position$1.x$1) * this.cellEdge$1) + this.drawingArea$1.position$1.x$1), (((vector.y$1 - viewport$1.position$1.y$1) * this.cellEdge$1) + this.drawingArea$1.position$1.y$1))
 });
-$c_Lui_MainViewportDrawingContext.prototype.drawGridImage$1__p1__Lui_Image__Lmath_Position__Lmath_Area__V = (function(image, position, viewport$1) {
-  var pos = this.canvasVector$1__p1__Lmath_Vector__Lmath_Area__Lui_CanvasPosition(new $c_Lmath_Vector().init___D__D(position.x$1, position.y$1), viewport$1);
-  this.renderingContext$1.save();
-  this.renderingContext$1.translate(pos.x$1, pos.y$1);
-  this.renderingContext$1.drawImage(image.element$1, 0.0, 0.0, image.sourceSize$1.width$1, image.sourceSize$1.height$1, 0.0, 0.0, this.cellEdge$1, this.cellEdge$1);
-  this.renderingContext$1.restore()
-});
 $c_Lui_MainViewportDrawingContext.prototype.drawFromPerspective__Lgame_GameState__Lmath_Position__V = (function(gameState, cameraPosition) {
-  var viewport = $m_Lgame_being_Player$().viewport__Lmath_Position__Lmath_Area(cameraPosition);
+  var viewport = $m_Lui_MainViewportDrawingContext$().viewport__Lmath_Position__Lmath_Area(cameraPosition);
   var jsx$1 = this.renderingContext$1;
   var s = $m_Lorg_scalajs_dom_ext_Color$().Black$1.toString__T();
   jsx$1.fillStyle = s;
@@ -4051,7 +3951,7 @@ $c_Lui_MainViewportDrawingContext.prototype.drawFromPerspective__Lgame_GameState
   cellsInLineOfSight.foreach__F1__V(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2$1, viewport$1) {
     return (function(x0$1$2) {
       var x0$1 = $as_T2(x0$1$2);
-      matchEnd8: {
+      matchEnd36: {
         if ((x0$1 !== null)) {
           var position$1 = $as_Lmath_Position(x0$1.$$und1__O());
           var p2 = $as_s_Option(x0$1.$$und2__O());
@@ -4059,108 +3959,127 @@ $c_Lui_MainViewportDrawingContext.prototype.drawFromPerspective__Lgame_GameState
             var x3 = $as_s_Some(p2);
             var p4 = $as_Ldungeon_Cell(x3.value$2);
             if ((p4 !== null)) {
-              var being = p4.being$1;
-              var structure = p4.structure$1;
-              var itemBag = p4.itemBag$1;
-              this$2$1.drawGridImage$1__p1__Lui_Image__Lmath_Position__Lmath_Area__V(this$2$1.imageRepository$1.floor$1, position$1, viewport$1);
-              var rc16 = false;
-              var x2 = null;
-              matchEnd17: {
-                if ($is_s_Some(structure)) {
-                  rc16 = true;
-                  x2 = $as_s_Some(structure);
-                  var p3 = $as_Lgame_Structure(x2.value$2);
-                  var x = $m_Lgame_ClosedDoor$();
-                  if ((x === p3)) {
-                    this$2$1.drawGridImage$1__p1__Lui_Image__Lmath_Position__Lmath_Area__V(this$2$1.imageRepository$1.closed$unddoor$1, position$1, viewport$1);
-                    break matchEnd17
-                  }
-                };
-                if (rc16) {
-                  var p5 = $as_Lgame_Structure(x2.value$2);
-                  var x$3 = $m_Lgame_OpenedDoor$();
-                  if ((x$3 === p5)) {
-                    this$2$1.drawGridImage$1__p1__Lui_Image__Lmath_Position__Lmath_Area__V(this$2$1.imageRepository$1.open$unddoor$1, position$1, viewport$1);
-                    break matchEnd17
-                  }
-                };
-                if (rc16) {
-                  var p7 = $as_Lgame_Structure(x2.value$2);
-                  var x$5 = $m_Lgame_Downstairs$();
-                  if ((x$5 === p7)) {
-                    this$2$1.drawGridImage$1__p1__Lui_Image__Lmath_Position__Lmath_Area__V(this$2$1.imageRepository$1.downstairs$1, position$1, viewport$1);
-                    break matchEnd17
-                  }
-                };
-                if (rc16) {
-                  var p9 = $as_Lgame_Structure(x2.value$2);
-                  var x$7 = $m_Lgame_Upstairs$();
-                  if ((x$7 === p9)) {
-                    this$2$1.drawGridImage$1__p1__Lui_Image__Lmath_Position__Lmath_Area__V(this$2$1.imageRepository$1.upstairs$1, position$1, viewport$1);
-                    break matchEnd17
-                  }
-                };
-                var x$9 = $m_s_None$();
-                if ((x$9 === structure)) {
-                  break matchEnd17
-                };
-                throw new $c_s_MatchError().init___O(structure)
-              };
-              matchEnd9: {
-                if ($is_s_Some(being)) {
-                  var x2$2 = $as_s_Some(being);
-                  var p3$2 = $as_Lgame_being_Being(x2$2.value$2);
-                  if ((p3$2 !== null)) {
-                    var beingDescriptor = p3$2.descriptor$1;
-                    var x$11 = $m_Lgame_being_Player$();
-                    if ((x$11 === beingDescriptor)) {
-                      this$2$1.drawGridImage$1__p1__Lui_Image__Lmath_Position__Lmath_Area__V(this$2$1.imageRepository$1.nugget$1, position$1, viewport$1)
-                    } else {
-                      var x$13 = $m_Lgame_being_Spider$();
-                      if ((!(x$13 === beingDescriptor))) {
-                        throw new $c_s_MatchError().init___O(beingDescriptor)
-                      };
-                      this$2$1.drawGridImage$1__p1__Lui_Image__Lmath_Position__Lmath_Area__V(this$2$1.imageRepository$1.spider$1, position$1, viewport$1)
-                    };
-                    break matchEnd9
-                  }
-                };
-                var x$16 = $m_s_None$();
-                if ((x$16 === being)) {
-                  break matchEnd9
-                };
-                throw new $c_s_MatchError().init___O(being)
-              };
-              var this$6 = new $c_sci_MapLike$ImmutableDefaultKeySet().init___sci_MapLike(itemBag);
-              var this$7 = this$6.$$outer$4.keysIterator__sc_Iterator();
-              while (this$7.hasNext__Z()) {
-                var arg1 = this$7.next__O();
-                var x0$2 = $as_Lgame_Item(arg1);
-                var x$1 = $m_Lgame_Sword$();
-                if ((x$1 === x0$2)) {
-                  this$2$1.drawGridCharacter$1__p1__Lmath_Position__C__Lorg_scalajs_dom_ext_Color__Lmath_Area__V(position$1, 124, $m_Lorg_scalajs_dom_ext_Color$().Black$1, viewport$1)
-                } else {
-                  var x$3$1 = $m_Lgame_Gold$();
-                  if ((x$3$1 === x0$2)) {
-                    this$2$1.drawGridImage$1__p1__Lui_Image__Lmath_Position__Lmath_Area__V(this$2$1.imageRepository$1.gold$1, position$1, viewport$1)
-                  } else if ($is_Lgame_Potion(x0$2)) {
-                    this$2$1.drawGridCharacter$1__p1__Lmath_Position__C__Lorg_scalajs_dom_ext_Color__Lmath_Area__V(position$1, 44, $m_Lorg_scalajs_dom_ext_Color$().Red$1, viewport$1)
+              var p5 = p4.being$1;
+              if ($is_s_Some(p5)) {
+                var x7 = $as_s_Some(p5);
+                var p8 = $as_Lgame_being_Being(x7.value$2);
+                if ((p8 !== null)) {
+                  var descriptor = p8.descriptor$1;
+                  var x = $m_Lgame_being_Player$();
+                  if ((x === descriptor)) {
+                    this$2$1.drawGridCharacter$1__p1__Lmath_Position__C__Lorg_scalajs_dom_ext_Color__Lmath_Area__V(position$1, 64, $m_Lui_Colors$Red$().Ketchup$1, viewport$1)
                   } else {
-                    throw new $c_s_MatchError().init___O(x0$2)
-                  }
+                    var x$3 = $m_Lgame_being_Spider$();
+                    if ((!(x$3 === descriptor))) {
+                      throw new $c_s_MatchError().init___O(descriptor)
+                    };
+                    this$2$1.drawGridCharacter$1__p1__Lmath_Position__C__Lorg_scalajs_dom_ext_Color__Lmath_Area__V(position$1, 115, $m_Lui_Colors$Red$().Rust$1, viewport$1)
+                  };
+                  break matchEnd36
                 }
-              };
-              break matchEnd8
+              }
             }
           }
         };
         if ((x0$1 !== null)) {
           var position$2$1 = $as_Lmath_Position(x0$1.$$und1__O());
-          var p5$2 = $as_s_Option(x0$1.$$und2__O());
-          var x$18 = $m_s_None$();
-          if ((x$18 === p5$2)) {
-            this$2$1.drawGridImage$1__p1__Lui_Image__Lmath_Position__Lmath_Area__V(this$2$1.imageRepository$1.wall$1, position$2$1, viewport$1);
-            break matchEnd8
+          var p12 = $as_s_Option(x0$1.$$und2__O());
+          if ($is_s_Some(p12)) {
+            var x13 = $as_s_Some(p12);
+            var p14 = $as_Ldungeon_Cell(x13.value$2);
+            if ((p14 !== null)) {
+              var p15 = p14.being$1;
+              var p16 = p14.structure$1;
+              var x$6 = $m_s_None$();
+              if (((x$6 === p15) && $is_s_Some(p16))) {
+                var x18 = $as_s_Some(p16);
+                var structure = $as_Lgame_Structure(x18.value$2);
+                var x$8 = $m_Lgame_ClosedDoor$();
+                if ((x$8 === structure)) {
+                  this$2$1.drawGridCharacter$1__p1__Lmath_Position__C__Lorg_scalajs_dom_ext_Color__Lmath_Area__V(position$2$1, 37, $m_Lui_Colors$Yellow$().Mustard$1, viewport$1)
+                } else {
+                  var x$10 = $m_Lgame_OpenedDoor$();
+                  if ((x$10 === structure)) {
+                    this$2$1.drawGridCharacter$1__p1__Lmath_Position__C__Lorg_scalajs_dom_ext_Color__Lmath_Area__V(position$2$1, 46, $m_Lui_Colors$Yellow$().Mustard$1, viewport$1)
+                  } else {
+                    var x$12 = $m_Lgame_Downstairs$();
+                    if ((x$12 === structure)) {
+                      this$2$1.drawGridCharacter$1__p1__Lmath_Position__C__Lorg_scalajs_dom_ext_Color__Lmath_Area__V(position$2$1, 60, $m_Lui_Colors$Yellow$().Mustard$1, viewport$1)
+                    } else {
+                      var x$14 = $m_Lgame_Upstairs$();
+                      if ((!(x$14 === structure))) {
+                        throw new $c_s_MatchError().init___O(structure)
+                      };
+                      this$2$1.drawGridCharacter$1__p1__Lmath_Position__C__Lorg_scalajs_dom_ext_Color__Lmath_Area__V(position$2$1, 62, $m_Lui_Colors$Yellow$().Mustard$1, viewport$1)
+                    }
+                  }
+                };
+                break matchEnd36
+              }
+            }
+          }
+        };
+        if ((x0$1 !== null)) {
+          var position$3 = $as_Lmath_Position(x0$1.$$und1__O());
+          var p19 = $as_s_Option(x0$1.$$und2__O());
+          if ($is_s_Some(p19)) {
+            var x20 = $as_s_Some(p19);
+            var p21 = $as_Ldungeon_Cell(x20.value$2);
+            if ((p21 !== null)) {
+              var p22 = p21.being$1;
+              var p23 = p21.structure$1;
+              var itemBag = p21.itemBag$1;
+              var x$17 = $m_s_None$();
+              if ((x$17 === p22)) {
+                var x$19 = $m_s_None$();
+                if ((x$19 === p23)) {
+                  var jsx$2 = $f_sc_TraversableOnce__nonEmpty__Z(itemBag)
+                } else {
+                  var jsx$2 = false
+                }
+              } else {
+                var jsx$2 = false
+              };
+              if (jsx$2) {
+                var x1$4 = $as_Lgame_Item($as_T2(itemBag.head__O()).$$und1__O());
+                var x$21 = $m_Lgame_Sword$();
+                if ((x$21 === x1$4)) {
+                  this$2$1.drawGridCharacter$1__p1__Lmath_Position__C__Lorg_scalajs_dom_ext_Color__Lmath_Area__V(position$3, 124, $m_Lorg_scalajs_dom_ext_Color$().White$1, viewport$1)
+                } else {
+                  var x$23 = $m_Lgame_Gold$();
+                  if ((x$23 === x1$4)) {
+                    this$2$1.drawGridCharacter$1__p1__Lmath_Position__C__Lorg_scalajs_dom_ext_Color__Lmath_Area__V(position$3, 36, $m_Lui_Colors$Yellow$().Mustard$1, viewport$1)
+                  } else {
+                    if ((!$is_Lgame_Potion(x1$4))) {
+                      throw new $c_s_MatchError().init___O(x1$4)
+                    };
+                    this$2$1.drawGridCharacter$1__p1__Lmath_Position__C__Lorg_scalajs_dom_ext_Color__Lmath_Area__V(position$3, 44, $m_Lorg_scalajs_dom_ext_Color$().Red$1, viewport$1)
+                  }
+                };
+                break matchEnd36
+              }
+            }
+          }
+        };
+        if ((x0$1 !== null)) {
+          var position$4 = $as_Lmath_Position(x0$1.$$und1__O());
+          var p24 = $as_s_Option(x0$1.$$und2__O());
+          if ($is_s_Some(p24)) {
+            var x25 = $as_s_Some(p24);
+            var p26 = $as_Ldungeon_Cell(x25.value$2);
+            if ((p26 !== null)) {
+              this$2$1.drawGridCharacter$1__p1__Lmath_Position__C__Lorg_scalajs_dom_ext_Color__Lmath_Area__V(position$4, 46, $m_Lui_Colors$Yellow$().Mustard$1, viewport$1);
+              break matchEnd36
+            }
+          }
+        };
+        if ((x0$1 !== null)) {
+          var position$5 = $as_Lmath_Position(x0$1.$$und1__O());
+          var p30 = $as_s_Option(x0$1.$$und2__O());
+          var x$26 = $m_s_None$();
+          if ((x$26 === p30)) {
+            this$2$1.drawGridCharacter$1__p1__Lmath_Position__C__Lorg_scalajs_dom_ext_Color__Lmath_Area__V(position$5, 35, $m_Lui_Colors$Yellow$().Mustard$1, viewport$1);
+            break matchEnd36
           }
         };
         throw new $c_s_MatchError().init___O(x0$1)
@@ -4175,6 +4094,41 @@ var $d_Lui_MainViewportDrawingContext = new $TypeData().initClass({
   O: 1
 });
 $c_Lui_MainViewportDrawingContext.prototype.$classData = $d_Lui_MainViewportDrawingContext;
+/** @constructor */
+function $c_Lui_MainViewportDrawingContext$() {
+  $c_O.call(this);
+  this.viewportRange$1 = 0
+}
+$c_Lui_MainViewportDrawingContext$.prototype = new $h_O();
+$c_Lui_MainViewportDrawingContext$.prototype.constructor = $c_Lui_MainViewportDrawingContext$;
+/** @constructor */
+function $h_Lui_MainViewportDrawingContext$() {
+  /*<skip>*/
+}
+$h_Lui_MainViewportDrawingContext$.prototype = $c_Lui_MainViewportDrawingContext$.prototype;
+$c_Lui_MainViewportDrawingContext$.prototype.init___ = (function() {
+  $n_Lui_MainViewportDrawingContext$ = this;
+  var x = (2.0 * $m_Lgame_being_Player$().lineOfLightRange$1);
+  this.viewportRange$1 = $doubleToInt($uD($g.Math.ceil(x)));
+  return this
+});
+$c_Lui_MainViewportDrawingContext$.prototype.viewport__Lmath_Position__Lmath_Area = (function(cameraPosition) {
+  return $m_Lmath_Area$().apply__Lmath_Position__Lmath_Position__Lmath_Area(new $c_Lmath_Position().init___I__I((((-1) + ((cameraPosition.x$1 - this.viewportRange$1) | 0)) | 0), (((-1) + ((cameraPosition.y$1 - this.viewportRange$1) | 0)) | 0)), new $c_Lmath_Position().init___I__I(((1 + ((cameraPosition.x$1 + this.viewportRange$1) | 0)) | 0), ((1 + ((cameraPosition.y$1 + this.viewportRange$1) | 0)) | 0)))
+});
+var $d_Lui_MainViewportDrawingContext$ = new $TypeData().initClass({
+  Lui_MainViewportDrawingContext$: 0
+}, false, "ui.MainViewportDrawingContext$", {
+  Lui_MainViewportDrawingContext$: 1,
+  O: 1
+});
+$c_Lui_MainViewportDrawingContext$.prototype.$classData = $d_Lui_MainViewportDrawingContext$;
+var $n_Lui_MainViewportDrawingContext$ = (void 0);
+function $m_Lui_MainViewportDrawingContext$() {
+  if ((!$n_Lui_MainViewportDrawingContext$)) {
+    $n_Lui_MainViewportDrawingContext$ = new $c_Lui_MainViewportDrawingContext$().init___()
+  };
+  return $n_Lui_MainViewportDrawingContext$
+}
 /** @constructor */
 function $c_Lui_MinimapViewportDrawingContext() {
   $c_O.call(this);
@@ -4200,7 +4154,6 @@ $c_Lui_MinimapViewportDrawingContext.prototype.drawCell$1__p1__Lmath_Position__L
   this.renderingContext$1.fillRect(((this.drawingArea$1.position$1.x$1 + $imul(position.x$1, cellEdge$1)) | 0), ((this.drawingArea$1.position$1.y$1 + $imul(position.y$1, cellEdge$1)) | 0), cellEdge$1, cellEdge$1)
 });
 $c_Lui_MinimapViewportDrawingContext.prototype.draw__Lgame_GameState__Lmath_Position__V = (function(gameState, cameraPosition) {
-  var viewport = $m_Lgame_being_Player$().viewport__Lmath_Position__Lmath_Area(cameraPosition);
   var jsx$1 = this.renderingContext$1;
   var s = $m_Lorg_scalajs_dom_ext_Color$().Black$1.toString__T();
   jsx$1.fillStyle = s;
@@ -4225,6 +4178,7 @@ $c_Lui_MinimapViewportDrawingContext.prototype.draw__Lgame_GameState__Lmath_Posi
   var this$4 = $m_sci_Iterable$();
   var bf = this$4.ReusableCBFInstance$2;
   var openPositions = $as_sc_TraversableOnce($f_sc_TraversableLike__flatMap__F1__scg_CanBuildFrom__O(this$5, f, bf)).toSet__sci_Set();
+  var viewport = $m_Lui_MainViewportDrawingContext$().viewport__Lmath_Position__Lmath_Area(cameraPosition);
   $as_sc_IterableLike($as_sc_GenSetLike(viewport.positions__sci_Set().intersect__sc_GenSet__O(openPositions)).intersect__sc_GenSet__O(gameState.revealedPositions$1)).foreach__F1__V(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2$1, cellEdge$1) {
     return (function(position$2) {
       var position$1 = $as_Lmath_Position(position$2);
@@ -4517,17 +4471,6 @@ function $m_ju_Arrays$() {
   };
   return $n_ju_Arrays$
 }
-/** @constructor */
-function $c_s_DeprecatedConsole() {
-  $c_O.call(this)
-}
-$c_s_DeprecatedConsole.prototype = new $h_O();
-$c_s_DeprecatedConsole.prototype.constructor = $c_s_DeprecatedConsole;
-/** @constructor */
-function $h_s_DeprecatedConsole() {
-  /*<skip>*/
-}
-$h_s_DeprecatedConsole.prototype = $c_s_DeprecatedConsole.prototype;
 /** @constructor */
 function $c_s_FallbackArrayBuilding() {
   $c_O.call(this)
@@ -5182,32 +5125,6 @@ function $m_s_sys_package$() {
   return $n_s_sys_package$
 }
 /** @constructor */
-function $c_s_util_DynamicVariable() {
-  $c_O.call(this);
-  this.v$1 = null
-}
-$c_s_util_DynamicVariable.prototype = new $h_O();
-$c_s_util_DynamicVariable.prototype.constructor = $c_s_util_DynamicVariable;
-/** @constructor */
-function $h_s_util_DynamicVariable() {
-  /*<skip>*/
-}
-$h_s_util_DynamicVariable.prototype = $c_s_util_DynamicVariable.prototype;
-$c_s_util_DynamicVariable.prototype.toString__T = (function() {
-  return (("DynamicVariable(" + this.v$1) + ")")
-});
-$c_s_util_DynamicVariable.prototype.init___O = (function(init) {
-  this.v$1 = init;
-  return this
-});
-var $d_s_util_DynamicVariable = new $TypeData().initClass({
-  s_util_DynamicVariable: 0
-}, false, "scala.util.DynamicVariable", {
-  s_util_DynamicVariable: 1,
-  O: 1
-});
-$c_s_util_DynamicVariable.prototype.$classData = $d_s_util_DynamicVariable;
-/** @constructor */
 function $c_s_util_control_Breaks() {
   $c_O.call(this);
   this.scala$util$control$Breaks$$breakException$1 = null
@@ -5565,17 +5482,19 @@ function $f_sc_TraversableOnce__minBy__F1__s_math_Ordering__O($thiz, f, cmp) {
   })($thiz, f, cmp, minF, minElem, first)));
   return minElem.elem$1
 }
-function $f_sc_TraversableOnce__sum__s_math_Numeric__O($thiz, num) {
-  return $thiz.foldLeft__O__F2__O(0, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function($this, num$1) {
-    return (function(x$2, y$2) {
-      var x = $uI(x$2);
-      var y = $uI(y$2);
-      return $f_s_math_Numeric$IntIsIntegral__plus__I__I__I(num$1, x, y)
-    })
-  })($thiz, num)))
-}
 function $f_sc_TraversableOnce__nonEmpty__Z($thiz) {
   return (!$thiz.isEmpty__Z())
+}
+function $f_sc_TraversableOnce__reversed__sci_List($thiz) {
+  var elem = $m_sci_Nil$();
+  var elems = new $c_sr_ObjectRef().init___O(elem);
+  $thiz.foreach__F1__V(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this, elems$1) {
+    return (function(x$1$2) {
+      var this$2 = $as_sci_List(elems$1.elem$1);
+      elems$1.elem$1 = new $c_sci_$colon$colon().init___O__sci_List(x$1$2, this$2)
+    })
+  })($thiz, elems)));
+  return $as_sci_List(elems.elem$1)
 }
 function $is_sc_TraversableOnce(obj) {
   return (!(!((obj && obj.$classData) && obj.$classData.ancestors.sc_TraversableOnce)))
@@ -8089,6 +8008,128 @@ var $d_ju_Random = new $TypeData().initClass({
 });
 $c_ju_Random.prototype.$classData = $d_ju_Random;
 /** @constructor */
+function $c_ju_regex_Matcher() {
+  $c_O.call(this);
+  this.pattern0$1 = null;
+  this.input0$1 = null;
+  this.regionStart0$1 = 0;
+  this.regionEnd0$1 = 0;
+  this.regexp$1 = null;
+  this.inputstr$1 = null;
+  this.lastMatch$1 = null;
+  this.lastMatchIsValid$1 = false;
+  this.canStillFind$1 = false;
+  this.appendPos$1 = 0
+}
+$c_ju_regex_Matcher.prototype = new $h_O();
+$c_ju_regex_Matcher.prototype.constructor = $c_ju_regex_Matcher;
+/** @constructor */
+function $h_ju_regex_Matcher() {
+  /*<skip>*/
+}
+$h_ju_regex_Matcher.prototype = $c_ju_regex_Matcher.prototype;
+$c_ju_regex_Matcher.prototype.find__Z = (function() {
+  if (this.canStillFind$1) {
+    this.lastMatchIsValid$1 = true;
+    this.lastMatch$1 = this.regexp$1.exec(this.inputstr$1);
+    if ((this.lastMatch$1 !== null)) {
+      var value = this.lastMatch$1[0];
+      if ((value === (void 0))) {
+        throw new $c_ju_NoSuchElementException().init___T("undefined.get")
+      };
+      var thiz = $as_T(value);
+      if ((thiz === null)) {
+        throw new $c_jl_NullPointerException().init___()
+      };
+      if ((thiz === "")) {
+        var ev$1 = this.regexp$1;
+        ev$1.lastIndex = ((1 + $uI(ev$1.lastIndex)) | 0)
+      }
+    } else {
+      this.canStillFind$1 = false
+    };
+    return (this.lastMatch$1 !== null)
+  } else {
+    return false
+  }
+});
+$c_ju_regex_Matcher.prototype.ensureLastMatch__p1__sjs_js_RegExp$ExecResult = (function() {
+  if ((this.lastMatch$1 === null)) {
+    throw new $c_jl_IllegalStateException().init___T("No match available")
+  };
+  return this.lastMatch$1
+});
+$c_ju_regex_Matcher.prototype.group__I__T = (function(group) {
+  var value = this.ensureLastMatch__p1__sjs_js_RegExp$ExecResult()[group];
+  return $as_T(((value === (void 0)) ? null : value))
+});
+$c_ju_regex_Matcher.prototype.matches__Z = (function() {
+  this.reset__ju_regex_Matcher();
+  this.find__Z();
+  if ((this.lastMatch$1 !== null)) {
+    if ((this.start__I() !== 0)) {
+      var jsx$1 = true
+    } else {
+      var jsx$2 = this.end__I();
+      var thiz = this.inputstr$1;
+      var jsx$1 = (jsx$2 !== $uI(thiz.length))
+    }
+  } else {
+    var jsx$1 = false
+  };
+  if (jsx$1) {
+    this.reset__ju_regex_Matcher()
+  };
+  return (this.lastMatch$1 !== null)
+});
+$c_ju_regex_Matcher.prototype.groupCount__I = (function() {
+  return (((-1) + $uI(this.ensureLastMatch__p1__sjs_js_RegExp$ExecResult().length)) | 0)
+});
+$c_ju_regex_Matcher.prototype.end__I = (function() {
+  var jsx$1 = this.start__I();
+  var thiz = this.group__T();
+  return ((jsx$1 + $uI(thiz.length)) | 0)
+});
+$c_ju_regex_Matcher.prototype.init___ju_regex_Pattern__jl_CharSequence__I__I = (function(pattern0, input0, regionStart0, regionEnd0) {
+  this.pattern0$1 = pattern0;
+  this.input0$1 = input0;
+  this.regionStart0$1 = regionStart0;
+  this.regionEnd0$1 = regionEnd0;
+  this.regexp$1 = this.pattern0$1.newJSRegExp__sjs_js_RegExp();
+  this.inputstr$1 = $objectToString($charSequenceSubSequence(this.input0$1, this.regionStart0$1, this.regionEnd0$1));
+  this.lastMatch$1 = null;
+  this.lastMatchIsValid$1 = false;
+  this.canStillFind$1 = true;
+  this.appendPos$1 = 0;
+  return this
+});
+$c_ju_regex_Matcher.prototype.group__T = (function() {
+  var value = this.ensureLastMatch__p1__sjs_js_RegExp$ExecResult()[0];
+  if ((value === (void 0))) {
+    throw new $c_ju_NoSuchElementException().init___T("undefined.get")
+  };
+  return $as_T(value)
+});
+$c_ju_regex_Matcher.prototype.start__I = (function() {
+  return $uI(this.ensureLastMatch__p1__sjs_js_RegExp$ExecResult().index)
+});
+$c_ju_regex_Matcher.prototype.reset__ju_regex_Matcher = (function() {
+  this.regexp$1.lastIndex = 0;
+  this.lastMatch$1 = null;
+  this.lastMatchIsValid$1 = false;
+  this.canStillFind$1 = true;
+  this.appendPos$1 = 0;
+  return this
+});
+var $d_ju_regex_Matcher = new $TypeData().initClass({
+  ju_regex_Matcher: 0
+}, false, "java.util.regex.Matcher", {
+  ju_regex_Matcher: 1,
+  O: 1,
+  ju_regex_MatchResult: 1
+});
+$c_ju_regex_Matcher.prototype.$classData = $d_ju_regex_Matcher;
+/** @constructor */
 function $c_s_Predef$$anon$3() {
   $c_O.call(this)
 }
@@ -8343,36 +8384,6 @@ var $d_sc_TraversableLike$WithFilter = new $TypeData().initClass({
 });
 $c_sc_TraversableLike$WithFilter.prototype.$classData = $d_sc_TraversableLike$WithFilter;
 /** @constructor */
-function $c_sc_package$$anon$1() {
-  $c_O.call(this);
-  this.b$1$1 = null
-}
-$c_sc_package$$anon$1.prototype = new $h_O();
-$c_sc_package$$anon$1.prototype.constructor = $c_sc_package$$anon$1;
-/** @constructor */
-function $h_sc_package$$anon$1() {
-  /*<skip>*/
-}
-$h_sc_package$$anon$1.prototype = $c_sc_package$$anon$1.prototype;
-$c_sc_package$$anon$1.prototype.apply__scm_Builder = (function() {
-  return this.b$1$1.apply__scm_Builder()
-});
-$c_sc_package$$anon$1.prototype.apply__O__scm_Builder = (function(from) {
-  return this.b$1$1.apply__scm_Builder()
-});
-$c_sc_package$$anon$1.prototype.init___scg_CanBuildFrom = (function(b$1) {
-  this.b$1$1 = b$1;
-  return this
-});
-var $d_sc_package$$anon$1 = new $TypeData().initClass({
-  sc_package$$anon$1: 0
-}, false, "scala.collection.package$$anon$1", {
-  sc_package$$anon$1: 1,
-  O: 1,
-  scg_CanBuildFrom: 1
-});
-$c_sc_package$$anon$1.prototype.$classData = $d_sc_package$$anon$1;
-/** @constructor */
 function $c_scg_GenMapFactory$MapCanBuildFrom() {
   $c_O.call(this);
   this.$$outer$1 = null
@@ -8498,18 +8509,6 @@ $c_scg_GenTraversableFactory$GenericCanBuildFrom.prototype.init___scg_GenTravers
   };
   return this
 });
-function $is_scg_GenTraversableFactory$GenericCanBuildFrom(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.scg_GenTraversableFactory$GenericCanBuildFrom)))
-}
-function $as_scg_GenTraversableFactory$GenericCanBuildFrom(obj) {
-  return (($is_scg_GenTraversableFactory$GenericCanBuildFrom(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "scala.collection.generic.GenTraversableFactory$GenericCanBuildFrom"))
-}
-function $isArrayOf_scg_GenTraversableFactory$GenericCanBuildFrom(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.scg_GenTraversableFactory$GenericCanBuildFrom)))
-}
-function $asArrayOf_scg_GenTraversableFactory$GenericCanBuildFrom(obj, depth) {
-  return (($isArrayOf_scg_GenTraversableFactory$GenericCanBuildFrom(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lscala.collection.generic.GenTraversableFactory$GenericCanBuildFrom;", depth))
-}
 /** @constructor */
 function $c_scg_MapFactory() {
   $c_scg_GenMapFactory.call(this)
@@ -9405,7 +9404,20 @@ $c_Lgame_ItemBag$.prototype.productElement$extension__sci_Map__I__O = (function(
     }
   }
 });
-$c_Lgame_ItemBag$.prototype.$$minus$extension__sci_Map__Lgame_Item__sci_Map = (function($$this, item) {
+$c_Lgame_ItemBag$.prototype.$$plus$extension2__sci_Map__Lgame_Item__I__sci_Map = (function($$this, item, amount) {
+  var x1 = $$this.get__O__s_Option(item);
+  var x = $m_s_None$();
+  if ((x === x1)) {
+    return $$this.$$plus__T2__sci_Map(new $c_T2().init___O__O(item, amount))
+  } else if ($is_s_Some(x1)) {
+    var x2 = $as_s_Some(x1);
+    var i = $uI(x2.value$2);
+    return $$this.updated__O__O__sci_Map(item, ((i + amount) | 0))
+  } else {
+    throw new $c_s_MatchError().init___O(x1)
+  }
+});
+$c_Lgame_ItemBag$.prototype.$$minus$extension0__sci_Map__Lgame_Item__sci_Map = (function($$this, item) {
   var x1 = $uI($$this.apply__O__O(item));
   switch (x1) {
     default: {
@@ -9423,32 +9435,6 @@ $c_Lgame_ItemBag$.prototype.productIterator$extension__sci_Map__sc_Iterator = (f
   var x = new $c_Lgame_ItemBag().init___sci_Map($$this);
   return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(x)
 });
-$c_Lgame_ItemBag$.prototype.get$extension__sci_Map__T__s_Option = (function($$this, itemSlug) {
-  var this$1 = $$this.iterator__sc_Iterator();
-  inlinereturn$3: {
-    while (this$1.hasNext__Z()) {
-      var a = this$1.next__O();
-      var x0$1 = $as_T2(a);
-      if ((x0$1 === null)) {
-        throw new $c_s_MatchError().init___O(x0$1)
-      };
-      var item = $as_Lgame_Item(x0$1.$$und1__O());
-      var amount = x0$1.$$und2$mcI$sp__I();
-      if (((item.slug__T() === itemSlug) && (amount > 0))) {
-        var this$2 = new $c_s_Some().init___O(a);
-        break inlinereturn$3
-      }
-    };
-    var this$2 = $m_s_None$()
-  };
-  if (this$2.isEmpty__Z()) {
-    return $m_s_None$()
-  } else {
-    var arg1 = this$2.get__O();
-    var x$4 = $as_T2(arg1);
-    return new $c_s_Some().init___O($as_Lgame_Item(x$4.$$und1__O()))
-  }
-});
 $c_Lgame_ItemBag$.prototype.equals$extension__sci_Map__O__Z = (function($$this, x$1) {
   if ($is_Lgame_ItemBag(x$1)) {
     var ItemBag$1 = ((x$1 === null) ? null : $as_Lgame_ItemBag(x$1).items$1);
@@ -9457,33 +9443,19 @@ $c_Lgame_ItemBag$.prototype.equals$extension__sci_Map__O__Z = (function($$this, 
     return false
   }
 });
-$c_Lgame_ItemBag$.prototype.$$plus$extension0__sci_Map__sci_Map__sci_Map = (function($$this, other) {
-  var jsx$2 = $f_sc_MapLike__toSeq__sc_Seq($$this);
-  var jsx$1 = $f_sc_MapLike__toSeq__sc_Seq(other);
-  var this$1 = $m_sc_Seq$();
-  var this$2 = $as_sc_TraversableLike(jsx$2.$$plus$plus__sc_GenTraversableOnce__scg_CanBuildFrom__O(jsx$1, this$1.ReusableCBFInstance$2));
-  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this) {
-    return (function(x$1$2) {
-      var x$1 = $as_T2(x$1$2);
-      return $as_Lgame_Item(x$1.$$und1__O())
-    })
-  })(this));
-  var this$4 = $f_sc_TraversableLike__groupBy__F1__sci_Map(this$2, f);
-  var f$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2$1) {
-    return (function(x$2$2) {
-      var x$2 = $as_sc_Seq(x$2$2);
-      var jsx$3 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this$1) {
-        return (function(x$3$2) {
-          var x$3 = $as_T2(x$3$2);
-          return x$3.$$und2$mcI$sp__I()
-        })
-      })(this$2$1));
-      var this$3 = $m_sc_Seq$();
-      return $uI($as_sc_TraversableOnce(x$2.map__F1__scg_CanBuildFrom__O(jsx$3, this$3.ReusableCBFInstance$2)).sum__s_math_Numeric__O($m_s_math_Numeric$IntIsIntegral$()))
-    })
-  })(this));
-  var mergedItems = new $c_sci_MapLike$$anon$2().init___sci_MapLike__F1(this$4, f$1);
-  return mergedItems
+$c_Lgame_ItemBag$.prototype.$$minus$extension1__sci_Map__Lgame_Item__I__sci_Map = (function($$this, item, amount) {
+  var x1 = $uI($$this.apply__O__O(item));
+  switch (x1) {
+    default: {
+      if ((x1 === amount)) {
+        return $as_sci_Map($$this.$$minus__O__sc_Map(item))
+      } else if ((x1 > amount)) {
+        return $$this.updated__O__O__sci_Map(item, ((x1 - amount) | 0))
+      } else {
+        throw new $c_s_MatchError().init___O(x1)
+      }
+    }
+  }
 });
 $c_Lgame_ItemBag$.prototype.toString$extension__sci_Map__T = (function($$this) {
   return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(new $c_Lgame_ItemBag().init___sci_Map($$this))
@@ -9647,6 +9619,80 @@ function $h_Lorg_scalajs_dom_ext_Color$() {
   /*<skip>*/
 }
 $h_Lorg_scalajs_dom_ext_Color$.prototype = $c_Lorg_scalajs_dom_ext_Color$.prototype;
+$c_Lorg_scalajs_dom_ext_Color$.prototype.apply__T__Lorg_scalajs_dom_ext_Color = (function(s) {
+  var o9 = this.RGB$1.unapplySeq__jl_CharSequence__s_Option(s);
+  if ((!o9.isEmpty__Z())) {
+    if ((o9.get__O() !== null)) {
+      var this$1 = $as_sc_LinearSeqOptimized(o9.get__O());
+      var jsx$1 = ($f_sc_LinearSeqOptimized__lengthCompare__I__I(this$1, 3) === 0)
+    } else {
+      var jsx$1 = false
+    }
+  } else {
+    var jsx$1 = false
+  };
+  if (jsx$1) {
+    var this$2 = $as_sc_LinearSeqOptimized(o9.get__O());
+    var r = $as_T($f_sc_LinearSeqOptimized__apply__I__O(this$2, 0));
+    var this$3 = $as_sc_LinearSeqOptimized(o9.get__O());
+    var g = $as_T($f_sc_LinearSeqOptimized__apply__I__O(this$3, 1));
+    var this$4 = $as_sc_LinearSeqOptimized(o9.get__O());
+    var b = $as_T($f_sc_LinearSeqOptimized__apply__I__O(this$4, 2));
+    var this$6 = new $c_sci_StringOps().init___T(r);
+    var this$8 = $m_jl_Integer$();
+    var $$this = this$6.repr$1;
+    var jsx$3 = this$8.parseInt__T__I__I($$this, 10);
+    var this$10 = new $c_sci_StringOps().init___T(g);
+    var this$12 = $m_jl_Integer$();
+    var $$this$1 = this$10.repr$1;
+    var jsx$2 = this$12.parseInt__T__I__I($$this$1, 10);
+    var this$14 = new $c_sci_StringOps().init___T(b);
+    var this$16 = $m_jl_Integer$();
+    var $$this$2 = this$14.repr$1;
+    return new $c_Lorg_scalajs_dom_ext_Color().init___I__I__I(jsx$3, jsx$2, this$16.parseInt__T__I__I($$this$2, 10))
+  };
+  var o11 = this.ShortHex$1.unapplySeq__jl_CharSequence__s_Option(s);
+  if ((!o11.isEmpty__Z())) {
+    if ((o11.get__O() !== null)) {
+      var this$17 = $as_sc_LinearSeqOptimized(o11.get__O());
+      var jsx$4 = ($f_sc_LinearSeqOptimized__lengthCompare__I__I(this$17, 3) === 0)
+    } else {
+      var jsx$4 = false
+    }
+  } else {
+    var jsx$4 = false
+  };
+  if (jsx$4) {
+    var this$18 = $as_sc_LinearSeqOptimized(o11.get__O());
+    var r$2 = $as_T($f_sc_LinearSeqOptimized__apply__I__O(this$18, 0));
+    var this$19 = $as_sc_LinearSeqOptimized(o11.get__O());
+    var g$2 = $as_T($f_sc_LinearSeqOptimized__apply__I__O(this$19, 1));
+    var this$20 = $as_sc_LinearSeqOptimized(o11.get__O());
+    var b$2 = $as_T($f_sc_LinearSeqOptimized__apply__I__O(this$20, 2));
+    return new $c_Lorg_scalajs_dom_ext_Color().init___I__I__I(($m_jl_Integer$().parseInt__T__I__I(r$2, 16) << 4), ($m_jl_Integer$().parseInt__T__I__I(g$2, 16) << 4), ($m_jl_Integer$().parseInt__T__I__I(b$2, 16) << 4))
+  };
+  var o13 = this.LongHex$1.unapplySeq__jl_CharSequence__s_Option(s);
+  if ((!o13.isEmpty__Z())) {
+    if ((o13.get__O() !== null)) {
+      var this$21 = $as_sc_LinearSeqOptimized(o13.get__O());
+      var jsx$5 = ($f_sc_LinearSeqOptimized__lengthCompare__I__I(this$21, 3) === 0)
+    } else {
+      var jsx$5 = false
+    }
+  } else {
+    var jsx$5 = false
+  };
+  if (jsx$5) {
+    var this$22 = $as_sc_LinearSeqOptimized(o13.get__O());
+    var r$3 = $as_T($f_sc_LinearSeqOptimized__apply__I__O(this$22, 0));
+    var this$23 = $as_sc_LinearSeqOptimized(o13.get__O());
+    var g$3 = $as_T($f_sc_LinearSeqOptimized__apply__I__O(this$23, 1));
+    var this$24 = $as_sc_LinearSeqOptimized(o13.get__O());
+    var b$3 = $as_T($f_sc_LinearSeqOptimized__apply__I__O(this$24, 2));
+    return new $c_Lorg_scalajs_dom_ext_Color().init___I__I__I($m_jl_Integer$().parseInt__T__I__I(r$3, 16), $m_jl_Integer$().parseInt__T__I__I(g$3, 16), $m_jl_Integer$().parseInt__T__I__I(b$3, 16))
+  };
+  throw new $c_s_MatchError().init___O(s)
+});
 $c_Lorg_scalajs_dom_ext_Color$.prototype.init___ = (function() {
   $n_Lorg_scalajs_dom_ext_Color$ = this;
   this.d$1 = "[0-9a-zA-Z]";
@@ -10225,6 +10271,15 @@ $c_ju_regex_Pattern.prototype.init___sjs_js_RegExp__T__I = (function(jsRegExp, _
 $c_ju_regex_Pattern.prototype.toString__T = (function() {
   return this.$$undpattern$1
 });
+$c_ju_regex_Pattern.prototype.newJSRegExp__sjs_js_RegExp = (function() {
+  var r = new $g.RegExp(this.jsRegExp$1);
+  if ((r !== this.jsRegExp$1)) {
+    return r
+  } else {
+    var jsFlags = ((($uZ(this.jsRegExp$1.global) ? "g" : "") + ($uZ(this.jsRegExp$1.ignoreCase) ? "i" : "")) + ($uZ(this.jsRegExp$1.multiline) ? "m" : ""));
+    return new $g.RegExp($as_T(this.jsRegExp$1.source), jsFlags)
+  }
+});
 var $d_ju_regex_Pattern = new $TypeData().initClass({
   ju_regex_Pattern: 0
 }, false, "java.util.regex.Pattern", {
@@ -10451,43 +10506,6 @@ function $m_ju_regex_Pattern$() {
   return $n_ju_regex_Pattern$
 }
 /** @constructor */
-function $c_s_Console$() {
-  $c_s_DeprecatedConsole.call(this);
-  this.outVar$2 = null;
-  this.errVar$2 = null;
-  this.inVar$2 = null
-}
-$c_s_Console$.prototype = new $h_s_DeprecatedConsole();
-$c_s_Console$.prototype.constructor = $c_s_Console$;
-/** @constructor */
-function $h_s_Console$() {
-  /*<skip>*/
-}
-$h_s_Console$.prototype = $c_s_Console$.prototype;
-$c_s_Console$.prototype.init___ = (function() {
-  $n_s_Console$ = this;
-  this.outVar$2 = new $c_s_util_DynamicVariable().init___O($m_jl_System$().out$1);
-  this.errVar$2 = new $c_s_util_DynamicVariable().init___O($m_jl_System$().err$1);
-  this.inVar$2 = new $c_s_util_DynamicVariable().init___O(null);
-  return this
-});
-var $d_s_Console$ = new $TypeData().initClass({
-  s_Console$: 0
-}, false, "scala.Console$", {
-  s_Console$: 1,
-  s_DeprecatedConsole: 1,
-  O: 1,
-  s_io_AnsiColor: 1
-});
-$c_s_Console$.prototype.$classData = $d_s_Console$;
-var $n_s_Console$ = (void 0);
-function $m_s_Console$() {
-  if ((!$n_s_Console$)) {
-    $n_s_Console$ = new $c_s_Console$().init___()
-  };
-  return $n_s_Console$
-}
-/** @constructor */
 function $c_s_Predef$() {
   $c_s_LowPriorityImplicits.call(this);
   this.Map$2 = null;
@@ -10506,6 +10524,11 @@ function $h_s_Predef$() {
   /*<skip>*/
 }
 $h_s_Predef$.prototype = $c_s_Predef$.prototype;
+$c_s_Predef$.prototype.assert__Z__V = (function(assertion) {
+  if ((!assertion)) {
+    throw new $c_jl_AssertionError().init___O("assertion failed")
+  }
+});
 $c_s_Predef$.prototype.init___ = (function() {
   $n_s_Predef$ = this;
   $m_s_package$();
@@ -10519,11 +10542,6 @@ $c_s_Predef$.prototype.init___ = (function() {
   this.singleton$und$less$colon$less$2 = new $c_s_Predef$$anon$1().init___();
   this.scala$Predef$$singleton$und$eq$colon$eq$f = new $c_s_Predef$$anon$2().init___();
   return this
-});
-$c_s_Predef$.prototype.assert__Z__V = (function(assertion) {
-  if ((!assertion)) {
-    throw new $c_jl_AssertionError().init___O("assertion failed")
-  }
 });
 $c_s_Predef$.prototype.require__Z__V = (function(requirement) {
   if ((!requirement)) {
@@ -11237,6 +11255,59 @@ $c_s_util_matching_Regex.prototype.init___ju_regex_Pattern__sc_Seq = (function(p
 });
 $c_s_util_matching_Regex.prototype.toString__T = (function() {
   return this.pattern$1.$$undpattern$1
+});
+$c_s_util_matching_Regex.prototype.unapplySeq__jl_CharSequence__s_Option = (function(s) {
+  if ((s === null)) {
+    return $m_s_None$()
+  } else {
+    var this$1 = this.pattern$1;
+    var m = new $c_ju_regex_Matcher().init___ju_regex_Pattern__jl_CharSequence__I__I(this$1, s, 0, $charSequenceLength(s));
+    if (m.matches__Z()) {
+      var end = m.groupCount__I();
+      var this$5 = new $c_sci_Range$Inclusive().init___I__I__I(1, end, 1);
+      var this$6 = $m_sci_List$();
+      var cbf = this$6.ReusableCBFInstance$2;
+      var this$8 = $as_sci_List($f_sc_TraversableLike__to__scg_CanBuildFrom__O(this$5, cbf));
+      var f = (function($this, m$1) {
+        return (function(x$1$2) {
+          var x$1 = $uI(x$1$2);
+          return m$1.group__I__T(x$1)
+        })
+      })(this, m);
+      var this$7 = $m_sci_List$();
+      var bf = this$7.ReusableCBFInstance$2;
+      if ((bf === $m_sci_List$().ReusableCBFInstance$2)) {
+        if ((this$8 === $m_sci_Nil$())) {
+          var jsx$1 = $m_sci_Nil$()
+        } else {
+          var arg1 = this$8.head__O();
+          var h = new $c_sci_$colon$colon().init___O__sci_List(f(arg1), $m_sci_Nil$());
+          var t = h;
+          var rest = $as_sci_List(this$8.tail__O());
+          while ((rest !== $m_sci_Nil$())) {
+            var arg1$1 = rest.head__O();
+            var nx = new $c_sci_$colon$colon().init___O__sci_List(f(arg1$1), $m_sci_Nil$());
+            t.tl$5 = nx;
+            t = nx;
+            rest = $as_sci_List(rest.tail__O())
+          };
+          var jsx$1 = h
+        }
+      } else {
+        var b = $f_sc_TraversableLike__builder$1__psc_TraversableLike__scg_CanBuildFrom__scm_Builder(this$8, bf);
+        var these = this$8;
+        while ((!these.isEmpty__Z())) {
+          var arg1$2 = these.head__O();
+          b.$$plus$eq__O__scm_Builder(f(arg1$2));
+          these = $as_sci_List(these.tail__O())
+        };
+        var jsx$1 = b.result__O()
+      };
+      return new $c_s_Some().init___O(jsx$1)
+    } else {
+      return $m_s_None$()
+    }
+  }
 });
 var $d_s_util_matching_Regex = new $TypeData().initClass({
   s_util_matching_Regex: 0
@@ -12157,6 +12228,10 @@ $c_jl_StringBuilder.prototype.init___I = (function(initialCapacity) {
 $c_jl_StringBuilder.prototype.append__jl_CharSequence__I__I__jl_StringBuilder = (function(csq, start, end) {
   return ((csq === null) ? this.append__jl_CharSequence__I__I__jl_StringBuilder("null", start, end) : this.append__T__jl_StringBuilder($objectToString($charSequenceSubSequence(csq, start, end))))
 });
+$c_jl_StringBuilder.prototype.length__I = (function() {
+  var thiz = this.content$1;
+  return $uI(thiz.length)
+});
 $c_jl_StringBuilder.prototype.append__C__jl_StringBuilder = (function(c) {
   return this.append__T__jl_StringBuilder($as_T($g.String.fromCharCode(c)))
 });
@@ -12476,11 +12551,6 @@ $c_sc_AbstractIterator.prototype.foreach__F1__V = (function(f) {
 $c_sc_AbstractIterator.prototype.foldLeft__O__F2__O = (function(z, op) {
   return $f_sc_TraversableOnce__foldLeft__O__F2__O(this, z, op)
 });
-$c_sc_AbstractIterator.prototype.toVector__sci_Vector = (function() {
-  $m_sci_Vector$();
-  var cbf = $m_sc_IndexedSeq$().ReusableCBF$6;
-  return $as_sci_Vector($f_sc_TraversableOnce__to__scg_CanBuildFrom__O(this, cbf))
-});
 $c_sc_AbstractIterator.prototype.size__I = (function() {
   return $f_sc_TraversableOnce__size__I(this)
 });
@@ -12501,9 +12571,6 @@ $c_sc_AbstractIterator.prototype.toSet__sci_Set = (function() {
   var cbf = new $c_scg_GenSetFactory$$anon$1().init___scg_GenSetFactory(this$1);
   return $as_sci_Set($f_sc_TraversableOnce__to__scg_CanBuildFrom__O(this, cbf))
 });
-$c_sc_AbstractIterator.prototype.isTraversableAgain__Z = (function() {
-  return false
-});
 $c_sc_AbstractIterator.prototype.drop__I__sc_Iterator = (function(n) {
   return $f_sc_Iterator__drop__I__sc_Iterator(this, n)
 });
@@ -12514,9 +12581,6 @@ $c_sc_AbstractIterator.prototype.toMap__s_Predef$$less$colon$less__sci_Map = (fu
     b.$$plus$eq__T2__scm_MapBuilder($as_T2(arg1))
   };
   return $as_sci_Map(b.elems$1)
-});
-$c_sc_AbstractIterator.prototype.sum__s_math_Numeric__O = (function(num) {
-  return $f_sc_TraversableOnce__sum__s_math_Numeric__O(this, num)
 });
 /** @constructor */
 function $c_scg_SetFactory() {
@@ -14171,6 +14235,11 @@ $c_Lgame_ClosedInterval.prototype.hashCode__I = (function() {
 $c_Lgame_ClosedInterval.prototype.productIterator__sc_Iterator = (function() {
   return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
 });
+$c_Lgame_ClosedInterval.prototype.values__sci_Range$Inclusive = (function() {
+  var x = this.min$1;
+  var end = this.max$1;
+  return new $c_sci_Range$Inclusive().init___I__I__I(x, end, 1)
+});
 function $is_Lgame_ClosedInterval(obj) {
   return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_ClosedInterval)))
 }
@@ -14239,31 +14308,6 @@ $c_Lgame_GameState.prototype.equals__O__Z = (function(x$1) {
     return false
   }
 });
-$c_Lgame_GameState.prototype.deathNotifications$1__p1__Lgame_being_Being__sci_List = (function(targetBeing$1) {
-  var this$1 = targetBeing$1.body$1;
-  if (this$1.destroyed__Z()) {
-    var x$40 = new $c_Lgame_TargetDies().init___Lgame_Describable(targetBeing$1.descriptor$1);
-    var this$3 = targetBeing$1.itemBag$1;
-    var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this, targetBeing$1$1) {
-      return (function(x0$3$2) {
-        var x0$3 = $as_T2(x0$3$2);
-        if ((x0$3 !== null)) {
-          var item = $as_Lgame_Item(x0$3.$$und1__O());
-          var amount = x0$3.$$und2$mcI$sp__I();
-          return new $c_Lgame_TargetDropsItem().init___Lgame_Describable__I__Lgame_Item(targetBeing$1$1.descriptor$1, amount, item)
-        } else {
-          throw new $c_s_MatchError().init___O(x0$3)
-        }
-      })
-    })(this, targetBeing$1));
-    var this$2 = $m_sci_Iterable$();
-    var bf = this$2.ReusableCBFInstance$2;
-    var this$4 = $as_sc_TraversableOnce($f_sc_TraversableLike__map__F1__scg_CanBuildFrom__O(this$3, f, bf)).toList__sci_List();
-    return new $c_sci_$colon$colon().init___O__sci_List(x$40, this$4)
-  } else {
-    return $m_sci_Nil$()
-  }
-});
 $c_Lgame_GameState.prototype.productElement__I__O = (function(x$1) {
   switch (x$1) {
     case 0: {
@@ -14286,117 +14330,338 @@ $c_Lgame_GameState.prototype.productElement__I__O = (function(x$1) {
 $c_Lgame_GameState.prototype.toString__T = (function() {
   return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
 });
-$c_Lgame_GameState.prototype.actionTargetAtDirection__p1__Lmath_Position__Lmath_Direction__sci_Set = (function(sourcePosition, direction) {
-  var sourceBeing = $as_Lgame_being_Being($as_Ldungeon_Cell(this.dungeon$1.cells$1.apply__O__O(sourcePosition)).being$1.get__O());
-  var targetPosition = sourcePosition.towards__Lmath_Direction__I__Lmath_Position(direction, 1);
-  var rc23 = false;
+$c_Lgame_GameState.prototype.notify__Lgame_Notification__Lgame_GameState = (function(notification) {
+  var this$1 = new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(this, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function($this) {
+    return (function(fresh$macro$9$2, fresh$macro$10$2) {
+      var fresh$macro$9 = $as_Lgame_GameState(fresh$macro$9$2);
+      var fresh$macro$10 = $as_F1(fresh$macro$10$2);
+      var x$47 = $as_sci_List(fresh$macro$10.apply__O__O(fresh$macro$9.notificationHistory$1));
+      var x$48 = fresh$macro$9.dungeon$1;
+      var x$49 = fresh$macro$9.revealedPositions$1;
+      return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(x$48, x$49, x$47)
+    })
+  })(this)));
+  var mod = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2, notification$1) {
+    return (function(x$9$2) {
+      var x$9 = $as_sci_List(x$9$2);
+      return new $c_sci_$colon$colon().init___O__sci_List(notification$1, x$9)
+    })
+  })(this, notification));
+  return $as_Lgame_GameState(this$1.doModify$1.apply__O__O__O(this$1.obj$1, mod))
+});
+$c_Lgame_GameState.prototype.actionTargetMapping__Lmath_Position__sci_Map = (function(source) {
+  var sourceBeing = $as_Lgame_being_Being($as_Ldungeon_Cell(this.dungeon$1.cells$1.apply__O__O(source)).being$1.get__O());
+  var this$1 = sourceBeing.itemBag$1;
+  var this$3 = new $c_sci_MapLike$ImmutableDefaultKeySet().init___sci_MapLike(this$1);
+  $m_sc_Iterable$();
+  var b = new $c_scm_SetBuilder().init___sc_Set($m_sci_Set$EmptySet$());
+  var this$5 = this$3.$$outer$4.keysIterator__sc_Iterator();
+  while (this$5.hasNext__Z()) {
+    var arg1 = this$5.next__O();
+    var item = $as_Lgame_Item(arg1);
+    if ($is_Lgame_Potion(item)) {
+      var x2 = $as_Lgame_Potion(item);
+      var self = new $c_Lgame_Command$Use().init___T(x2.slug$1);
+      $m_sci_List$();
+      var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array([new $c_Lgame_PotionDrinked().init___Lmath_Position__Lgame_Potion(source, x2)]);
+      var this$8 = $m_sci_List$();
+      var cbf = this$8.ReusableCBFInstance$2;
+      var y = this.certainOutcome$1__p1__sci_List__sci_Set($as_sci_List($f_sc_TraversableLike__to__scg_CanBuildFrom__O(xs, cbf)));
+      var array = [new $c_T2().init___O__O(self, y)];
+      if (($uI(array.length) === 0)) {
+        var jsx$1 = $m_sci_Set$EmptySet$()
+      } else {
+        var b$1 = new $c_scm_SetBuilder().init___sc_Set($m_sci_Set$EmptySet$());
+        var i = 0;
+        var len = $uI(array.length);
+        while ((i < len)) {
+          var index = i;
+          var arg1$1 = array[index];
+          b$1.$$plus$eq__O__scm_SetBuilder(arg1$1);
+          i = ((1 + i) | 0)
+        };
+        var jsx$1 = b$1.elems$1
+      };
+      var mappings = $as_sci_Set(jsx$1)
+    } else {
+      var x1$2 = sourceBeing.body$1;
+      if ($is_Lgame_being_Handed(x1$2)) {
+        var x2$2 = $as_Lgame_being_Handed(x1$2);
+        var x1$3 = x2$2.holding$1;
+        if ($is_s_Some(x1$3)) {
+          var x2$3 = $as_s_Some(x1$3);
+          var heldItem = $as_Lgame_Item(x2$3.value$2);
+          var self$1 = new $c_Lgame_Command$Use().init___T(item.slug__T());
+          $m_sci_List$();
+          var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([new $c_Lgame_Stashed().init___Lmath_Position__Lgame_Item(source, heldItem), new $c_Lgame_Held().init___Lmath_Position__Lgame_Item(source, item)]);
+          var this$13 = $m_sci_List$();
+          var cbf$1 = this$13.ReusableCBFInstance$2;
+          var y$1 = this.certainOutcome$1__p1__sci_List__sci_Set($as_sci_List($f_sc_TraversableLike__to__scg_CanBuildFrom__O(xs$1, cbf$1)));
+          var array$1 = [new $c_T2().init___O__O(self$1, y$1)];
+          if (($uI(array$1.length) === 0)) {
+            var jsx$2 = $m_sci_Set$EmptySet$()
+          } else {
+            var b$2 = new $c_scm_SetBuilder().init___sc_Set($m_sci_Set$EmptySet$());
+            var i$1 = 0;
+            var len$1 = $uI(array$1.length);
+            while ((i$1 < len$1)) {
+              var index$1 = i$1;
+              var arg1$2 = array$1[index$1];
+              b$2.$$plus$eq__O__scm_SetBuilder(arg1$2);
+              i$1 = ((1 + i$1) | 0)
+            };
+            var jsx$2 = b$2.elems$1
+          };
+          var mappings = $as_sci_Set(jsx$2)
+        } else {
+          var x = $m_s_None$();
+          if ((!(x === x1$3))) {
+            throw new $c_s_MatchError().init___O(x1$3)
+          };
+          var self$2 = new $c_Lgame_Command$Use().init___T(item.slug__T());
+          $m_sci_List$();
+          var xs$2 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([new $c_Lgame_Held().init___Lmath_Position__Lgame_Item(source, item)]);
+          var this$18 = $m_sci_List$();
+          var cbf$2 = this$18.ReusableCBFInstance$2;
+          var y$2 = this.certainOutcome$1__p1__sci_List__sci_Set($as_sci_List($f_sc_TraversableLike__to__scg_CanBuildFrom__O(xs$2, cbf$2)));
+          var array$2 = [new $c_T2().init___O__O(self$2, y$2)];
+          if (($uI(array$2.length) === 0)) {
+            var jsx$3 = $m_sci_Set$EmptySet$()
+          } else {
+            var b$3 = new $c_scm_SetBuilder().init___sc_Set($m_sci_Set$EmptySet$());
+            var i$2 = 0;
+            var len$2 = $uI(array$2.length);
+            while ((i$2 < len$2)) {
+              var index$2 = i$2;
+              var arg1$3 = array$2[index$2];
+              b$3.$$plus$eq__O__scm_SetBuilder(arg1$3);
+              i$2 = ((1 + i$2) | 0)
+            };
+            var jsx$3 = b$3.elems$1
+          };
+          var mappings = $as_sci_Set(jsx$3)
+        }
+      } else {
+        var mappings = $as_sci_Set($m_s_Predef$().Set$2.apply__sc_Seq__sc_GenTraversable($m_sci_Nil$()))
+      }
+    };
+    $as_scm_Builder($f_scg_Growable__$$plus$plus$eq__sc_TraversableOnce__scg_Growable(b, mappings))
+  };
+  var this$21 = b.elems$1;
+  var ev = $m_s_Predef$().singleton$und$less$colon$less$2;
+  var b$4 = new $c_scm_MapBuilder().init___sc_GenMap($m_sci_Map$EmptyMap$());
+  this$21.foreach__F1__V(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this, ev$1, b$5) {
+    return (function(x$2) {
+      return b$5.$$plus$eq__O__scm_Builder(x$2)
+    })
+  })(this$21, ev, b$4)));
+  var itemsActionTargets = $as_sci_Map(b$4.elems$1);
+  var this$26 = $m_Lgame_DirectionalCommand$().all__sci_Set();
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2$1, source$1) {
+    return (function(dir$2) {
+      var dir = $as_Lgame_DirectionalCommand(dir$2);
+      var this$23 = this$2$1.actionTargetAtDirection$1__p1__Lmath_Direction__Lmath_Position__s_Option(dir.direction__Lmath_Direction(), source$1);
+      if (this$23.isEmpty__Z()) {
+        var xo = $m_s_None$()
+      } else {
+        var arg1$4 = this$23.get__O();
+        var x$7 = $as_sci_Set(arg1$4);
+        var xo = new $c_s_Some().init___O(new $c_T2().init___O__O(dir, x$7))
+      };
+      return xo.toList__sci_List()
+    })
+  })(this, source));
+  var this$25 = $m_sci_Set$();
+  var bf$1 = new $c_scg_GenSetFactory$$anon$1().init___scg_GenSetFactory(this$25);
+  var directionActionTargets = $as_sc_TraversableOnce($f_sc_TraversableLike__flatMap__F1__scg_CanBuildFrom__O(this$26, f, bf$1)).toMap__s_Predef$$less$colon$less__sci_Map($m_s_Predef$().singleton$und$less$colon$less$2);
+  return itemsActionTargets.$$plus$plus__sc_GenTraversableOnce__sci_Map(directionActionTargets)
+});
+$c_Lgame_GameState.prototype.certainOutcome$1__p1__sci_List__sci_Set = (function(events) {
+  var array = [new $c_T2().init___O__O(1, events)];
+  if (($uI(array.length) === 0)) {
+    var jsx$1 = $m_sci_Set$EmptySet$()
+  } else {
+    var b = new $c_scm_SetBuilder().init___sc_Set($m_sci_Set$EmptySet$());
+    var i = 0;
+    var len = $uI(array.length);
+    while ((i < len)) {
+      var index = i;
+      var arg1 = array[index];
+      b.$$plus$eq__O__scm_SetBuilder(arg1);
+      i = ((1 + i) | 0)
+    };
+    var jsx$1 = b.elems$1
+  };
+  return $as_sci_Set(jsx$1)
+});
+$c_Lgame_GameState.prototype.actionTargetAtDirection$1__p1__Lmath_Direction__Lmath_Position__s_Option = (function(direction, source$1) {
+  var sourceBeing = $as_Lgame_being_Being($as_Ldungeon_Cell(this.dungeon$1.cells$1.apply__O__O(source$1)).being$1.get__O());
+  var target = source$1.towards__Lmath_Direction__I__Lmath_Position(direction, 1);
+  var rc21 = false;
   var x2 = null;
-  var x1 = this.dungeon$1.cells$1.get__O__s_Option(targetPosition);
+  var x1 = this.dungeon$1.cells$1.get__O__s_Option(target);
   if ($is_s_Some(x1)) {
-    rc23 = true;
+    rc21 = true;
     x2 = $as_s_Some(x1);
     var p3 = $as_Ldungeon_Cell(x2.value$2);
     if ((p3 !== null)) {
       var p4 = p3.being$1;
       if ($is_s_Some(p4)) {
-        var array = [new $c_Lgame_StrikeBeing().init___Lgame_ClosedInterval__Lmath_Position(sourceBeing.body$1.damageRange__Lgame_ClosedInterval(), targetPosition)];
-        if (($uI(array.length) === 0)) {
-          var jsx$1 = $m_sci_Set$EmptySet$()
-        } else {
-          var b = new $c_scm_SetBuilder().init___sc_Set($m_sci_Set$EmptySet$());
-          var i = 0;
-          var len = $uI(array.length);
-          while ((i < len)) {
-            var index = i;
-            var arg1 = array[index];
-            b.$$plus$eq__O__scm_SetBuilder(arg1);
-            i = ((1 + i) | 0)
-          };
-          var jsx$1 = b.elems$1
-        };
-        return $as_sci_Set(jsx$1)
+        var x7 = $as_s_Some(p4);
+        var targetBeing = $as_Lgame_being_Being(x7.value$2);
+        var this$1 = sourceBeing.body$1.damageRange__Lgame_ClosedInterval().values__sci_Range$Inclusive();
+        var this$2 = $m_sci_Set$();
+        var cbf = new $c_scg_GenSetFactory$$anon$1().init___scg_GenSetFactory(this$2);
+        var this$21 = $as_sci_Set($f_sc_TraversableLike__to__scg_CanBuildFrom__O(this$1, cbf));
+        var f$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this, source$1$1, target$1, targetBeing$1) {
+          return (function(damage$2) {
+            var damage = $uI(damage$2);
+            var fresh$macro$8 = targetBeing$1.body$1;
+            var this$5 = new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(fresh$macro$8, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function($this$1) {
+              return (function(fresh$macro$4$2, fresh$macro$5$2) {
+                var fresh$macro$4 = $as_Lgame_being_Body(fresh$macro$4$2);
+                var fresh$macro$5 = $as_F1(fresh$macro$5$2);
+                if ($is_Lgame_being_HumanoidBody(fresh$macro$4)) {
+                  var x2$1 = $as_Lgame_being_HumanoidBody(fresh$macro$4);
+                  fresh$macro$4.health__I();
+                  var value = fresh$macro$5.apply$mcII$sp__I__I(fresh$macro$4.health__I());
+                  var x$43 = x2$1.fullHealth$1;
+                  var x$44 = x2$1.holding$1;
+                  return new $c_Lgame_being_HumanoidBody().init___I__I__s_Option(x$43, value, x$44)
+                } else if ($is_Lgame_being_ArachnoidBody(fresh$macro$4)) {
+                  var x3 = $as_Lgame_being_ArachnoidBody(fresh$macro$4);
+                  fresh$macro$4.health__I();
+                  var value$1 = fresh$macro$5.apply$mcII$sp__I__I(fresh$macro$4.health__I());
+                  var x$46 = x3.fullHealth$1;
+                  return new $c_Lgame_being_ArachnoidBody().init___I__I(x$46, value$1)
+                } else {
+                  throw new $c_s_MatchError().init___O(fresh$macro$4)
+                }
+              })
+            })($this)));
+            var mod = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2$1, damage$1) {
+              return (function(x$4$2) {
+                var x$4 = $uI(x$4$2);
+                return ((x$4 - damage$1) | 0)
+              })
+            })($this, damage));
+            if ($as_Lgame_being_Damagable(this$5.doModify$1.apply__O__O__O(this$5.obj$1, mod)).destroyed__Z()) {
+              var x$5 = new $c_Lgame_Damaged().init___Lmath_Position__Lmath_Position__I(source$1$1, target$1, damage);
+              var this$7 = targetBeing$1.itemBag$1;
+              var this$8 = $m_sci_List$();
+              var cbf$1 = this$8.ReusableCBFInstance$2;
+              var this$10 = $as_sci_List($f_sc_TraversableLike__to__scg_CanBuildFrom__O(this$7, cbf$1));
+              var f = (function(this$3$1, target$1$1) {
+                return (function(x0$1$2) {
+                  var x0$1 = $as_T2(x0$1$2);
+                  if ((x0$1 !== null)) {
+                    var item = $as_Lgame_Item(x0$1.$$und1__O());
+                    var n = x0$1.$$und2$mcI$sp__I();
+                    return new $c_Lgame_Dropped().init___Lmath_Position__I__Lgame_Item(target$1$1, n, item)
+                  } else {
+                    throw new $c_s_MatchError().init___O(x0$1)
+                  }
+                })
+              })($this, target$1);
+              var this$9 = $m_sci_List$();
+              var bf = this$9.ReusableCBFInstance$2;
+              if ((bf === $m_sci_List$().ReusableCBFInstance$2)) {
+                if ((this$10 === $m_sci_Nil$())) {
+                  var jsx$3 = $m_sci_Nil$()
+                } else {
+                  var arg1 = this$10.head__O();
+                  var h = new $c_sci_$colon$colon().init___O__sci_List(f(arg1), $m_sci_Nil$());
+                  var t = h;
+                  var rest = $as_sci_List(this$10.tail__O());
+                  while ((rest !== $m_sci_Nil$())) {
+                    var arg1$1 = rest.head__O();
+                    var nx = new $c_sci_$colon$colon().init___O__sci_List(f(arg1$1), $m_sci_Nil$());
+                    t.tl$5 = nx;
+                    t = nx;
+                    rest = $as_sci_List(rest.tail__O())
+                  };
+                  var jsx$3 = h
+                }
+              } else {
+                var b = $f_sc_TraversableLike__builder$1__psc_TraversableLike__scg_CanBuildFrom__scm_Builder(this$10, bf);
+                var these = this$10;
+                while ((!these.isEmpty__Z())) {
+                  var arg1$2 = these.head__O();
+                  b.$$plus$eq__O__scm_Builder(f(arg1$2));
+                  these = $as_sci_List(these.tail__O())
+                };
+                var jsx$3 = b.result__O()
+              };
+              var jsx$2 = $as_sci_List(jsx$3);
+              $m_sci_List$();
+              var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array([new $c_Lgame_Died().init___Lmath_Position(target$1)]);
+              var this$12 = $m_sci_List$();
+              var cbf$2 = this$12.ReusableCBFInstance$2;
+              var jsx$1 = $as_sci_List($f_sc_TraversableLike__to__scg_CanBuildFrom__O(xs, cbf$2));
+              var this$13 = $m_sci_List$();
+              var this$14 = $as_sci_List(jsx$2.$$plus$plus__sc_GenTraversableOnce__scg_CanBuildFrom__O(jsx$1, this$13.ReusableCBFInstance$2));
+              var y = new $c_sci_$colon$colon().init___O__sci_List(x$5, this$14);
+              return new $c_T2().init___O__O(1, y)
+            } else {
+              $m_sci_List$();
+              var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([new $c_Lgame_Damaged().init___Lmath_Position__Lmath_Position__I(source$1$1, target$1, damage)]);
+              var this$18 = $m_sci_List$();
+              var cbf$3 = this$18.ReusableCBFInstance$2;
+              var y$1 = $as_sci_List($f_sc_TraversableLike__to__scg_CanBuildFrom__O(xs$1, cbf$3));
+              return new $c_T2().init___O__O(1, y$1)
+            }
+          })
+        })(this, source$1, target, targetBeing));
+        var this$20 = $m_sci_Set$();
+        var bf$1 = new $c_scg_GenSetFactory$$anon$1().init___scg_GenSetFactory(this$20);
+        return new $c_s_Some().init___O($f_sc_TraversableLike__map__F1__scg_CanBuildFrom__O(this$21, f$1, bf$1))
       }
     }
   };
-  if (rc23) {
-    var p10 = $as_Ldungeon_Cell(x2.value$2);
-    if ((p10 !== null)) {
-      var p11 = p10.being$1;
-      var p12 = p10.structure$1;
+  if (rc21) {
+    var p9 = $as_Ldungeon_Cell(x2.value$2);
+    if ((p9 !== null)) {
+      var p10 = p9.being$1;
+      var p11 = p9.structure$1;
       var x = $m_s_None$();
-      if (((x === p11) && $is_s_Some(p12))) {
-        var x14 = $as_s_Some(p12);
-        if ($is_Lgame_Openable(x14.value$2)) {
-          var array$1 = [new $c_Lgame_OpenDoor().init___Lmath_Position(targetPosition)];
-          if (($uI(array$1.length) === 0)) {
-            var jsx$2 = $m_sci_Set$EmptySet$()
-          } else {
-            var b$1 = new $c_scm_SetBuilder().init___sc_Set($m_sci_Set$EmptySet$());
-            var i$1 = 0;
-            var len$1 = $uI(array$1.length);
-            while ((i$1 < len$1)) {
-              var index$1 = i$1;
-              var arg1$1 = array$1[index$1];
-              b$1.$$plus$eq__O__scm_SetBuilder(arg1$1);
-              i$1 = ((1 + i$1) | 0)
-            };
-            var jsx$2 = b$1.elems$1
-          };
-          return $as_sci_Set(jsx$2)
+      if (((x === p10) && $is_s_Some(p11))) {
+        var x13 = $as_s_Some(p11);
+        if ($is_Lgame_Openable(x13.value$2)) {
+          $m_sci_List$();
+          var xs$2 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([new $c_Lgame_DoorOpened().init___Lmath_Position__Lmath_Position(source$1, target)]);
+          var this$23 = $m_sci_List$();
+          var cbf$4 = this$23.ReusableCBFInstance$2;
+          return new $c_s_Some().init___O(this.certainOutcome$1__p1__sci_List__sci_Set($as_sci_List($f_sc_TraversableLike__to__scg_CanBuildFrom__O(xs$2, cbf$4))))
         }
       }
     }
   };
-  if (rc23) {
+  if (rc21) {
     var cell = $as_Ldungeon_Cell(x2.value$2);
-    if (((cell !== null) && cell.passable__Z())) {
-      var array$2 = [new $c_Lgame_Move().init___Lmath_Direction(direction)];
-      if (($uI(array$2.length) === 0)) {
-        var jsx$3 = $m_sci_Set$EmptySet$()
-      } else {
-        var b$2 = new $c_scm_SetBuilder().init___sc_Set($m_sci_Set$EmptySet$());
-        var i$2 = 0;
-        var len$2 = $uI(array$2.length);
-        while ((i$2 < len$2)) {
-          var index$2 = i$2;
-          var arg1$2 = array$2[index$2];
-          b$2.$$plus$eq__O__scm_SetBuilder(arg1$2);
-          i$2 = ((1 + i$2) | 0)
-        };
-        var jsx$3 = b$2.elems$1
-      };
-      return $as_sci_Set(jsx$3)
+    if ((cell !== null)) {
+      var itemBag = cell.itemBag$1;
+      if (cell.passable__Z()) {
+        var f$2 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2$2, target$2) {
+          return (function(x0$2$2) {
+            var x0$2 = $as_T2(x0$2$2);
+            if ((x0$2 !== null)) {
+              var item$1 = $as_Lgame_Item(x0$2.$$und1__O());
+              var n$1 = x0$2.$$und2$mcI$sp__I();
+              return new $c_Lgame_PickedUp().init___Lmath_Position__I__Lgame_Item(target$2, n$1, item$1)
+            } else {
+              throw new $c_s_MatchError().init___O(x0$2)
+            }
+          })
+        })(this, target));
+        var this$24 = $m_sci_Iterable$();
+        var bf$2 = this$24.ReusableCBFInstance$2;
+        var pickUps = $as_sc_TraversableOnce($f_sc_TraversableLike__map__F1__scg_CanBuildFrom__O(itemBag, f$2, bf$2)).toList__sci_List();
+        var x$6 = new $c_Lgame_Moved().init___Lmath_Position__Lmath_Direction(source$1, direction);
+        return new $c_s_Some().init___O(this.certainOutcome$1__p1__sci_List__sci_Set(new $c_sci_$colon$colon().init___O__sci_List(x$6, pickUps)))
+      }
     }
   };
-  return $as_sci_Set($m_s_Predef$().Set$2.apply__sc_Seq__sc_GenTraversable($m_sci_Nil$()))
-});
-$c_Lgame_GameState.prototype.actionTargets__Lmath_Position__sci_Set = (function(sourcePosition) {
-  var sourceBeing = $as_Lgame_being_Being($as_Ldungeon_Cell(this.dungeon$1.cells$1.apply__O__O(sourcePosition)).being$1.get__O());
-  var this$1 = sourceBeing.itemBag$1;
-  var this$3 = new $c_sci_MapLike$ImmutableDefaultKeySet().init___sci_MapLike(this$1);
-  var this$2 = $m_sci_Set$();
-  var bf = new $c_scg_GenSetFactory$$anon$1().init___scg_GenSetFactory(this$2);
-  var b = $f_sc_TraversableLike__builder$1__psc_TraversableLike__scg_CanBuildFrom__scm_Builder(this$3, bf);
-  var this$4 = this$3.$$outer$4.keysIterator__sc_Iterator();
-  while (this$4.hasNext__Z()) {
-    var arg1 = this$4.next__O();
-    var item = $as_Lgame_Item(arg1);
-    b.$$plus$eq__O__scm_Builder(new $c_Lgame_UseItem().init___Lgame_being_Being__Lgame_Item(sourceBeing, item))
-  };
-  var itemActionTargets = $as_sci_Set(b.result__O());
-  var this$6 = $m_Lmath_Direction$().all__sci_Set();
-  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2$1, sourcePosition$1) {
-    return (function(x$4$2) {
-      var x$4 = $as_Lmath_Direction(x$4$2);
-      return this$2$1.actionTargetAtDirection__p1__Lmath_Position__Lmath_Direction__sci_Set(sourcePosition$1, x$4)
-    })
-  })(this, sourcePosition));
-  var this$5 = $m_sci_Set$();
-  var bf$1 = new $c_scg_GenSetFactory$$anon$1().init___scg_GenSetFactory(this$5);
-  var directionActionTargets = $as_sci_Set($f_sc_TraversableLike__flatMap__F1__scg_CanBuildFrom__O(this$6, f, bf$1));
-  var this$7 = $m_sci_Set$();
-  var bf$2 = new $c_scg_GenSetFactory$$anon$1().init___scg_GenSetFactory(this$7);
-  return $as_sci_Set($f_sc_TraversableLike__$$plus$plus__sc_GenTraversableOnce__scg_CanBuildFrom__O(itemActionTargets, directionActionTargets, bf$2))
+  return $m_s_None$()
 });
 $c_Lgame_GameState.prototype.init___Ldungeon_Dungeon__sci_Set__sci_List = (function(dungeon, revealedPositions, notificationHistory) {
   this.dungeon$1 = dungeon;
@@ -14404,728 +14669,689 @@ $c_Lgame_GameState.prototype.init___Ldungeon_Dungeon__sci_Set__sci_List = (funct
   this.notificationHistory$1 = notificationHistory;
   return this
 });
-$c_Lgame_GameState.prototype.materialize__Lmath_Position__Lgame_CertainOutcome__Lgame_GameState = (function(sourcePosition, certainOutcome) {
-  var sourceBeing = $as_Lgame_being_Being($as_Ldungeon_Cell(this.dungeon$1.cells$1.apply__O__O(sourcePosition)).being$1.get__O());
-  if ($is_Lgame_Hold(certainOutcome)) {
-    var x2 = $as_Lgame_Hold(certainOutcome);
+$c_Lgame_GameState.prototype.materialize__Lgame_Event__Lgame_GameState = (function(event) {
+  if ($is_Lgame_Held(event)) {
+    var x2 = $as_Lgame_Held(event);
+    var source = x2.source$1;
     var item = x2.item$1;
-    var this$9 = new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(this, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function($this, sourcePosition$1) {
-      return (function(fresh$macro$4$2, fresh$macro$2$2) {
-        var fresh$macro$4 = $as_Lgame_GameState(fresh$macro$4$2);
-        var fresh$macro$2 = $as_F1(fresh$macro$2$2);
+    var sourceBeing = $as_Lgame_being_Being($as_Ldungeon_Cell(this.dungeon$1.cells$1.apply__O__O(source)).being$1.get__O());
+    var this$9 = new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(this, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function($this, source$1) {
+      return (function(fresh$macro$18$2, fresh$macro$16$2) {
+        var fresh$macro$18 = $as_Lgame_GameState(fresh$macro$18$2);
+        var fresh$macro$16 = $as_F1(fresh$macro$16$2);
         var this$1 = $m_sci_Map$();
         var cbf = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$1);
         new $c_Lcom_softwaremill_quicklens_package$$anon$4().init___scg_CanBuildFrom(cbf);
-        var fa = fresh$macro$4.dungeon$1.cells$1;
-        var arg1 = fa.apply__O__O(sourcePosition$1);
-        var fresh$macro$3 = $as_Ldungeon_Cell(arg1);
+        var fa = fresh$macro$18.dungeon$1.cells$1;
+        var arg1 = fa.apply__O__O(source$1);
+        var fresh$macro$17 = $as_Ldungeon_Cell(arg1);
         new $c_Lcom_softwaremill_quicklens_package$$anon$3().init___();
-        var fa$1 = fresh$macro$3.being$1;
+        var fa$1 = fresh$macro$17.being$1;
         if (fa$1.isEmpty__Z()) {
           var being = $m_s_None$()
         } else {
           var arg1$1 = fa$1.get__O();
-          var fresh$macro$1 = $as_Lgame_being_Being(arg1$1);
-          var x$48 = $as_Lgame_ItemBag(fresh$macro$2.apply__O__O(new $c_Lgame_ItemBag().init___sci_Map(fresh$macro$1.itemBag$1))).items$1;
-          var x$49 = fresh$macro$1.descriptor$1;
-          var x$50 = fresh$macro$1.body$1;
-          var x$51 = fresh$macro$1.intelligence$1;
-          var being = new $c_s_Some().init___O(new $c_Lgame_being_Being().init___Lgame_being_BeingDescriptor__Lgame_being_Body__Lgame_being_ai_Intelligence__sci_Map(x$49, x$50, x$51, x$48))
+          var fresh$macro$15 = $as_Lgame_being_Being(arg1$1);
+          var x$53 = $as_Lgame_ItemBag(fresh$macro$16.apply__O__O(new $c_Lgame_ItemBag().init___sci_Map(fresh$macro$15.itemBag$1))).items$1;
+          var x$54 = fresh$macro$15.descriptor$1;
+          var x$55 = fresh$macro$15.body$1;
+          var x$56 = fresh$macro$15.intelligence$1;
+          var being = new $c_s_Some().init___O(new $c_Lgame_being_Being().init___Lgame_being_BeingDescriptor__Lgame_being_Body__Lgame_being_ai_Intelligence__sci_Map(x$54, x$55, x$56, x$53))
         };
-        var structure = fresh$macro$3.structure$1;
-        var itemBag = fresh$macro$3.itemBag$1;
-        var cells = fa.updated__O__O__sci_Map(sourcePosition$1, new $c_Ldungeon_Cell().init___s_Option__s_Option__sci_Map(being, structure, itemBag));
-        var this$6 = fresh$macro$4.dungeon$1;
+        var structure = fresh$macro$17.structure$1;
+        var itemBag = fresh$macro$17.itemBag$1;
+        var cells = fa.updated__O__O__sci_Map(source$1, new $c_Ldungeon_Cell().init___s_Option__s_Option__sci_Map(being, structure, itemBag));
+        var this$6 = fresh$macro$18.dungeon$1;
         var area = this$6.area$1;
-        var this$7 = fresh$macro$4.dungeon$1;
+        var this$7 = fresh$macro$18.dungeon$1;
         var entrancePosition = this$7.entrancePosition$1;
         var dungeon = new $c_Ldungeon_Dungeon().init___sci_Map__Lmath_Area__Lmath_Position(cells, area, entrancePosition);
-        var revealedPositions = fresh$macro$4.revealedPositions$1;
-        var notificationHistory = fresh$macro$4.notificationHistory$1;
+        var revealedPositions = fresh$macro$18.revealedPositions$1;
+        var notificationHistory = fresh$macro$18.notificationHistory$1;
         return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(dungeon, revealedPositions, notificationHistory)
       })
-    })(this, sourcePosition)));
+    })(this, source)));
     var mod = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2$1, item$1) {
-      return (function(x$6$2) {
-        var x$6 = $as_Lgame_ItemBag(x$6$2).items$1;
-        return new $c_Lgame_ItemBag().init___sci_Map($m_Lgame_ItemBag$().$$minus$extension__sci_Map__Lgame_Item__sci_Map(x$6, item$1))
+      return (function(x$14$2) {
+        var x$14 = $as_Lgame_ItemBag(x$14$2).items$1;
+        return new $c_Lgame_ItemBag().init___sci_Map($m_Lgame_ItemBag$().$$minus$extension0__sci_Map__Lgame_Item__sci_Map(x$14, item$1))
       })
     })(this, item));
-    var fresh$macro$13 = $as_Lgame_GameState(this$9.doModify$1.apply__O__O__O(this$9.obj$1, mod));
-    var fresh$macro$16 = $as_Lgame_GameState(new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(fresh$macro$13, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$3$1, sourcePosition$2) {
-      return (function(fresh$macro$12$2, fresh$macro$7$2) {
-        var fresh$macro$12 = $as_Lgame_GameState(fresh$macro$12$2);
-        var fresh$macro$7 = $as_F1(fresh$macro$7$2);
+    var fresh$macro$27 = $as_Lgame_GameState(this$9.doModify$1.apply__O__O__O(this$9.obj$1, mod));
+    return $as_Lgame_GameState(new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(fresh$macro$27, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$3$1, source$2) {
+      return (function(fresh$macro$26$2, fresh$macro$21$2) {
+        var fresh$macro$26 = $as_Lgame_GameState(fresh$macro$26$2);
+        var fresh$macro$21 = $as_F1(fresh$macro$21$2);
         var this$10 = $m_sci_Map$();
         var cbf$1 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$10);
         new $c_Lcom_softwaremill_quicklens_package$$anon$4().init___scg_CanBuildFrom(cbf$1);
-        var fa$2 = fresh$macro$12.dungeon$1.cells$1;
-        var arg1$2 = fa$2.apply__O__O(sourcePosition$2);
-        var fresh$macro$11 = $as_Ldungeon_Cell(arg1$2);
+        var fa$2 = fresh$macro$26.dungeon$1.cells$1;
+        var arg1$2 = fa$2.apply__O__O(source$2);
+        var fresh$macro$25 = $as_Ldungeon_Cell(arg1$2);
         new $c_Lcom_softwaremill_quicklens_package$$anon$3().init___();
-        var fa$3 = fresh$macro$11.being$1;
+        var fa$3 = fresh$macro$25.being$1;
         if (fa$3.isEmpty__Z()) {
           var being$1 = $m_s_None$()
         } else {
           var arg1$3 = fa$3.get__O();
-          var fresh$macro$9 = $as_Lgame_being_Being(arg1$3);
-          var x1 = fresh$macro$9.body$1;
+          var fresh$macro$23 = $as_Lgame_being_Being(arg1$3);
+          var x1 = fresh$macro$23.body$1;
           if ($is_Lgame_being_Handed(x1)) {
             var x2$1 = $as_Lgame_being_Handed(x1);
             if ((!$is_Lgame_being_HumanoidBody(x2$1))) {
               throw new $c_s_MatchError().init___O(x2$1)
             };
             var x2$2 = $as_Lgame_being_HumanoidBody(x2$1);
-            var x$52 = $as_s_Option(fresh$macro$7.apply__O__O(x2$1.holding__s_Option()));
-            var x$53 = x2$2.fullHealth$1;
-            var x$54 = x2$2.health$1;
-            var x$55 = new $c_Lgame_being_HumanoidBody().init___I__I__s_Option(x$53, x$54, x$52)
+            var x$57 = $as_s_Option(fresh$macro$21.apply__O__O(x2$1.holding$1));
+            var x$58 = x2$2.fullHealth$1;
+            var x$59 = x2$2.health$1;
+            var x$60 = new $c_Lgame_being_HumanoidBody().init___I__I__s_Option(x$58, x$59, x$57)
           } else {
-            var x$55 = x1
+            var x$60 = x1
           };
-          var x$56 = fresh$macro$9.descriptor$1;
-          var x$57 = fresh$macro$9.intelligence$1;
-          var x$58 = fresh$macro$9.itemBag$1;
-          var being$1 = new $c_s_Some().init___O(new $c_Lgame_being_Being().init___Lgame_being_BeingDescriptor__Lgame_being_Body__Lgame_being_ai_Intelligence__sci_Map(x$56, x$55, x$57, x$58))
+          var x$61 = fresh$macro$23.descriptor$1;
+          var x$62 = fresh$macro$23.intelligence$1;
+          var x$63 = fresh$macro$23.itemBag$1;
+          var being$1 = new $c_s_Some().init___O(new $c_Lgame_being_Being().init___Lgame_being_BeingDescriptor__Lgame_being_Body__Lgame_being_ai_Intelligence__sci_Map(x$61, x$60, x$62, x$63))
         };
-        var structure$1 = fresh$macro$11.structure$1;
-        var itemBag$1 = fresh$macro$11.itemBag$1;
-        var cells$1 = fa$2.updated__O__O__sci_Map(sourcePosition$2, new $c_Ldungeon_Cell().init___s_Option__s_Option__sci_Map(being$1, structure$1, itemBag$1));
-        var this$15 = fresh$macro$12.dungeon$1;
+        var structure$1 = fresh$macro$25.structure$1;
+        var itemBag$1 = fresh$macro$25.itemBag$1;
+        var cells$1 = fa$2.updated__O__O__sci_Map(source$2, new $c_Ldungeon_Cell().init___s_Option__s_Option__sci_Map(being$1, structure$1, itemBag$1));
+        var this$15 = fresh$macro$26.dungeon$1;
         var area$1 = this$15.area$1;
-        var this$16 = fresh$macro$12.dungeon$1;
+        var this$16 = fresh$macro$26.dungeon$1;
         var entrancePosition$1 = this$16.entrancePosition$1;
         var dungeon$1 = new $c_Ldungeon_Dungeon().init___sci_Map__Lmath_Area__Lmath_Position(cells$1, area$1, entrancePosition$1);
-        var revealedPositions$1 = fresh$macro$12.revealedPositions$1;
-        var notificationHistory$1 = fresh$macro$12.notificationHistory$1;
+        var revealedPositions$1 = fresh$macro$26.revealedPositions$1;
+        var notificationHistory$1 = fresh$macro$26.notificationHistory$1;
         return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(dungeon$1, revealedPositions$1, notificationHistory$1)
       })
-    })(this, sourcePosition))).setTo__O__O(new $c_s_Some().init___O(item)));
-    var this$18 = new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(fresh$macro$16, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$4$1) {
-      return (function(fresh$macro$14$2, fresh$macro$15$2) {
-        var fresh$macro$14 = $as_Lgame_GameState(fresh$macro$14$2);
-        var fresh$macro$15 = $as_F1(fresh$macro$15$2);
-        var x$59 = $as_sci_List(fresh$macro$15.apply__O__O(fresh$macro$14.notificationHistory$1));
-        var x$60 = fresh$macro$14.dungeon$1;
-        var x$61 = fresh$macro$14.revealedPositions$1;
-        return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(x$60, x$61, x$59)
-      })
-    })(this)));
-    var mod$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$5$1, sourceBeing$1, item$2) {
-      return (function(x$9$2) {
-        var x$9 = $as_sci_List(x$9$2);
-        var x$10 = new $c_Lgame_ItemHeld().init___Lgame_Describable__Lgame_Item(sourceBeing$1.descriptor$1, item$2);
-        return new $c_sci_$colon$colon().init___O__sci_List(x$10, x$9)
-      })
-    })(this, sourceBeing, item));
-    return $as_Lgame_GameState(this$18.doModify$1.apply__O__O__O(this$18.obj$1, mod$1))
-  } else if ($is_Lgame_Swap(certainOutcome)) {
-    var x3 = $as_Lgame_Swap(certainOutcome);
-    var oldItem = x3.oldItem$1;
-    var newItem = x3.newitem$1;
-    var this$27 = new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(this, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$6$1, sourcePosition$3) {
-      return (function(fresh$macro$20$2, fresh$macro$18$2) {
-        var fresh$macro$20 = $as_Lgame_GameState(fresh$macro$20$2);
-        var fresh$macro$18 = $as_F1(fresh$macro$18$2);
-        var this$19 = $m_sci_Map$();
-        var cbf$2 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$19);
+    })(this, source))).setTo__O__O(new $c_s_Some().init___O(item))).notify__Lgame_Notification__Lgame_GameState(new $c_Lgame_ItemHeld().init___Lgame_Describable__Lgame_Item(sourceBeing.descriptor$1, item))
+  } else if ($is_Lgame_Stashed(event)) {
+    var x3 = $as_Lgame_Stashed(event);
+    var source$2$1 = x3.source$1;
+    var item$2 = x3.item$1;
+    var sourceBeing$2 = $as_Lgame_being_Being($as_Ldungeon_Cell(this.dungeon$1.cells$1.apply__O__O(source$2$1)).being$1.get__O());
+    var this$26 = new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(this, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$4$1, source$2$2) {
+      return (function(fresh$macro$31$2, fresh$macro$29$2) {
+        var fresh$macro$31 = $as_Lgame_GameState(fresh$macro$31$2);
+        var fresh$macro$29 = $as_F1(fresh$macro$29$2);
+        var this$18 = $m_sci_Map$();
+        var cbf$2 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$18);
         new $c_Lcom_softwaremill_quicklens_package$$anon$4().init___scg_CanBuildFrom(cbf$2);
-        var fa$4 = fresh$macro$20.dungeon$1.cells$1;
-        var arg1$4 = fa$4.apply__O__O(sourcePosition$3);
-        var fresh$macro$19 = $as_Ldungeon_Cell(arg1$4);
+        var fa$4 = fresh$macro$31.dungeon$1.cells$1;
+        var arg1$4 = fa$4.apply__O__O(source$2$2);
+        var fresh$macro$30 = $as_Ldungeon_Cell(arg1$4);
         new $c_Lcom_softwaremill_quicklens_package$$anon$3().init___();
-        var fa$5 = fresh$macro$19.being$1;
+        var fa$5 = fresh$macro$30.being$1;
         if (fa$5.isEmpty__Z()) {
           var being$2 = $m_s_None$()
         } else {
           var arg1$5 = fa$5.get__O();
-          var fresh$macro$17 = $as_Lgame_being_Being(arg1$5);
-          var x$62 = $as_Lgame_ItemBag(fresh$macro$18.apply__O__O(new $c_Lgame_ItemBag().init___sci_Map(fresh$macro$17.itemBag$1))).items$1;
-          var x$63 = fresh$macro$17.descriptor$1;
-          var x$64 = fresh$macro$17.body$1;
-          var x$65 = fresh$macro$17.intelligence$1;
-          var being$2 = new $c_s_Some().init___O(new $c_Lgame_being_Being().init___Lgame_being_BeingDescriptor__Lgame_being_Body__Lgame_being_ai_Intelligence__sci_Map(x$63, x$64, x$65, x$62))
+          var fresh$macro$28 = $as_Lgame_being_Being(arg1$5);
+          var x$64 = $as_Lgame_ItemBag(fresh$macro$29.apply__O__O(new $c_Lgame_ItemBag().init___sci_Map(fresh$macro$28.itemBag$1))).items$1;
+          var x$65 = fresh$macro$28.descriptor$1;
+          var x$66 = fresh$macro$28.body$1;
+          var x$67 = fresh$macro$28.intelligence$1;
+          var being$2 = new $c_s_Some().init___O(new $c_Lgame_being_Being().init___Lgame_being_BeingDescriptor__Lgame_being_Body__Lgame_being_ai_Intelligence__sci_Map(x$65, x$66, x$67, x$64))
         };
-        var structure$2 = fresh$macro$19.structure$1;
-        var itemBag$2 = fresh$macro$19.itemBag$1;
-        var cells$2 = fa$4.updated__O__O__sci_Map(sourcePosition$3, new $c_Ldungeon_Cell().init___s_Option__s_Option__sci_Map(being$2, structure$2, itemBag$2));
-        var this$24 = fresh$macro$20.dungeon$1;
-        var area$2 = this$24.area$1;
-        var this$25 = fresh$macro$20.dungeon$1;
-        var entrancePosition$2 = this$25.entrancePosition$1;
+        var structure$2 = fresh$macro$30.structure$1;
+        var itemBag$2 = fresh$macro$30.itemBag$1;
+        var cells$2 = fa$4.updated__O__O__sci_Map(source$2$2, new $c_Ldungeon_Cell().init___s_Option__s_Option__sci_Map(being$2, structure$2, itemBag$2));
+        var this$23 = fresh$macro$31.dungeon$1;
+        var area$2 = this$23.area$1;
+        var this$24 = fresh$macro$31.dungeon$1;
+        var entrancePosition$2 = this$24.entrancePosition$1;
         var dungeon$2 = new $c_Ldungeon_Dungeon().init___sci_Map__Lmath_Area__Lmath_Position(cells$2, area$2, entrancePosition$2);
-        var revealedPositions$2 = fresh$macro$20.revealedPositions$1;
-        var notificationHistory$2 = fresh$macro$20.notificationHistory$1;
+        var revealedPositions$2 = fresh$macro$31.revealedPositions$1;
+        var notificationHistory$2 = fresh$macro$31.notificationHistory$1;
         return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(dungeon$2, revealedPositions$2, notificationHistory$2)
       })
-    })(this, sourcePosition)));
-    var mod$2 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$7$1, oldItem$1, newItem$1) {
-      return (function(x$12$2) {
-        var x$12 = $as_Lgame_ItemBag(x$12$2).items$1;
-        return new $c_Lgame_ItemBag().init___sci_Map($m_Lgame_ItemBag$().$$plus$extension1__sci_Map__Lgame_Item__sci_Map($m_Lgame_ItemBag$().$$minus$extension__sci_Map__Lgame_Item__sci_Map(x$12, newItem$1), oldItem$1))
+    })(this, source$2$1)));
+    var mod$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$5$1, item$2$1) {
+      return (function(x$17$2) {
+        var x$17 = $as_Lgame_ItemBag(x$17$2).items$1;
+        return new $c_Lgame_ItemBag().init___sci_Map($m_Lgame_ItemBag$().$$plus$extension1__sci_Map__Lgame_Item__sci_Map(x$17, item$2$1))
       })
-    })(this, oldItem, newItem));
-    var fresh$macro$29 = $as_Lgame_GameState(this$27.doModify$1.apply__O__O__O(this$27.obj$1, mod$2));
-    var fresh$macro$32 = $as_Lgame_GameState(new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(fresh$macro$29, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$8$1, sourcePosition$4) {
-      return (function(fresh$macro$28$2, fresh$macro$23$2) {
-        var fresh$macro$28 = $as_Lgame_GameState(fresh$macro$28$2);
-        var fresh$macro$23 = $as_F1(fresh$macro$23$2);
-        var this$28 = $m_sci_Map$();
-        var cbf$3 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$28);
+    })(this, item$2));
+    var fresh$macro$40 = $as_Lgame_GameState(this$26.doModify$1.apply__O__O__O(this$26.obj$1, mod$1));
+    return $as_Lgame_GameState(new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(fresh$macro$40, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$6$1, source$2$3) {
+      return (function(fresh$macro$39$2, fresh$macro$34$2) {
+        var fresh$macro$39 = $as_Lgame_GameState(fresh$macro$39$2);
+        var fresh$macro$34 = $as_F1(fresh$macro$34$2);
+        var this$27 = $m_sci_Map$();
+        var cbf$3 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$27);
         new $c_Lcom_softwaremill_quicklens_package$$anon$4().init___scg_CanBuildFrom(cbf$3);
-        var fa$6 = fresh$macro$28.dungeon$1.cells$1;
-        var arg1$6 = fa$6.apply__O__O(sourcePosition$4);
-        var fresh$macro$27 = $as_Ldungeon_Cell(arg1$6);
+        var fa$6 = fresh$macro$39.dungeon$1.cells$1;
+        var arg1$6 = fa$6.apply__O__O(source$2$3);
+        var fresh$macro$38 = $as_Ldungeon_Cell(arg1$6);
         new $c_Lcom_softwaremill_quicklens_package$$anon$3().init___();
-        var fa$7 = fresh$macro$27.being$1;
+        var fa$7 = fresh$macro$38.being$1;
         if (fa$7.isEmpty__Z()) {
           var being$3 = $m_s_None$()
         } else {
           var arg1$7 = fa$7.get__O();
-          var fresh$macro$25 = $as_Lgame_being_Being(arg1$7);
-          var x1$1 = fresh$macro$25.body$1;
+          var fresh$macro$36 = $as_Lgame_being_Being(arg1$7);
+          var x1$1 = fresh$macro$36.body$1;
           if ($is_Lgame_being_Handed(x1$1)) {
             var x2$3 = $as_Lgame_being_Handed(x1$1);
             if ((!$is_Lgame_being_HumanoidBody(x2$3))) {
               throw new $c_s_MatchError().init___O(x2$3)
             };
             var x2$2$1 = $as_Lgame_being_HumanoidBody(x2$3);
-            var x$66 = $as_s_Option(fresh$macro$23.apply__O__O(x2$3.holding__s_Option()));
-            var x$67 = x2$2$1.fullHealth$1;
-            var x$68 = x2$2$1.health$1;
-            var x$69 = new $c_Lgame_being_HumanoidBody().init___I__I__s_Option(x$67, x$68, x$66)
+            var x$68 = $as_s_Option(fresh$macro$34.apply__O__O(x2$3.holding$1));
+            var x$69 = x2$2$1.fullHealth$1;
+            var x$70 = x2$2$1.health$1;
+            var x$71 = new $c_Lgame_being_HumanoidBody().init___I__I__s_Option(x$69, x$70, x$68)
           } else {
-            var x$69 = x1$1
+            var x$71 = x1$1
           };
-          var x$70 = fresh$macro$25.descriptor$1;
-          var x$71 = fresh$macro$25.intelligence$1;
-          var x$72 = fresh$macro$25.itemBag$1;
-          var being$3 = new $c_s_Some().init___O(new $c_Lgame_being_Being().init___Lgame_being_BeingDescriptor__Lgame_being_Body__Lgame_being_ai_Intelligence__sci_Map(x$70, x$69, x$71, x$72))
+          var x$72 = fresh$macro$36.descriptor$1;
+          var x$73 = fresh$macro$36.intelligence$1;
+          var x$74 = fresh$macro$36.itemBag$1;
+          var being$3 = new $c_s_Some().init___O(new $c_Lgame_being_Being().init___Lgame_being_BeingDescriptor__Lgame_being_Body__Lgame_being_ai_Intelligence__sci_Map(x$72, x$71, x$73, x$74))
         };
-        var structure$3 = fresh$macro$27.structure$1;
-        var itemBag$3 = fresh$macro$27.itemBag$1;
-        var cells$3 = fa$6.updated__O__O__sci_Map(sourcePosition$4, new $c_Ldungeon_Cell().init___s_Option__s_Option__sci_Map(being$3, structure$3, itemBag$3));
-        var this$33 = fresh$macro$28.dungeon$1;
-        var area$3 = this$33.area$1;
-        var this$34 = fresh$macro$28.dungeon$1;
-        var entrancePosition$3 = this$34.entrancePosition$1;
+        var structure$3 = fresh$macro$38.structure$1;
+        var itemBag$3 = fresh$macro$38.itemBag$1;
+        var cells$3 = fa$6.updated__O__O__sci_Map(source$2$3, new $c_Ldungeon_Cell().init___s_Option__s_Option__sci_Map(being$3, structure$3, itemBag$3));
+        var this$32 = fresh$macro$39.dungeon$1;
+        var area$3 = this$32.area$1;
+        var this$33 = fresh$macro$39.dungeon$1;
+        var entrancePosition$3 = this$33.entrancePosition$1;
         var dungeon$3 = new $c_Ldungeon_Dungeon().init___sci_Map__Lmath_Area__Lmath_Position(cells$3, area$3, entrancePosition$3);
-        var revealedPositions$3 = fresh$macro$28.revealedPositions$1;
-        var notificationHistory$3 = fresh$macro$28.notificationHistory$1;
+        var revealedPositions$3 = fresh$macro$39.revealedPositions$1;
+        var notificationHistory$3 = fresh$macro$39.notificationHistory$1;
         return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(dungeon$3, revealedPositions$3, notificationHistory$3)
       })
-    })(this, sourcePosition))).setTo__O__O(new $c_s_Some().init___O(newItem)));
-    var this$37 = new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(fresh$macro$32, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$9$1) {
-      return (function(fresh$macro$30$2, fresh$macro$31$2) {
-        var fresh$macro$30 = $as_Lgame_GameState(fresh$macro$30$2);
-        var fresh$macro$31 = $as_F1(fresh$macro$31$2);
-        var x$73 = $as_sci_List(fresh$macro$31.apply__O__O(fresh$macro$30.notificationHistory$1));
-        var x$74 = fresh$macro$30.dungeon$1;
-        var x$75 = fresh$macro$30.revealedPositions$1;
-        return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(x$74, x$75, x$73)
-      })
-    })(this)));
-    var mod$3 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$10$1, sourceBeing$2, oldItem$2, newItem$2) {
-      return (function(x$15$2) {
-        var x$15 = $as_sci_List(x$15$2);
-        var x$17 = new $c_Lgame_ItemHeld().init___Lgame_Describable__Lgame_Item(sourceBeing$2.descriptor$1, newItem$2);
-        var x$16 = new $c_Lgame_ItemStash().init___Lgame_Describable__Lgame_Item(sourceBeing$2.descriptor$1, oldItem$2);
-        var this$36 = new $c_sci_$colon$colon().init___O__sci_List(x$16, x$15);
-        return new $c_sci_$colon$colon().init___O__sci_List(x$17, this$36)
-      })
-    })(this, sourceBeing, oldItem, newItem));
-    return $as_Lgame_GameState(this$37.doModify$1.apply__O__O__O(this$37.obj$1, mod$3))
-  } else if ($is_Lgame_Moved(certainOutcome)) {
-    var x4 = $as_Lgame_Moved(certainOutcome);
-    var direction = x4.direction$1;
-    var destinationPosition = sourcePosition.towards__Lmath_Direction__I__Lmath_Position(direction, 1);
-    var targetItemBag = $as_Ldungeon_Cell(this.dungeon$1.cells$1.get__O__s_Option(destinationPosition).get__O()).itemBag$1;
-    var fresh$macro$40 = $as_Lgame_GameState(new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(this, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$11$1, sourcePosition$5) {
-      return (function(fresh$macro$35$2, fresh$macro$34$2) {
-        var fresh$macro$35 = $as_Lgame_GameState(fresh$macro$35$2);
-        var fresh$macro$34 = $as_F1(fresh$macro$34$2);
-        var this$38 = $m_sci_Map$();
-        var cbf$4 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$38);
+    })(this, source$2$1))).setTo__O__O($m_s_None$())).notify__Lgame_Notification__Lgame_GameState(new $c_Lgame_ItemStash().init___Lgame_Describable__Lgame_Item(sourceBeing$2.descriptor$1, item$2))
+  } else if ($is_Lgame_PickedUp(event)) {
+    var x4 = $as_Lgame_PickedUp(event);
+    var source$3 = x4.source$1;
+    var amount = x4.amount$1;
+    var item$3 = x4.item$1;
+    var sourceBeing$3 = $as_Lgame_being_Being($as_Ldungeon_Cell(this.dungeon$1.cells$1.apply__O__O(source$3)).being$1.get__O());
+    var jsx$1 = new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(this, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$7$1, source$3$1) {
+      return (function(fresh$macro$43$2, fresh$macro$42$2) {
+        var fresh$macro$43 = $as_Lgame_GameState(fresh$macro$43$2);
+        var fresh$macro$42 = $as_F1(fresh$macro$42$2);
+        var this$35 = $m_sci_Map$();
+        var cbf$4 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$35);
         new $c_Lcom_softwaremill_quicklens_package$$anon$4().init___scg_CanBuildFrom(cbf$4);
-        var fa$8 = fresh$macro$35.dungeon$1.cells$1;
-        var arg1$8 = fa$8.apply__O__O(sourcePosition$5);
-        var fresh$macro$33 = $as_Ldungeon_Cell(arg1$8);
-        var being$4 = $as_s_Option(fresh$macro$34.apply__O__O(fresh$macro$33.being$1));
-        var structure$4 = fresh$macro$33.structure$1;
-        var itemBag$4 = fresh$macro$33.itemBag$1;
-        var cells$4 = fa$8.updated__O__O__sci_Map(sourcePosition$5, new $c_Ldungeon_Cell().init___s_Option__s_Option__sci_Map(being$4, structure$4, itemBag$4));
-        var this$41 = fresh$macro$35.dungeon$1;
-        var area$4 = this$41.area$1;
-        var this$42 = fresh$macro$35.dungeon$1;
-        var entrancePosition$4 = this$42.entrancePosition$1;
+        var fa$8 = fresh$macro$43.dungeon$1.cells$1;
+        var arg1$8 = fa$8.apply__O__O(source$3$1);
+        var fresh$macro$41 = $as_Ldungeon_Cell(arg1$8);
+        var being$4 = $as_s_Option(fresh$macro$42.apply__O__O(fresh$macro$41.being$1));
+        var structure$4 = fresh$macro$41.structure$1;
+        var itemBag$4 = fresh$macro$41.itemBag$1;
+        var cells$4 = fa$8.updated__O__O__sci_Map(source$3$1, new $c_Ldungeon_Cell().init___s_Option__s_Option__sci_Map(being$4, structure$4, itemBag$4));
+        var this$38 = fresh$macro$43.dungeon$1;
+        var area$4 = this$38.area$1;
+        var this$39 = fresh$macro$43.dungeon$1;
+        var entrancePosition$4 = this$39.entrancePosition$1;
         var dungeon$4 = new $c_Ldungeon_Dungeon().init___sci_Map__Lmath_Area__Lmath_Position(cells$4, area$4, entrancePosition$4);
-        var revealedPositions$4 = fresh$macro$35.revealedPositions$1;
-        var notificationHistory$4 = fresh$macro$35.notificationHistory$1;
+        var revealedPositions$4 = fresh$macro$43.revealedPositions$1;
+        var notificationHistory$4 = fresh$macro$43.notificationHistory$1;
         return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(dungeon$4, revealedPositions$4, notificationHistory$4)
       })
-    })(this, sourcePosition))).setTo__O__O($m_s_None$()));
-    var jsx$1 = new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(fresh$macro$40, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$12$1, destinationPosition$1) {
-      return (function(fresh$macro$39$2, fresh$macro$38$2) {
-        var fresh$macro$39 = $as_Lgame_GameState(fresh$macro$39$2);
-        var fresh$macro$38 = $as_F1(fresh$macro$38$2);
-        var this$44 = $m_sci_Map$();
-        var cbf$5 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$44);
-        new $c_Lcom_softwaremill_quicklens_package$$anon$4().init___scg_CanBuildFrom(cbf$5);
-        var fa$9 = fresh$macro$39.dungeon$1.cells$1;
-        var arg1$9 = fa$9.apply__O__O(destinationPosition$1);
-        var fresh$macro$37 = $as_Ldungeon_Cell(arg1$9);
-        var being$5 = $as_s_Option(fresh$macro$38.apply__O__O(fresh$macro$37.being$1));
-        var structure$5 = fresh$macro$37.structure$1;
-        var itemBag$5 = fresh$macro$37.itemBag$1;
-        var cells$5 = fa$9.updated__O__O__sci_Map(destinationPosition$1, new $c_Ldungeon_Cell().init___s_Option__s_Option__sci_Map(being$5, structure$5, itemBag$5));
-        var this$47 = fresh$macro$39.dungeon$1;
-        var area$5 = this$47.area$1;
-        var this$48 = fresh$macro$39.dungeon$1;
-        var entrancePosition$5 = this$48.entrancePosition$1;
-        var dungeon$5 = new $c_Ldungeon_Dungeon().init___sci_Map__Lmath_Area__Lmath_Position(cells$5, area$5, entrancePosition$5);
-        var revealedPositions$5 = fresh$macro$39.revealedPositions$1;
-        var notificationHistory$5 = fresh$macro$39.notificationHistory$1;
-        return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(dungeon$5, revealedPositions$5, notificationHistory$5)
-      })
-    })(this, destinationPosition)));
-    var this$50 = new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(sourceBeing, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$13$1) {
-      return (function(fresh$macro$41$2, fresh$macro$42$2) {
-        var fresh$macro$41 = $as_Lgame_being_Being(fresh$macro$41$2);
-        var fresh$macro$42 = $as_F1(fresh$macro$42$2);
-        var x$76 = $as_Lgame_ItemBag(fresh$macro$42.apply__O__O(new $c_Lgame_ItemBag().init___sci_Map(fresh$macro$41.itemBag$1))).items$1;
-        var x$77 = fresh$macro$41.descriptor$1;
-        var x$78 = fresh$macro$41.body$1;
-        var x$79 = fresh$macro$41.intelligence$1;
-        return new $c_Lgame_being_Being().init___Lgame_being_BeingDescriptor__Lgame_being_Body__Lgame_being_ai_Intelligence__sci_Map(x$77, x$78, x$79, x$76)
+    })(this, source$3)));
+    var this$41 = new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(sourceBeing$3, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$8$1) {
+      return (function(fresh$macro$45$2, fresh$macro$46$2) {
+        var fresh$macro$45 = $as_Lgame_being_Being(fresh$macro$45$2);
+        var fresh$macro$46 = $as_F1(fresh$macro$46$2);
+        var x$75 = $as_Lgame_ItemBag(fresh$macro$46.apply__O__O(new $c_Lgame_ItemBag().init___sci_Map(fresh$macro$45.itemBag$1))).items$1;
+        var x$76 = fresh$macro$45.descriptor$1;
+        var x$77 = fresh$macro$45.body$1;
+        var x$78 = fresh$macro$45.intelligence$1;
+        return new $c_Lgame_being_Being().init___Lgame_being_BeingDescriptor__Lgame_being_Body__Lgame_being_ai_Intelligence__sci_Map(x$76, x$77, x$78, x$75)
       })
     })(this)));
-    var mod$4 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$14$1, targetItemBag$1) {
+    var mod$2 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$9$1, amount$1, item$3$1) {
       return (function(x$21$2) {
         var x$21 = $as_Lgame_ItemBag(x$21$2).items$1;
-        return new $c_Lgame_ItemBag().init___sci_Map($m_Lgame_ItemBag$().$$plus$extension0__sci_Map__sci_Map__sci_Map(x$21, targetItemBag$1))
+        return new $c_Lgame_ItemBag().init___sci_Map($m_Lgame_ItemBag$().$$plus$extension2__sci_Map__Lgame_Item__I__sci_Map(x$21, item$3$1, amount$1))
       })
-    })(this, targetItemBag));
-    var fresh$macro$47 = $as_Lgame_GameState(jsx$1.setTo__O__O(new $c_s_Some().init___O(this$50.doModify$1.apply__O__O__O(this$50.obj$1, mod$4))));
-    var fresh$macro$50 = $as_Lgame_GameState(new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(fresh$macro$47, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$15$1, destinationPosition$2) {
-      return (function(fresh$macro$46$2, fresh$macro$45$2) {
-        var fresh$macro$46 = $as_Lgame_GameState(fresh$macro$46$2);
-        var fresh$macro$45 = $as_F1(fresh$macro$45$2);
-        var this$51 = $m_sci_Map$();
-        var cbf$6 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$51);
+    })(this, amount, item$3));
+    var fresh$macro$51 = $as_Lgame_GameState(jsx$1.setTo__O__O(new $c_s_Some().init___O(this$41.doModify$1.apply__O__O__O(this$41.obj$1, mod$2))));
+    var this$48 = new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(fresh$macro$51, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$10$1, source$3$2) {
+      return (function(fresh$macro$50$2, fresh$macro$49$2) {
+        var fresh$macro$50 = $as_Lgame_GameState(fresh$macro$50$2);
+        var fresh$macro$49 = $as_F1(fresh$macro$49$2);
+        var this$42 = $m_sci_Map$();
+        var cbf$5 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$42);
+        new $c_Lcom_softwaremill_quicklens_package$$anon$4().init___scg_CanBuildFrom(cbf$5);
+        var fa$9 = fresh$macro$50.dungeon$1.cells$1;
+        var arg1$9 = fa$9.apply__O__O(source$3$2);
+        var fresh$macro$48 = $as_Ldungeon_Cell(arg1$9);
+        var x$79 = $as_Lgame_ItemBag(fresh$macro$49.apply__O__O(new $c_Lgame_ItemBag().init___sci_Map(fresh$macro$48.itemBag$1))).items$1;
+        var x$80 = fresh$macro$48.being$1;
+        var x$81 = fresh$macro$48.structure$1;
+        var cells$5 = fa$9.updated__O__O__sci_Map(source$3$2, new $c_Ldungeon_Cell().init___s_Option__s_Option__sci_Map(x$80, x$81, x$79));
+        var this$45 = fresh$macro$50.dungeon$1;
+        var area$5 = this$45.area$1;
+        var this$46 = fresh$macro$50.dungeon$1;
+        var entrancePosition$5 = this$46.entrancePosition$1;
+        var dungeon$5 = new $c_Ldungeon_Dungeon().init___sci_Map__Lmath_Area__Lmath_Position(cells$5, area$5, entrancePosition$5);
+        var revealedPositions$5 = fresh$macro$50.revealedPositions$1;
+        var notificationHistory$5 = fresh$macro$50.notificationHistory$1;
+        return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(dungeon$5, revealedPositions$5, notificationHistory$5)
+      })
+    })(this, source$3)));
+    var mod$3 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$11$1, amount$2, item$3$2) {
+      return (function(x$23$2) {
+        var x$23 = $as_Lgame_ItemBag(x$23$2).items$1;
+        return new $c_Lgame_ItemBag().init___sci_Map($m_Lgame_ItemBag$().$$minus$extension1__sci_Map__Lgame_Item__I__sci_Map(x$23, item$3$2, amount$2))
+      })
+    })(this, amount, item$3));
+    return $as_Lgame_GameState(this$48.doModify$1.apply__O__O__O(this$48.obj$1, mod$3)).notify__Lgame_Notification__Lgame_GameState(new $c_Lgame_TargetTaken().init___Lgame_Describable__I__Lgame_Item(sourceBeing$3.descriptor$1, amount, item$3))
+  } else if ($is_Lgame_Dropped(event)) {
+    var x5 = $as_Lgame_Dropped(event);
+    var source$4 = x5.source$1;
+    var amount$2$1 = x5.amount$1;
+    var item$4 = x5.item$1;
+    var sourceBeing$4 = $as_Lgame_being_Being($as_Ldungeon_Cell(this.dungeon$1.cells$1.apply__O__O(source$4)).being$1.get__O());
+    var this$55 = new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(this, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$12$1, source$4$1) {
+      return (function(fresh$macro$54$2, fresh$macro$53$2) {
+        var fresh$macro$54 = $as_Lgame_GameState(fresh$macro$54$2);
+        var fresh$macro$53 = $as_F1(fresh$macro$53$2);
+        var this$49 = $m_sci_Map$();
+        var cbf$6 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$49);
         new $c_Lcom_softwaremill_quicklens_package$$anon$4().init___scg_CanBuildFrom(cbf$6);
-        var fa$10 = fresh$macro$46.dungeon$1.cells$1;
-        var arg1$10 = fa$10.apply__O__O(destinationPosition$2);
-        var fresh$macro$44 = $as_Ldungeon_Cell(arg1$10);
-        var x$80 = $as_Lgame_ItemBag(fresh$macro$45.apply__O__O(new $c_Lgame_ItemBag().init___sci_Map(fresh$macro$44.itemBag$1))).items$1;
-        var x$81 = fresh$macro$44.being$1;
-        var x$82 = fresh$macro$44.structure$1;
-        var cells$6 = fa$10.updated__O__O__sci_Map(destinationPosition$2, new $c_Ldungeon_Cell().init___s_Option__s_Option__sci_Map(x$81, x$82, x$80));
-        var this$54 = fresh$macro$46.dungeon$1;
-        var area$6 = this$54.area$1;
-        var this$55 = fresh$macro$46.dungeon$1;
-        var entrancePosition$6 = this$55.entrancePosition$1;
+        var fa$10 = fresh$macro$54.dungeon$1.cells$1;
+        var arg1$10 = fa$10.apply__O__O(source$4$1);
+        var fresh$macro$52 = $as_Ldungeon_Cell(arg1$10);
+        var x$82 = $as_Lgame_ItemBag(fresh$macro$53.apply__O__O(new $c_Lgame_ItemBag().init___sci_Map(fresh$macro$52.itemBag$1))).items$1;
+        var x$83 = fresh$macro$52.being$1;
+        var x$84 = fresh$macro$52.structure$1;
+        var cells$6 = fa$10.updated__O__O__sci_Map(source$4$1, new $c_Ldungeon_Cell().init___s_Option__s_Option__sci_Map(x$83, x$84, x$82));
+        var this$52 = fresh$macro$54.dungeon$1;
+        var area$6 = this$52.area$1;
+        var this$53 = fresh$macro$54.dungeon$1;
+        var entrancePosition$6 = this$53.entrancePosition$1;
         var dungeon$6 = new $c_Ldungeon_Dungeon().init___sci_Map__Lmath_Area__Lmath_Position(cells$6, area$6, entrancePosition$6);
-        var revealedPositions$6 = fresh$macro$46.revealedPositions$1;
-        var notificationHistory$6 = fresh$macro$46.notificationHistory$1;
+        var revealedPositions$6 = fresh$macro$54.revealedPositions$1;
+        var notificationHistory$6 = fresh$macro$54.notificationHistory$1;
         return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(dungeon$6, revealedPositions$6, notificationHistory$6)
       })
-    })(this, destinationPosition))).setTo__O__O(new $c_Lgame_ItemBag().init___sci_Map($m_Lgame_ItemBag$().empty$1)));
-    var this$59 = new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(fresh$macro$50, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$16$1) {
-      return (function(fresh$macro$48$2, fresh$macro$49$2) {
-        var fresh$macro$48 = $as_Lgame_GameState(fresh$macro$48$2);
-        var fresh$macro$49 = $as_F1(fresh$macro$49$2);
-        var x$83 = $as_sci_List(fresh$macro$49.apply__O__O(fresh$macro$48.notificationHistory$1));
-        var x$84 = fresh$macro$48.dungeon$1;
-        var x$85 = fresh$macro$48.revealedPositions$1;
-        return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(x$84, x$85, x$83)
+    })(this, source$4)));
+    var mod$4 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$13$1, amount$2$2, item$4$1) {
+      return (function(x$25$2) {
+        var x$25 = $as_Lgame_ItemBag(x$25$2).items$1;
+        return new $c_Lgame_ItemBag().init___sci_Map($m_Lgame_ItemBag$().$$plus$extension2__sci_Map__Lgame_Item__I__sci_Map(x$25, item$4$1, amount$2$2))
       })
-    })(this)));
-    var mod$5 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$17$1, sourceBeing$3, targetItemBag$2) {
-      return (function(x$24$2) {
-        var x$24 = $as_sci_List(x$24$2);
-        var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this$1, sourceBeing$3$1) {
-          return (function(x0$2$2) {
-            var x0$2 = $as_T2(x0$2$2);
-            if ((x0$2 !== null)) {
-              var item$3 = $as_Lgame_Item(x0$2.$$und1__O());
-              var amount = x0$2.$$und2$mcI$sp__I();
-              return new $c_Lgame_TargetTaken().init___Lgame_Describable__I__Lgame_Item(sourceBeing$3$1.descriptor$1, amount, item$3)
-            } else {
-              throw new $c_s_MatchError().init___O(x0$2)
-            }
-          })
-        })(this$17$1, sourceBeing$3));
-        var this$57 = $m_sci_Iterable$();
-        var bf = this$57.ReusableCBFInstance$2;
-        var x$25 = $as_sc_TraversableOnce($f_sc_TraversableLike__map__F1__scg_CanBuildFrom__O(targetItemBag$2, f, bf)).toList__sci_List();
-        var this$58 = $m_sci_List$();
-        var bf$1 = this$58.ReusableCBFInstance$2;
-        return $as_sci_List($f_sc_TraversableLike__$$plus$plus$colon__sc_Traversable__scg_CanBuildFrom__O(x$24, x$25, bf$1))
-      })
-    })(this, sourceBeing, targetItemBag));
-    return $as_Lgame_GameState(this$59.doModify$1.apply__O__O__O(this$59.obj$1, mod$5))
-  } else if ($is_Lgame_Drank(certainOutcome)) {
-    var x5 = $as_Lgame_Drank(certainOutcome);
-    var potion = x5.potion$1;
-    var drinkNotification = new $c_Lgame_PotionDrank().init___Lgame_Describable__Lgame_Potion(sourceBeing.descriptor$1, potion);
-    var effectNotification = new $c_Lgame_BeingAffected().init___Lgame_Describable__Lgame_BeingEffect(sourceBeing.descriptor$1, potion.effect$1);
-    var jsx$2 = new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(this, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$18$1, sourcePosition$6) {
-      return (function(fresh$macro$54$2, fresh$macro$52$2) {
-        var fresh$macro$54 = $as_Lgame_GameState(fresh$macro$54$2);
-        var fresh$macro$52 = $as_F1(fresh$macro$52$2);
-        var this$60 = $m_sci_Map$();
-        var cbf$7 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$60);
+    })(this, amount$2$1, item$4));
+    var fresh$macro$60 = $as_Lgame_GameState(this$55.doModify$1.apply__O__O__O(this$55.obj$1, mod$4));
+    var this$64 = new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(fresh$macro$60, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$14$1, source$4$2) {
+      return (function(fresh$macro$59$2, fresh$macro$57$2) {
+        var fresh$macro$59 = $as_Lgame_GameState(fresh$macro$59$2);
+        var fresh$macro$57 = $as_F1(fresh$macro$57$2);
+        var this$56 = $m_sci_Map$();
+        var cbf$7 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$56);
         new $c_Lcom_softwaremill_quicklens_package$$anon$4().init___scg_CanBuildFrom(cbf$7);
-        var fa$11 = fresh$macro$54.dungeon$1.cells$1;
-        var arg1$11 = fa$11.apply__O__O(sourcePosition$6);
-        var fresh$macro$53 = $as_Ldungeon_Cell(arg1$11);
+        var fa$11 = fresh$macro$59.dungeon$1.cells$1;
+        var arg1$11 = fa$11.apply__O__O(source$4$2);
+        var fresh$macro$58 = $as_Ldungeon_Cell(arg1$11);
         new $c_Lcom_softwaremill_quicklens_package$$anon$3().init___();
-        var fa$12 = fresh$macro$53.being$1;
+        var fa$12 = fresh$macro$58.being$1;
         if (fa$12.isEmpty__Z()) {
-          var being$6 = $m_s_None$()
+          var being$5 = $m_s_None$()
         } else {
           var arg1$12 = fa$12.get__O();
-          var fresh$macro$51 = $as_Lgame_being_Being(arg1$12);
-          var being$6 = new $c_s_Some().init___O($as_Lgame_being_Being(fresh$macro$52.apply__O__O(fresh$macro$51)))
+          var fresh$macro$56 = $as_Lgame_being_Being(arg1$12);
+          var x$85 = $as_Lgame_ItemBag(fresh$macro$57.apply__O__O(new $c_Lgame_ItemBag().init___sci_Map(fresh$macro$56.itemBag$1))).items$1;
+          var x$86 = fresh$macro$56.descriptor$1;
+          var x$87 = fresh$macro$56.body$1;
+          var x$88 = fresh$macro$56.intelligence$1;
+          var being$5 = new $c_s_Some().init___O(new $c_Lgame_being_Being().init___Lgame_being_BeingDescriptor__Lgame_being_Body__Lgame_being_ai_Intelligence__sci_Map(x$86, x$87, x$88, x$85))
         };
-        var structure$6 = fresh$macro$53.structure$1;
-        var itemBag$6 = fresh$macro$53.itemBag$1;
-        var cells$7 = fa$11.updated__O__O__sci_Map(sourcePosition$6, new $c_Ldungeon_Cell().init___s_Option__s_Option__sci_Map(being$6, structure$6, itemBag$6));
-        var this$65 = fresh$macro$54.dungeon$1;
-        var area$7 = this$65.area$1;
-        var this$66 = fresh$macro$54.dungeon$1;
-        var entrancePosition$7 = this$66.entrancePosition$1;
+        var structure$5 = fresh$macro$58.structure$1;
+        var itemBag$5 = fresh$macro$58.itemBag$1;
+        var cells$7 = fa$11.updated__O__O__sci_Map(source$4$2, new $c_Ldungeon_Cell().init___s_Option__s_Option__sci_Map(being$5, structure$5, itemBag$5));
+        var this$61 = fresh$macro$59.dungeon$1;
+        var area$7 = this$61.area$1;
+        var this$62 = fresh$macro$59.dungeon$1;
+        var entrancePosition$7 = this$62.entrancePosition$1;
         var dungeon$7 = new $c_Ldungeon_Dungeon().init___sci_Map__Lmath_Area__Lmath_Position(cells$7, area$7, entrancePosition$7);
-        var revealedPositions$7 = fresh$macro$54.revealedPositions$1;
-        var notificationHistory$7 = fresh$macro$54.notificationHistory$1;
+        var revealedPositions$7 = fresh$macro$59.revealedPositions$1;
+        var notificationHistory$7 = fresh$macro$59.notificationHistory$1;
         return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(dungeon$7, revealedPositions$7, notificationHistory$7)
       })
-    })(this, sourcePosition)));
+    })(this, source$4)));
+    var mod$5 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$15$1, amount$2$3, item$4$2) {
+      return (function(x$27$2) {
+        var x$27 = $as_Lgame_ItemBag(x$27$2).items$1;
+        return new $c_Lgame_ItemBag().init___sci_Map($m_Lgame_ItemBag$().$$minus$extension1__sci_Map__Lgame_Item__I__sci_Map(x$27, item$4$2, amount$2$3))
+      })
+    })(this, amount$2$1, item$4));
+    return $as_Lgame_GameState(this$64.doModify$1.apply__O__O__O(this$64.obj$1, mod$5)).notify__Lgame_Notification__Lgame_GameState(new $c_Lgame_TargetDropsItem().init___Lgame_Describable__I__Lgame_Item(sourceBeing$4.descriptor$1, amount$2$1, item$4))
+  } else if ($is_Lgame_Moved(event)) {
+    var x6 = $as_Lgame_Moved(event);
+    var source$5 = x6.source$1;
+    var direction = x6.direction$1;
+    var sourceBeing$5 = $as_Lgame_being_Being($as_Ldungeon_Cell(this.dungeon$1.cells$1.apply__O__O(source$5)).being$1.get__O());
+    var destinationPosition = source$5.towards__Lmath_Direction__I__Lmath_Position(direction, 1);
+    var fresh$macro$68 = $as_Lgame_GameState(new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(this, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$16$1, source$5$1) {
+      return (function(fresh$macro$63$2, fresh$macro$62$2) {
+        var fresh$macro$63 = $as_Lgame_GameState(fresh$macro$63$2);
+        var fresh$macro$62 = $as_F1(fresh$macro$62$2);
+        var this$65 = $m_sci_Map$();
+        var cbf$8 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$65);
+        new $c_Lcom_softwaremill_quicklens_package$$anon$4().init___scg_CanBuildFrom(cbf$8);
+        var fa$13 = fresh$macro$63.dungeon$1.cells$1;
+        var arg1$13 = fa$13.apply__O__O(source$5$1);
+        var fresh$macro$61 = $as_Ldungeon_Cell(arg1$13);
+        var being$6 = $as_s_Option(fresh$macro$62.apply__O__O(fresh$macro$61.being$1));
+        var structure$6 = fresh$macro$61.structure$1;
+        var itemBag$6 = fresh$macro$61.itemBag$1;
+        var cells$8 = fa$13.updated__O__O__sci_Map(source$5$1, new $c_Ldungeon_Cell().init___s_Option__s_Option__sci_Map(being$6, structure$6, itemBag$6));
+        var this$68 = fresh$macro$63.dungeon$1;
+        var area$8 = this$68.area$1;
+        var this$69 = fresh$macro$63.dungeon$1;
+        var entrancePosition$8 = this$69.entrancePosition$1;
+        var dungeon$8 = new $c_Ldungeon_Dungeon().init___sci_Map__Lmath_Area__Lmath_Position(cells$8, area$8, entrancePosition$8);
+        var revealedPositions$8 = fresh$macro$63.revealedPositions$1;
+        var notificationHistory$8 = fresh$macro$63.notificationHistory$1;
+        return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(dungeon$8, revealedPositions$8, notificationHistory$8)
+      })
+    })(this, source$5))).setTo__O__O($m_s_None$()));
+    return $as_Lgame_GameState(new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(fresh$macro$68, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$17$1, destinationPosition$1) {
+      return (function(fresh$macro$67$2, fresh$macro$66$2) {
+        var fresh$macro$67 = $as_Lgame_GameState(fresh$macro$67$2);
+        var fresh$macro$66 = $as_F1(fresh$macro$66$2);
+        var this$71 = $m_sci_Map$();
+        var cbf$9 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$71);
+        new $c_Lcom_softwaremill_quicklens_package$$anon$4().init___scg_CanBuildFrom(cbf$9);
+        var fa$14 = fresh$macro$67.dungeon$1.cells$1;
+        var arg1$14 = fa$14.apply__O__O(destinationPosition$1);
+        var fresh$macro$65 = $as_Ldungeon_Cell(arg1$14);
+        var being$7 = $as_s_Option(fresh$macro$66.apply__O__O(fresh$macro$65.being$1));
+        var structure$7 = fresh$macro$65.structure$1;
+        var itemBag$7 = fresh$macro$65.itemBag$1;
+        var cells$9 = fa$14.updated__O__O__sci_Map(destinationPosition$1, new $c_Ldungeon_Cell().init___s_Option__s_Option__sci_Map(being$7, structure$7, itemBag$7));
+        var this$74 = fresh$macro$67.dungeon$1;
+        var area$9 = this$74.area$1;
+        var this$75 = fresh$macro$67.dungeon$1;
+        var entrancePosition$9 = this$75.entrancePosition$1;
+        var dungeon$9 = new $c_Ldungeon_Dungeon().init___sci_Map__Lmath_Area__Lmath_Position(cells$9, area$9, entrancePosition$9);
+        var revealedPositions$9 = fresh$macro$67.revealedPositions$1;
+        var notificationHistory$9 = fresh$macro$67.notificationHistory$1;
+        return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(dungeon$9, revealedPositions$9, notificationHistory$9)
+      })
+    })(this, destinationPosition))).setTo__O__O(new $c_s_Some().init___O(sourceBeing$5)))
+  } else if ($is_Lgame_PotionDrinked(event)) {
+    var x7 = $as_Lgame_PotionDrinked(event);
+    var source$6 = x7.source$1;
+    var potion = x7.potion$1;
+    var sourceBeing$6 = $as_Lgame_being_Being($as_Ldungeon_Cell(this.dungeon$1.cells$1.apply__O__O(source$6)).being$1.get__O());
+    var jsx$2 = new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(this, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$18$1, source$6$1) {
+      return (function(fresh$macro$72$2, fresh$macro$70$2) {
+        var fresh$macro$72 = $as_Lgame_GameState(fresh$macro$72$2);
+        var fresh$macro$70 = $as_F1(fresh$macro$70$2);
+        var this$77 = $m_sci_Map$();
+        var cbf$10 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$77);
+        new $c_Lcom_softwaremill_quicklens_package$$anon$4().init___scg_CanBuildFrom(cbf$10);
+        var fa$15 = fresh$macro$72.dungeon$1.cells$1;
+        var arg1$15 = fa$15.apply__O__O(source$6$1);
+        var fresh$macro$71 = $as_Ldungeon_Cell(arg1$15);
+        new $c_Lcom_softwaremill_quicklens_package$$anon$3().init___();
+        var fa$16 = fresh$macro$71.being$1;
+        if (fa$16.isEmpty__Z()) {
+          var being$8 = $m_s_None$()
+        } else {
+          var arg1$16 = fa$16.get__O();
+          var fresh$macro$69 = $as_Lgame_being_Being(arg1$16);
+          var being$8 = new $c_s_Some().init___O($as_Lgame_being_Being(fresh$macro$70.apply__O__O(fresh$macro$69)))
+        };
+        var structure$8 = fresh$macro$71.structure$1;
+        var itemBag$8 = fresh$macro$71.itemBag$1;
+        var cells$10 = fa$15.updated__O__O__sci_Map(source$6$1, new $c_Ldungeon_Cell().init___s_Option__s_Option__sci_Map(being$8, structure$8, itemBag$8));
+        var this$82 = fresh$macro$72.dungeon$1;
+        var area$10 = this$82.area$1;
+        var this$83 = fresh$macro$72.dungeon$1;
+        var entrancePosition$10 = this$83.entrancePosition$1;
+        var dungeon$10 = new $c_Ldungeon_Dungeon().init___sci_Map__Lmath_Area__Lmath_Position(cells$10, area$10, entrancePosition$10);
+        var revealedPositions$10 = fresh$macro$72.revealedPositions$1;
+        var notificationHistory$10 = fresh$macro$72.notificationHistory$1;
+        return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(dungeon$10, revealedPositions$10, notificationHistory$10)
+      })
+    })(this, source$6)));
     var x1$2 = potion.effect$1;
     var x = $m_Lgame_FullyHeal$();
     if ((!(x === x1$2))) {
       throw new $c_s_MatchError().init___O(x1$2)
     };
-    var fresh$macro$65 = $as_Lgame_GameState(jsx$2.setTo__O__O($as_Lgame_being_Being(new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(sourceBeing, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$19$1) {
-      return (function(fresh$macro$56$2, fresh$macro$57$2) {
-        var fresh$macro$56 = $as_Lgame_being_Being(fresh$macro$56$2);
-        var fresh$macro$57 = $as_F1(fresh$macro$57$2);
-        var x1$3 = fresh$macro$56.body$1;
-        if ($is_Lgame_being_ArachnoidBody(x1$3)) {
-          var x2$4 = $as_Lgame_being_ArachnoidBody(x1$3);
-          var x$86 = $as_Lgame_being_Health(fresh$macro$57.apply__O__O(new $c_Lgame_being_Health().init___I(fresh$macro$56.body$1.health__I()))).value$1;
-          var x$87 = x2$4.fullHealth$1;
-          var x$91 = new $c_Lgame_being_ArachnoidBody().init___I__I(x$87, x$86)
+    var fresh$macro$83 = $as_Lgame_GameState(jsx$2.setTo__O__O($as_Lgame_being_Being(new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(sourceBeing$6, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$19$1) {
+      return (function(fresh$macro$74$2, fresh$macro$75$2) {
+        var fresh$macro$74 = $as_Lgame_being_Being(fresh$macro$74$2);
+        var fresh$macro$75 = $as_F1(fresh$macro$75$2);
+        var x1$3 = fresh$macro$74.body$1;
+        if ($is_Lgame_being_HumanoidBody(x1$3)) {
+          var x2$4 = $as_Lgame_being_HumanoidBody(x1$3);
+          var x$89 = $as_Lgame_being_Health(fresh$macro$75.apply__O__O(new $c_Lgame_being_Health().init___I(fresh$macro$74.body$1.health__I()))).value$1;
+          var x$90 = x2$4.fullHealth$1;
+          var x$91 = x2$4.holding$1;
+          var x$94 = new $c_Lgame_being_HumanoidBody().init___I__I__s_Option(x$90, x$89, x$91)
         } else {
-          if ((!$is_Lgame_being_HumanoidBody(x1$3))) {
+          if ((!$is_Lgame_being_ArachnoidBody(x1$3))) {
             throw new $c_s_MatchError().init___O(x1$3)
           };
-          var x3$1 = $as_Lgame_being_HumanoidBody(x1$3);
-          var x$88 = $as_Lgame_being_Health(fresh$macro$57.apply__O__O(new $c_Lgame_being_Health().init___I(fresh$macro$56.body$1.health__I()))).value$1;
-          var x$89 = x3$1.fullHealth$1;
-          var x$90 = x3$1.holding$1;
-          var x$91 = new $c_Lgame_being_HumanoidBody().init___I__I__s_Option(x$89, x$88, x$90)
+          var x3$1 = $as_Lgame_being_ArachnoidBody(x1$3);
+          var x$92 = $as_Lgame_being_Health(fresh$macro$75.apply__O__O(new $c_Lgame_being_Health().init___I(fresh$macro$74.body$1.health__I()))).value$1;
+          var x$93 = x3$1.fullHealth$1;
+          var x$94 = new $c_Lgame_being_ArachnoidBody().init___I__I(x$93, x$92)
         };
-        var x$92 = fresh$macro$56.descriptor$1;
-        var x$93 = fresh$macro$56.intelligence$1;
-        var x$94 = fresh$macro$56.itemBag$1;
-        return new $c_Lgame_being_Being().init___Lgame_being_BeingDescriptor__Lgame_being_Body__Lgame_being_ai_Intelligence__sci_Map(x$92, x$91, x$93, x$94)
+        var x$95 = fresh$macro$74.descriptor$1;
+        var x$96 = fresh$macro$74.intelligence$1;
+        var x$97 = fresh$macro$74.itemBag$1;
+        return new $c_Lgame_being_Being().init___Lgame_being_BeingDescriptor__Lgame_being_Body__Lgame_being_ai_Intelligence__sci_Map(x$95, x$94, x$96, x$97)
       })
-    })(this))).setTo__O__O(new $c_Lgame_being_Health().init___I(sourceBeing.body$1.fullHealth__I())))));
-    var this$76 = new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(fresh$macro$65, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$20$1, sourcePosition$7) {
-      return (function(fresh$macro$64$2, fresh$macro$62$2) {
-        var fresh$macro$64 = $as_Lgame_GameState(fresh$macro$64$2);
-        var fresh$macro$62 = $as_F1(fresh$macro$62$2);
-        var this$68 = $m_sci_Map$();
-        var cbf$8 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$68);
-        new $c_Lcom_softwaremill_quicklens_package$$anon$4().init___scg_CanBuildFrom(cbf$8);
-        var fa$13 = fresh$macro$64.dungeon$1.cells$1;
-        var arg1$13 = fa$13.apply__O__O(sourcePosition$7);
-        var fresh$macro$63 = $as_Ldungeon_Cell(arg1$13);
+    })(this))).setTo__O__O(new $c_Lgame_being_Health().init___I(sourceBeing$6.body$1.fullHealth__I())))));
+    var this$93 = new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(fresh$macro$83, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$20$1, source$6$2) {
+      return (function(fresh$macro$82$2, fresh$macro$80$2) {
+        var fresh$macro$82 = $as_Lgame_GameState(fresh$macro$82$2);
+        var fresh$macro$80 = $as_F1(fresh$macro$80$2);
+        var this$85 = $m_sci_Map$();
+        var cbf$11 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$85);
+        new $c_Lcom_softwaremill_quicklens_package$$anon$4().init___scg_CanBuildFrom(cbf$11);
+        var fa$17 = fresh$macro$82.dungeon$1.cells$1;
+        var arg1$17 = fa$17.apply__O__O(source$6$2);
+        var fresh$macro$81 = $as_Ldungeon_Cell(arg1$17);
         new $c_Lcom_softwaremill_quicklens_package$$anon$3().init___();
-        var fa$14 = fresh$macro$63.being$1;
-        if (fa$14.isEmpty__Z()) {
-          var being$7 = $m_s_None$()
+        var fa$18 = fresh$macro$81.being$1;
+        if (fa$18.isEmpty__Z()) {
+          var being$9 = $m_s_None$()
         } else {
-          var arg1$14 = fa$14.get__O();
-          var fresh$macro$61 = $as_Lgame_being_Being(arg1$14);
-          var x$95 = $as_Lgame_ItemBag(fresh$macro$62.apply__O__O(new $c_Lgame_ItemBag().init___sci_Map(fresh$macro$61.itemBag$1))).items$1;
-          var x$96 = fresh$macro$61.descriptor$1;
-          var x$97 = fresh$macro$61.body$1;
-          var x$98 = fresh$macro$61.intelligence$1;
-          var being$7 = new $c_s_Some().init___O(new $c_Lgame_being_Being().init___Lgame_being_BeingDescriptor__Lgame_being_Body__Lgame_being_ai_Intelligence__sci_Map(x$96, x$97, x$98, x$95))
+          var arg1$18 = fa$18.get__O();
+          var fresh$macro$79 = $as_Lgame_being_Being(arg1$18);
+          var x$98 = $as_Lgame_ItemBag(fresh$macro$80.apply__O__O(new $c_Lgame_ItemBag().init___sci_Map(fresh$macro$79.itemBag$1))).items$1;
+          var x$99 = fresh$macro$79.descriptor$1;
+          var x$100 = fresh$macro$79.body$1;
+          var x$101 = fresh$macro$79.intelligence$1;
+          var being$9 = new $c_s_Some().init___O(new $c_Lgame_being_Being().init___Lgame_being_BeingDescriptor__Lgame_being_Body__Lgame_being_ai_Intelligence__sci_Map(x$99, x$100, x$101, x$98))
         };
-        var structure$7 = fresh$macro$63.structure$1;
-        var itemBag$7 = fresh$macro$63.itemBag$1;
-        var cells$8 = fa$13.updated__O__O__sci_Map(sourcePosition$7, new $c_Ldungeon_Cell().init___s_Option__s_Option__sci_Map(being$7, structure$7, itemBag$7));
-        var this$73 = fresh$macro$64.dungeon$1;
-        var area$8 = this$73.area$1;
-        var this$74 = fresh$macro$64.dungeon$1;
-        var entrancePosition$8 = this$74.entrancePosition$1;
-        var dungeon$8 = new $c_Ldungeon_Dungeon().init___sci_Map__Lmath_Area__Lmath_Position(cells$8, area$8, entrancePosition$8);
-        var revealedPositions$8 = fresh$macro$64.revealedPositions$1;
-        var notificationHistory$8 = fresh$macro$64.notificationHistory$1;
-        return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(dungeon$8, revealedPositions$8, notificationHistory$8)
+        var structure$9 = fresh$macro$81.structure$1;
+        var itemBag$9 = fresh$macro$81.itemBag$1;
+        var cells$11 = fa$17.updated__O__O__sci_Map(source$6$2, new $c_Ldungeon_Cell().init___s_Option__s_Option__sci_Map(being$9, structure$9, itemBag$9));
+        var this$90 = fresh$macro$82.dungeon$1;
+        var area$11 = this$90.area$1;
+        var this$91 = fresh$macro$82.dungeon$1;
+        var entrancePosition$11 = this$91.entrancePosition$1;
+        var dungeon$11 = new $c_Ldungeon_Dungeon().init___sci_Map__Lmath_Area__Lmath_Position(cells$11, area$11, entrancePosition$11);
+        var revealedPositions$11 = fresh$macro$82.revealedPositions$1;
+        var notificationHistory$11 = fresh$macro$82.notificationHistory$1;
+        return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(dungeon$11, revealedPositions$11, notificationHistory$11)
       })
-    })(this, sourcePosition)));
+    })(this, source$6)));
     var mod$6 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$21$1, potion$1) {
-      return (function(x$29$2) {
-        var x$29 = $as_Lgame_ItemBag(x$29$2).items$1;
-        return new $c_Lgame_ItemBag().init___sci_Map($m_Lgame_ItemBag$().$$minus$extension__sci_Map__Lgame_Item__sci_Map(x$29, potion$1))
+      return (function(x$33$2) {
+        var x$33 = $as_Lgame_ItemBag(x$33$2).items$1;
+        return new $c_Lgame_ItemBag().init___sci_Map($m_Lgame_ItemBag$().$$minus$extension0__sci_Map__Lgame_Item__sci_Map(x$33, potion$1))
       })
     })(this, potion));
-    var fresh$macro$68 = $as_Lgame_GameState(this$76.doModify$1.apply__O__O__O(this$76.obj$1, mod$6));
-    var this$78 = new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(fresh$macro$68, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$22$1) {
-      return (function(fresh$macro$66$2, fresh$macro$67$2) {
-        var fresh$macro$66 = $as_Lgame_GameState(fresh$macro$66$2);
-        var fresh$macro$67 = $as_F1(fresh$macro$67$2);
-        var x$99 = $as_sci_List(fresh$macro$67.apply__O__O(fresh$macro$66.notificationHistory$1));
-        var x$100 = fresh$macro$66.dungeon$1;
-        var x$101 = fresh$macro$66.revealedPositions$1;
-        return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(x$100, x$101, x$99)
-      })
-    })(this)));
-    var mod$7 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$23$1, drinkNotification$1, effectNotification$1) {
-      return (function(x$31$2) {
-        var x$31 = $as_sci_List(x$31$2);
-        var this$77 = new $c_sci_$colon$colon().init___O__sci_List(drinkNotification$1, x$31);
-        return new $c_sci_$colon$colon().init___O__sci_List(effectNotification$1, this$77)
-      })
-    })(this, drinkNotification, effectNotification));
-    return $as_Lgame_GameState(this$78.doModify$1.apply__O__O__O(this$78.obj$1, mod$7))
-  } else if ($is_Lgame_DoorOpened(certainOutcome)) {
-    var x6 = $as_Lgame_DoorOpened(certainOutcome);
-    var target = x6.target$1;
+    return $as_Lgame_GameState(this$93.doModify$1.apply__O__O__O(this$93.obj$1, mod$6)).notify__Lgame_Notification__Lgame_GameState(new $c_Lgame_PotionDrank().init___Lgame_Describable__Lgame_Potion(sourceBeing$6.descriptor$1, potion)).notify__Lgame_Notification__Lgame_GameState(new $c_Lgame_BeingAffected().init___Lgame_Describable__Lgame_BeingEffect(sourceBeing$6.descriptor$1, potion.effect$1))
+  } else if ($is_Lgame_DoorOpened(event)) {
+    var x8 = $as_Lgame_DoorOpened(event);
+    var source$7 = x8.source$1;
+    var target = x8.target$1;
+    var sourceBeing$7 = $as_Lgame_being_Being($as_Ldungeon_Cell(this.dungeon$1.cells$1.apply__O__O(source$7)).being$1.get__O());
     var x1$3$1 = $as_Lgame_Structure($as_Ldungeon_Cell(this.dungeon$1.cells$1.apply__O__O(target)).structure$1.get__O());
     if ($is_Lgame_Openable(x1$3$1)) {
       var x2$2$2 = $as_Lgame_Openable(x1$3$1);
-      var fresh$macro$75 = $as_Lgame_GameState(new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(this, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$24$1, target$1) {
-        return (function(fresh$macro$71$2, fresh$macro$70$2) {
-          var fresh$macro$71 = $as_Lgame_GameState(fresh$macro$71$2);
-          var fresh$macro$70 = $as_F1(fresh$macro$70$2);
-          var this$79 = $m_sci_Map$();
-          var cbf$9 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$79);
-          new $c_Lcom_softwaremill_quicklens_package$$anon$4().init___scg_CanBuildFrom(cbf$9);
-          var fa$15 = fresh$macro$71.dungeon$1.cells$1;
-          var arg1$15 = fa$15.apply__O__O(target$1);
-          var fresh$macro$69 = $as_Ldungeon_Cell(arg1$15);
-          var x$102 = $as_s_Option(fresh$macro$70.apply__O__O(fresh$macro$69.structure$1));
-          var x$103 = fresh$macro$69.being$1;
-          var x$104 = fresh$macro$69.itemBag$1;
-          var cells$9 = fa$15.updated__O__O__sci_Map(target$1, new $c_Ldungeon_Cell().init___s_Option__s_Option__sci_Map(x$103, x$102, x$104));
-          var this$82 = fresh$macro$71.dungeon$1;
-          var area$9 = this$82.area$1;
-          var this$83 = fresh$macro$71.dungeon$1;
-          var entrancePosition$9 = this$83.entrancePosition$1;
-          var dungeon$9 = new $c_Ldungeon_Dungeon().init___sci_Map__Lmath_Area__Lmath_Position(cells$9, area$9, entrancePosition$9);
-          var revealedPositions$9 = fresh$macro$71.revealedPositions$1;
-          var notificationHistory$9 = fresh$macro$71.notificationHistory$1;
-          return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(dungeon$9, revealedPositions$9, notificationHistory$9)
+      return $as_Lgame_GameState(new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(this, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$22$1, target$1) {
+        return (function(fresh$macro$86$2, fresh$macro$85$2) {
+          var fresh$macro$86 = $as_Lgame_GameState(fresh$macro$86$2);
+          var fresh$macro$85 = $as_F1(fresh$macro$85$2);
+          var this$94 = $m_sci_Map$();
+          var cbf$12 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$94);
+          new $c_Lcom_softwaremill_quicklens_package$$anon$4().init___scg_CanBuildFrom(cbf$12);
+          var fa$19 = fresh$macro$86.dungeon$1.cells$1;
+          var arg1$19 = fa$19.apply__O__O(target$1);
+          var fresh$macro$84 = $as_Ldungeon_Cell(arg1$19);
+          var x$102 = $as_s_Option(fresh$macro$85.apply__O__O(fresh$macro$84.structure$1));
+          var x$103 = fresh$macro$84.being$1;
+          var x$104 = fresh$macro$84.itemBag$1;
+          var cells$12 = fa$19.updated__O__O__sci_Map(target$1, new $c_Ldungeon_Cell().init___s_Option__s_Option__sci_Map(x$103, x$102, x$104));
+          var this$97 = fresh$macro$86.dungeon$1;
+          var area$12 = this$97.area$1;
+          var this$98 = fresh$macro$86.dungeon$1;
+          var entrancePosition$12 = this$98.entrancePosition$1;
+          var dungeon$12 = new $c_Ldungeon_Dungeon().init___sci_Map__Lmath_Area__Lmath_Position(cells$12, area$12, entrancePosition$12);
+          var revealedPositions$12 = fresh$macro$86.revealedPositions$1;
+          var notificationHistory$12 = fresh$macro$86.notificationHistory$1;
+          return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(dungeon$12, revealedPositions$12, notificationHistory$12)
         })
-      })(this, target))).setTo__O__O(new $c_s_Some().init___O($m_Lgame_OpenedDoor$())));
-      var this$86 = new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(fresh$macro$75, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$25$1) {
-        return (function(fresh$macro$73$2, fresh$macro$74$2) {
-          var fresh$macro$73 = $as_Lgame_GameState(fresh$macro$73$2);
-          var fresh$macro$74 = $as_F1(fresh$macro$74$2);
-          var x$105 = $as_sci_List(fresh$macro$74.apply__O__O(fresh$macro$73.notificationHistory$1));
-          var x$106 = fresh$macro$73.dungeon$1;
-          var x$107 = fresh$macro$73.revealedPositions$1;
-          return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(x$106, x$107, x$105)
-        })
-      })(this)));
-      var mod$8 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$26$1, sourceBeing$4, x2$2$3) {
-        return (function(x$36$2) {
-          var x$36 = $as_sci_List(x$36$2);
-          var x$37 = new $c_Lgame_TargetOpened().init___Lgame_Describable__Lgame_Describable(sourceBeing$4.descriptor$1, x2$2$3);
-          var this$85 = $m_sci_List$();
-          return $as_sci_List(x$36.$$plus$colon__O__scg_CanBuildFrom__O(x$37, this$85.ReusableCBFInstance$2))
-        })
-      })(this, sourceBeing, x2$2$2));
-      return $as_Lgame_GameState(this$86.doModify$1.apply__O__O__O(this$86.obj$1, mod$8))
+      })(this, target))).setTo__O__O(new $c_s_Some().init___O($m_Lgame_OpenedDoor$()))).notify__Lgame_Notification__Lgame_GameState(new $c_Lgame_TargetOpened().init___Lgame_Describable__Lgame_Describable(sourceBeing$7.descriptor$1, x2$2$2))
     } else {
       return this
     }
-  } else if ($is_Lgame_Damaged(certainOutcome)) {
-    var x7 = $as_Lgame_Damaged(certainOutcome);
-    var target$2 = x7.target$1;
-    var damage = x7.value$1;
-    var fresh$macro$80 = $as_Lgame_being_Being($as_Ldungeon_Cell(this.dungeon$1.cells$1.get__O__s_Option(target$2).get__O()).being$1.get__O());
-    var this$89 = new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(fresh$macro$80, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$27$1) {
-      return (function(fresh$macro$76$2, fresh$macro$77$2) {
-        var fresh$macro$76 = $as_Lgame_being_Being(fresh$macro$76$2);
-        var fresh$macro$77 = $as_F1(fresh$macro$77$2);
-        var x1$4 = fresh$macro$76.body$1;
-        if ($is_Lgame_being_ArachnoidBody(x1$4)) {
-          var x2$5 = $as_Lgame_being_ArachnoidBody(x1$4);
-          fresh$macro$76.body$1.health__I();
-          var value = fresh$macro$77.apply$mcII$sp__I__I(fresh$macro$76.body$1.health__I());
-          var x$109 = x2$5.fullHealth$1;
-          var x$113 = new $c_Lgame_being_ArachnoidBody().init___I__I(x$109, value)
+  } else if ($is_Lgame_Died(event)) {
+    var x9 = $as_Lgame_Died(event);
+    var target$2 = x9.source$1;
+    var targetBeing = $as_Lgame_being_Being($as_Ldungeon_Cell(this.dungeon$1.cells$1.get__O__s_Option(target$2).get__O()).being$1.get__O());
+    return $as_Lgame_GameState(new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(this, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$23$1, target$2$1) {
+      return (function(fresh$macro$90$2, fresh$macro$89$2) {
+        var fresh$macro$90 = $as_Lgame_GameState(fresh$macro$90$2);
+        var fresh$macro$89 = $as_F1(fresh$macro$89$2);
+        var this$100 = $m_sci_Map$();
+        var cbf$13 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$100);
+        new $c_Lcom_softwaremill_quicklens_package$$anon$4().init___scg_CanBuildFrom(cbf$13);
+        var fa$20 = fresh$macro$90.dungeon$1.cells$1;
+        var arg1$20 = fa$20.apply__O__O(target$2$1);
+        var fresh$macro$88 = $as_Ldungeon_Cell(arg1$20);
+        var being$10 = $as_s_Option(fresh$macro$89.apply__O__O(fresh$macro$88.being$1));
+        var structure$10 = fresh$macro$88.structure$1;
+        var itemBag$10 = fresh$macro$88.itemBag$1;
+        var cells$13 = fa$20.updated__O__O__sci_Map(target$2$1, new $c_Ldungeon_Cell().init___s_Option__s_Option__sci_Map(being$10, structure$10, itemBag$10));
+        var this$103 = fresh$macro$90.dungeon$1;
+        var area$13 = this$103.area$1;
+        var this$104 = fresh$macro$90.dungeon$1;
+        var entrancePosition$13 = this$104.entrancePosition$1;
+        var dungeon$13 = new $c_Ldungeon_Dungeon().init___sci_Map__Lmath_Area__Lmath_Position(cells$13, area$13, entrancePosition$13);
+        var revealedPositions$13 = fresh$macro$90.revealedPositions$1;
+        var notificationHistory$13 = fresh$macro$90.notificationHistory$1;
+        return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(dungeon$13, revealedPositions$13, notificationHistory$13)
+      })
+    })(this, target$2))).setTo__O__O($m_s_None$())).notify__Lgame_Notification__Lgame_GameState(new $c_Lgame_TargetDies().init___Lgame_Describable(targetBeing.descriptor$1))
+  } else if ($is_Lgame_Damaged(event)) {
+    var x10 = $as_Lgame_Damaged(event);
+    var source$8 = x10.source$1;
+    var target$3 = x10.target$1;
+    var damage = x10.value$1;
+    var sourceBeing$8 = $as_Lgame_being_Being($as_Ldungeon_Cell(this.dungeon$1.cells$1.apply__O__O(source$8)).being$1.get__O());
+    var fresh$macro$96 = $as_Lgame_being_Being($as_Ldungeon_Cell(this.dungeon$1.cells$1.get__O__s_Option(target$3).get__O()).being$1.get__O());
+    var this$108 = new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(fresh$macro$96, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$24$1) {
+      return (function(fresh$macro$92$2, fresh$macro$93$2) {
+        var fresh$macro$92 = $as_Lgame_being_Being(fresh$macro$92$2);
+        var fresh$macro$93 = $as_F1(fresh$macro$93$2);
+        var x1$4 = fresh$macro$92.body$1;
+        if ($is_Lgame_being_HumanoidBody(x1$4)) {
+          var x2$5 = $as_Lgame_being_HumanoidBody(x1$4);
+          fresh$macro$92.body$1.health__I();
+          var value = fresh$macro$93.apply$mcII$sp__I__I(fresh$macro$92.body$1.health__I());
+          var x$106 = x2$5.fullHealth$1;
+          var x$107 = x2$5.holding$1;
+          var x$110 = new $c_Lgame_being_HumanoidBody().init___I__I__s_Option(x$106, value, x$107)
         } else {
-          if ((!$is_Lgame_being_HumanoidBody(x1$4))) {
+          if ((!$is_Lgame_being_ArachnoidBody(x1$4))) {
             throw new $c_s_MatchError().init___O(x1$4)
           };
-          var x3$2 = $as_Lgame_being_HumanoidBody(x1$4);
-          fresh$macro$76.body$1.health__I();
-          var value$1 = fresh$macro$77.apply$mcII$sp__I__I(fresh$macro$76.body$1.health__I());
-          var x$111 = x3$2.fullHealth$1;
-          var x$112 = x3$2.holding$1;
-          var x$113 = new $c_Lgame_being_HumanoidBody().init___I__I__s_Option(x$111, value$1, x$112)
+          var x3$2 = $as_Lgame_being_ArachnoidBody(x1$4);
+          fresh$macro$92.body$1.health__I();
+          var value$1 = fresh$macro$93.apply$mcII$sp__I__I(fresh$macro$92.body$1.health__I());
+          var x$109 = x3$2.fullHealth$1;
+          var x$110 = new $c_Lgame_being_ArachnoidBody().init___I__I(x$109, value$1)
         };
-        var x$114 = fresh$macro$76.descriptor$1;
-        var x$115 = fresh$macro$76.intelligence$1;
-        var x$116 = fresh$macro$76.itemBag$1;
-        return new $c_Lgame_being_Being().init___Lgame_being_BeingDescriptor__Lgame_being_Body__Lgame_being_ai_Intelligence__sci_Map(x$114, x$113, x$115, x$116)
+        var x$111 = fresh$macro$92.descriptor$1;
+        var x$112 = fresh$macro$92.intelligence$1;
+        var x$113 = fresh$macro$92.itemBag$1;
+        return new $c_Lgame_being_Being().init___Lgame_being_BeingDescriptor__Lgame_being_Body__Lgame_being_ai_Intelligence__sci_Map(x$111, x$110, x$112, x$113)
       })
     })(this)));
-    var mod$9 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$28$1, damage$1) {
-      return (function(x$39$2) {
-        var x$39 = $uI(x$39$2);
-        return ((x$39 - damage$1) | 0)
+    var mod$7 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$25$1, damage$1) {
+      return (function(x$37$2) {
+        var x$37 = $uI(x$37$2);
+        return ((x$37 - damage$1) | 0)
       })
     })(this, damage));
-    var targetBeing = $as_Lgame_being_Being(this$89.doModify$1.apply__O__O__O(this$89.obj$1, mod$9));
-    var this$90 = targetBeing.body$1;
-    if (this$90.destroyed__Z()) {
-      var fresh$macro$88 = $as_Lgame_GameState(new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(this, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$29$1, target$2$1) {
-        return (function(fresh$macro$83$2, fresh$macro$82$2) {
-          var fresh$macro$83 = $as_Lgame_GameState(fresh$macro$83$2);
-          var fresh$macro$82 = $as_F1(fresh$macro$82$2);
-          var this$91 = $m_sci_Map$();
-          var cbf$10 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$91);
-          new $c_Lcom_softwaremill_quicklens_package$$anon$4().init___scg_CanBuildFrom(cbf$10);
-          var fa$16 = fresh$macro$83.dungeon$1.cells$1;
-          var arg1$16 = fa$16.apply__O__O(target$2$1);
-          var fresh$macro$81 = $as_Ldungeon_Cell(arg1$16);
-          var being$8 = $as_s_Option(fresh$macro$82.apply__O__O(fresh$macro$81.being$1));
-          var structure$8 = fresh$macro$81.structure$1;
-          var itemBag$8 = fresh$macro$81.itemBag$1;
-          var cells$10 = fa$16.updated__O__O__sci_Map(target$2$1, new $c_Ldungeon_Cell().init___s_Option__s_Option__sci_Map(being$8, structure$8, itemBag$8));
-          var this$94 = fresh$macro$83.dungeon$1;
-          var area$10 = this$94.area$1;
-          var this$95 = fresh$macro$83.dungeon$1;
-          var entrancePosition$10 = this$95.entrancePosition$1;
-          var dungeon$10 = new $c_Ldungeon_Dungeon().init___sci_Map__Lmath_Area__Lmath_Position(cells$10, area$10, entrancePosition$10);
-          var revealedPositions$10 = fresh$macro$83.revealedPositions$1;
-          var notificationHistory$10 = fresh$macro$83.notificationHistory$1;
-          return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(dungeon$10, revealedPositions$10, notificationHistory$10)
-        })
-      })(this, target$2))).setTo__O__O($m_s_None$()));
-      var this$103 = new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(fresh$macro$88, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$30$1, target$2$2) {
-        return (function(fresh$macro$87$2, fresh$macro$86$2) {
-          var fresh$macro$87 = $as_Lgame_GameState(fresh$macro$87$2);
-          var fresh$macro$86 = $as_F1(fresh$macro$86$2);
-          var this$97 = $m_sci_Map$();
-          var cbf$11 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$97);
-          new $c_Lcom_softwaremill_quicklens_package$$anon$4().init___scg_CanBuildFrom(cbf$11);
-          var fa$17 = fresh$macro$87.dungeon$1.cells$1;
-          var arg1$17 = fa$17.apply__O__O(target$2$2);
-          var fresh$macro$85 = $as_Ldungeon_Cell(arg1$17);
-          var x$117 = $as_Lgame_ItemBag(fresh$macro$86.apply__O__O(new $c_Lgame_ItemBag().init___sci_Map(fresh$macro$85.itemBag$1))).items$1;
-          var x$118 = fresh$macro$85.being$1;
-          var x$119 = fresh$macro$85.structure$1;
-          var cells$11 = fa$17.updated__O__O__sci_Map(target$2$2, new $c_Ldungeon_Cell().init___s_Option__s_Option__sci_Map(x$118, x$119, x$117));
-          var this$100 = fresh$macro$87.dungeon$1;
-          var area$11 = this$100.area$1;
-          var this$101 = fresh$macro$87.dungeon$1;
-          var entrancePosition$11 = this$101.entrancePosition$1;
-          var dungeon$11 = new $c_Ldungeon_Dungeon().init___sci_Map__Lmath_Area__Lmath_Position(cells$11, area$11, entrancePosition$11);
-          var revealedPositions$11 = fresh$macro$87.revealedPositions$1;
-          var notificationHistory$11 = fresh$macro$87.notificationHistory$1;
-          return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(dungeon$11, revealedPositions$11, notificationHistory$11)
-        })
-      })(this, target$2)));
-      var mod$10 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$31$1, targetBeing$1) {
-        return (function(x$43$2) {
-          var x$43 = $as_Lgame_ItemBag(x$43$2).items$1;
-          return new $c_Lgame_ItemBag().init___sci_Map($m_Lgame_ItemBag$().$$plus$extension0__sci_Map__sci_Map__sci_Map(x$43, targetBeing$1.itemBag$1))
-        })
-      })(this, targetBeing));
-      var fresh$macro$95 = $as_Lgame_GameState(this$103.doModify$1.apply__O__O__O(this$103.obj$1, mod$10))
-    } else {
-      var fresh$macro$95 = $as_Lgame_GameState(new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(this, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$32$1, target$2$3) {
-        return (function(fresh$macro$91$2, fresh$macro$90$2) {
-          var fresh$macro$91 = $as_Lgame_GameState(fresh$macro$91$2);
-          var fresh$macro$90 = $as_F1(fresh$macro$90$2);
-          var this$104 = $m_sci_Map$();
-          var cbf$12 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$104);
-          new $c_Lcom_softwaremill_quicklens_package$$anon$4().init___scg_CanBuildFrom(cbf$12);
-          var fa$18 = fresh$macro$91.dungeon$1.cells$1;
-          var arg1$18 = fa$18.apply__O__O(target$2$3);
-          var fresh$macro$89 = $as_Ldungeon_Cell(arg1$18);
-          var being$9 = $as_s_Option(fresh$macro$90.apply__O__O(fresh$macro$89.being$1));
-          var structure$9 = fresh$macro$89.structure$1;
-          var itemBag$9 = fresh$macro$89.itemBag$1;
-          var cells$12 = fa$18.updated__O__O__sci_Map(target$2$3, new $c_Ldungeon_Cell().init___s_Option__s_Option__sci_Map(being$9, structure$9, itemBag$9));
-          var this$107 = fresh$macro$91.dungeon$1;
-          var area$12 = this$107.area$1;
-          var this$108 = fresh$macro$91.dungeon$1;
-          var entrancePosition$12 = this$108.entrancePosition$1;
-          var dungeon$12 = new $c_Ldungeon_Dungeon().init___sci_Map__Lmath_Area__Lmath_Position(cells$12, area$12, entrancePosition$12);
-          var revealedPositions$12 = fresh$macro$91.revealedPositions$1;
-          var notificationHistory$12 = fresh$macro$91.notificationHistory$1;
-          return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(dungeon$12, revealedPositions$12, notificationHistory$12)
-        })
-      })(this, target$2))).setTo__O__O(new $c_s_Some().init___O(targetBeing)))
-    };
-    var this$112 = new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(fresh$macro$95, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$33$1) {
-      return (function(fresh$macro$93$2, fresh$macro$94$2) {
-        var fresh$macro$93 = $as_Lgame_GameState(fresh$macro$93$2);
-        var fresh$macro$94 = $as_F1(fresh$macro$94$2);
-        var x$120 = $as_sci_List(fresh$macro$94.apply__O__O(fresh$macro$93.notificationHistory$1));
-        var x$121 = fresh$macro$93.dungeon$1;
-        var x$122 = fresh$macro$93.revealedPositions$1;
-        return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(x$121, x$122, x$120)
+    var targetBeing$2 = $as_Lgame_being_Being(this$108.doModify$1.apply__O__O__O(this$108.obj$1, mod$7));
+    return $as_Lgame_GameState(new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(this, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function(this$26$1, target$3$1) {
+      return (function(fresh$macro$99$2, fresh$macro$98$2) {
+        var fresh$macro$99 = $as_Lgame_GameState(fresh$macro$99$2);
+        var fresh$macro$98 = $as_F1(fresh$macro$98$2);
+        var this$109 = $m_sci_Map$();
+        var cbf$14 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$109);
+        new $c_Lcom_softwaremill_quicklens_package$$anon$4().init___scg_CanBuildFrom(cbf$14);
+        var fa$21 = fresh$macro$99.dungeon$1.cells$1;
+        var arg1$21 = fa$21.apply__O__O(target$3$1);
+        var fresh$macro$97 = $as_Ldungeon_Cell(arg1$21);
+        var being$11 = $as_s_Option(fresh$macro$98.apply__O__O(fresh$macro$97.being$1));
+        var structure$11 = fresh$macro$97.structure$1;
+        var itemBag$11 = fresh$macro$97.itemBag$1;
+        var cells$14 = fa$21.updated__O__O__sci_Map(target$3$1, new $c_Ldungeon_Cell().init___s_Option__s_Option__sci_Map(being$11, structure$11, itemBag$11));
+        var this$112 = fresh$macro$99.dungeon$1;
+        var area$14 = this$112.area$1;
+        var this$113 = fresh$macro$99.dungeon$1;
+        var entrancePosition$14 = this$113.entrancePosition$1;
+        var dungeon$14 = new $c_Ldungeon_Dungeon().init___sci_Map__Lmath_Area__Lmath_Position(cells$14, area$14, entrancePosition$14);
+        var revealedPositions$14 = fresh$macro$99.revealedPositions$1;
+        var notificationHistory$14 = fresh$macro$99.notificationHistory$1;
+        return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(dungeon$14, revealedPositions$14, notificationHistory$14)
       })
-    })(this)));
-    var mod$11 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$34$1, sourceBeing$5, damage$2, targetBeing$2) {
-      return (function(x$46$2) {
-        var x$46 = $as_sci_List(x$46$2);
-        var jsx$4 = this$34$1.deathNotifications$1__p1__Lgame_being_Being__sci_List(targetBeing$2);
-        var jsx$3 = this$34$1.hitNotifications$1__p1__Lgame_being_Being__I__Lgame_being_Being__sci_List(sourceBeing$5, damage$2, targetBeing$2);
-        var this$110 = $m_sci_List$();
-        var x$47 = $as_sci_List(jsx$4.$$plus$plus__sc_GenTraversableOnce__scg_CanBuildFrom__O(jsx$3, this$110.ReusableCBFInstance$2));
-        var this$111 = $m_sci_List$();
-        var bf$2 = this$111.ReusableCBFInstance$2;
-        return $as_sci_List($f_sc_TraversableLike__$$plus$plus$colon__sc_Traversable__scg_CanBuildFrom__O(x$46, x$47, bf$2))
-      })
-    })(this, sourceBeing, damage, targetBeing));
-    return $as_Lgame_GameState(this$112.doModify$1.apply__O__O__O(this$112.obj$1, mod$11))
+    })(this, target$3))).setTo__O__O(new $c_s_Some().init___O(targetBeing$2))).notify__Lgame_Notification__Lgame_GameState(new $c_Lgame_TargetHit().init___Lgame_Describable__Lgame_Describable__I(sourceBeing$8.descriptor$1, targetBeing$2.descriptor$1, damage))
   } else {
-    throw new $c_s_MatchError().init___O(certainOutcome)
-  }
-});
-$c_Lgame_GameState.prototype.hitNotifications$1__p1__Lgame_being_Being__I__Lgame_being_Being__sci_List = (function(sourceBeing$3, damage$1, targetBeing$1) {
-  $m_sci_List$();
-  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array([new $c_Lgame_TargetHit().init___Lgame_Describable__Lgame_Describable__I(sourceBeing$3.descriptor$1, targetBeing$1.descriptor$1, damage$1)]);
-  var this$2 = $m_sci_List$();
-  var cbf = this$2.ReusableCBFInstance$2;
-  return $as_sci_List($f_sc_TraversableLike__to__scg_CanBuildFrom__O(xs, cbf))
-});
-$c_Lgame_GameState.prototype.actionTargetFromCommand__Lmath_Position__Lgame_Command__s_Option = (function(sourcePosition, command) {
-  var sourceBeing = $as_Lgame_being_Being($as_Ldungeon_Cell(this.dungeon$1.cells$1.apply__O__O(sourcePosition)).being$1.get__O());
-  if ($is_Lgame_DirectionalCommand(command)) {
-    var x3 = $as_Lgame_DirectionalCommand(command);
-    var x1$2 = this.actionTargetAtDirection__p1__Lmath_Position__Lmath_Direction__sci_Set(sourcePosition, x3.direction__Lmath_Direction());
-    return (x1$2.isEmpty__Z() ? $m_s_None$() : new $c_s_Some().init___O(x1$2.head__O()))
-  } else if ($is_Lgame_Command$Use(command)) {
-    var x2 = $as_Lgame_Command$Use(command);
-    var itemSlug = x2.itemSlug$1;
-    var this$1 = $m_Lgame_ItemBag$().get$extension__sci_Map__T__s_Option($as_Lgame_being_Being($as_Ldungeon_Cell(this.dungeon$1.cells$1.apply__O__O(sourcePosition)).being$1.get__O()).itemBag$1, itemSlug);
-    if (this$1.isEmpty__Z()) {
-      return $m_s_None$()
-    } else {
-      var arg1 = this$1.get__O();
-      var x$3 = $as_Lgame_Item(arg1);
-      return new $c_s_Some().init___O(new $c_Lgame_UseItem().init___Lgame_being_Being__Lgame_Item(sourceBeing, x$3))
-    }
-  } else {
-    throw new $c_s_MatchError().init___O(command)
+    throw new $c_s_MatchError().init___O(event)
   }
 });
 $c_Lgame_GameState.prototype.hashCode__I = (function() {
   var this$2 = $m_s_util_hashing_MurmurHash3$();
   return this$2.productHash__s_Product__I__I(this, (-889275714))
+});
+$c_Lgame_GameState.prototype.withUpdatedRevealedPositions__Lgame_GameState = (function() {
+  var x1 = this.dungeon$1.playerPosition__s_Option();
+  if ($is_s_Some(x1)) {
+    var x2 = $as_s_Some(x1);
+    var position = $as_Lmath_Position(x2.value$2);
+    var this$3 = new $c_Lcom_softwaremill_quicklens_package$PathModify().init___O__F2(this, new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function($this) {
+      return (function(fresh$macro$1$2, fresh$macro$2$2) {
+        var fresh$macro$1 = $as_Lgame_GameState(fresh$macro$1$2);
+        var fresh$macro$2 = $as_F1(fresh$macro$2$2);
+        var x$39 = $as_sci_Set(fresh$macro$2.apply__O__O(fresh$macro$1.revealedPositions$1));
+        var x$40 = fresh$macro$1.dungeon$1;
+        var x$41 = fresh$macro$1.notificationHistory$1;
+        return new $c_Lgame_GameState().init___Ldungeon_Dungeon__sci_Set__sci_List(x$40, x$39, x$41)
+      })
+    })(this)));
+    var mod = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2, position$1) {
+      return (function(x$2$2) {
+        var x$2 = $as_sci_Set(x$2$2);
+        var this$1 = $m_Lgame_being_Player$();
+        var dungeon = this$2.dungeon$1;
+        return $as_sci_Set(x$2.$$plus$plus__sc_GenTraversableOnce__sc_Set($f_Lgame_being_Sighted__positionsWithinRangeTouchedByPerimeterRay__Lmath_Position__Ldungeon_Dungeon__sci_Set(this$1, position$1, dungeon)))
+      })
+    })(this, position));
+    return $as_Lgame_GameState(this$3.doModify$1.apply__O__O__O(this$3.obj$1, mod))
+  } else {
+    return this
+  }
 });
 $c_Lgame_GameState.prototype.productIterator__sc_Iterator = (function() {
   return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
@@ -18141,50 +18367,6 @@ $c_sci_TrieIterator.prototype.initArrayStack__AAsci_Iterable = (function() {
   return $newArrayObject($d_sci_Iterable.getArrayOf().getArrayOf(), [6])
 });
 /** @constructor */
-function $c_sci_Vector$$anon$1() {
-  $c_sc_AbstractIterator.call(this);
-  this.i$2 = 0;
-  this.$$outer$2 = null
-}
-$c_sci_Vector$$anon$1.prototype = new $h_sc_AbstractIterator();
-$c_sci_Vector$$anon$1.prototype.constructor = $c_sci_Vector$$anon$1;
-/** @constructor */
-function $h_sci_Vector$$anon$1() {
-  /*<skip>*/
-}
-$h_sci_Vector$$anon$1.prototype = $c_sci_Vector$$anon$1.prototype;
-$c_sci_Vector$$anon$1.prototype.next__O = (function() {
-  if ((this.i$2 > 0)) {
-    this.i$2 = (((-1) + this.i$2) | 0);
-    return this.$$outer$2.apply__I__O(this.i$2)
-  } else {
-    return $m_sc_Iterator$().empty$1.next__O()
-  }
-});
-$c_sci_Vector$$anon$1.prototype.hasNext__Z = (function() {
-  return (this.i$2 > 0)
-});
-$c_sci_Vector$$anon$1.prototype.init___sci_Vector = (function($$outer) {
-  if (($$outer === null)) {
-    throw $m_sjsr_package$().unwrapJavaScriptException__jl_Throwable__O(null)
-  } else {
-    this.$$outer$2 = $$outer
-  };
-  this.i$2 = $$outer.length__I();
-  return this
-});
-var $d_sci_Vector$$anon$1 = new $TypeData().initClass({
-  sci_Vector$$anon$1: 0
-}, false, "scala.collection.immutable.Vector$$anon$1", {
-  sci_Vector$$anon$1: 1,
-  sc_AbstractIterator: 1,
-  O: 1,
-  sc_Iterator: 1,
-  sc_TraversableOnce: 1,
-  sc_GenTraversableOnce: 1
-});
-$c_sci_Vector$$anon$1.prototype.$classData = $d_sci_Vector$$anon$1;
-/** @constructor */
 function $c_scm_Builder$$anon$1() {
   $c_O.call(this);
   this.self$1 = null;
@@ -18420,10 +18602,6 @@ function $h_scm_ListBuffer$$anon$1() {
   /*<skip>*/
 }
 $h_scm_ListBuffer$$anon$1.prototype = $c_scm_ListBuffer$$anon$1.prototype;
-$c_scm_ListBuffer$$anon$1.prototype.init___scm_ListBuffer = (function($$outer) {
-  this.cursor$2 = ($$outer.isEmpty__Z() ? $m_sci_Nil$() : $$outer.scala$collection$mutable$ListBuffer$$start$6);
-  return this
-});
 $c_scm_ListBuffer$$anon$1.prototype.next__O = (function() {
   if ((!this.hasNext__Z())) {
     throw new $c_ju_NoSuchElementException().init___T("next on empty Iterator")
@@ -18432,6 +18610,10 @@ $c_scm_ListBuffer$$anon$1.prototype.next__O = (function() {
     this.cursor$2 = $as_sci_List(this.cursor$2.tail__O());
     return ans
   }
+});
+$c_scm_ListBuffer$$anon$1.prototype.init___scm_ListBuffer = (function($$outer) {
+  this.cursor$2 = ($$outer.isEmpty__Z() ? $m_sci_Nil$() : $$outer.scala$collection$mutable$ListBuffer$$start$6);
+  return this
 });
 $c_scm_ListBuffer$$anon$1.prototype.hasNext__Z = (function() {
   return (this.cursor$2 !== $m_sci_Nil$())
@@ -18623,10 +18805,10 @@ $c_Ldungeon_Dungeon.prototype.productArity__I = (function() {
 $c_Ldungeon_Dungeon.prototype.player__s_Option = (function() {
   var this$2 = this.cells$1;
   var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this) {
-    return (function(x0$2$2) {
-      var x0$2 = $as_T2(x0$2$2);
-      if ((x0$2 !== null)) {
-        var p2 = $as_Ldungeon_Cell(x0$2.$$und2__O());
+    return (function(x0$3$2) {
+      var x0$3 = $as_T2(x0$3$2);
+      if ((x0$3 !== null)) {
+        var p2 = $as_Ldungeon_Cell(x0$3.$$und2__O());
         if ((p2 !== null)) {
           var p3 = p2.being$1;
           if ($is_s_Some(p3)) {
@@ -18663,11 +18845,11 @@ $c_Ldungeon_Dungeon.prototype.player__s_Option = (function() {
 $c_Ldungeon_Dungeon.prototype.beingOfTypePositions__Lgame_being_BeingDescriptor__sci_Set = (function(target) {
   var this$4 = this.cells$1;
   var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this, target$1) {
-    return (function(x0$3$2) {
-      var x0$3 = $as_T2(x0$3$2);
-      if ((x0$3 !== null)) {
-        var position = $as_Lmath_Position(x0$3.$$und1__O());
-        var p2 = $as_Ldungeon_Cell(x0$3.$$und2__O());
+    return (function(x0$1$2) {
+      var x0$1 = $as_T2(x0$1$2);
+      if ((x0$1 !== null)) {
+        var position = $as_Lmath_Position(x0$1.$$und1__O());
+        var p2 = $as_Ldungeon_Cell(x0$1.$$und2__O());
         if ((p2 !== null)) {
           var p3 = p2.being$1;
           if ($is_s_Some(p3)) {
@@ -18751,11 +18933,11 @@ $c_Ldungeon_Dungeon.prototype.hashCode__I = (function() {
 $c_Ldungeon_Dungeon.prototype.playerPosition__s_Option = (function() {
   var this$2 = this.cells$1;
   var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this) {
-    return (function(x0$1$2) {
-      var x0$1 = $as_T2(x0$1$2);
-      if ((x0$1 !== null)) {
-        var position = $as_Lmath_Position(x0$1.$$und1__O());
-        var p2 = $as_Ldungeon_Cell(x0$1.$$und2__O());
+    return (function(x0$2$2) {
+      var x0$2 = $as_T2(x0$2$2);
+      if ((x0$2 !== null)) {
+        var position = $as_Lmath_Position(x0$2.$$und1__O());
+        var p2 = $as_Ldungeon_Cell(x0$2.$$und2__O());
         if ((p2 !== null)) {
           var p3 = p2.being$1;
           if ($is_s_Some(p3)) {
@@ -19624,6 +19806,381 @@ var $d_Lgame_Command$Use = new $TypeData().initClass({
 });
 $c_Lgame_Command$Use.prototype.$classData = $d_Lgame_Command$Use;
 /** @constructor */
+function $c_Lgame_Damaged() {
+  $c_O.call(this);
+  this.source$1 = null;
+  this.target$1 = null;
+  this.value$1 = 0
+}
+$c_Lgame_Damaged.prototype = new $h_O();
+$c_Lgame_Damaged.prototype.constructor = $c_Lgame_Damaged;
+/** @constructor */
+function $h_Lgame_Damaged() {
+  /*<skip>*/
+}
+$h_Lgame_Damaged.prototype = $c_Lgame_Damaged.prototype;
+$c_Lgame_Damaged.prototype.productPrefix__T = (function() {
+  return "Damaged"
+});
+$c_Lgame_Damaged.prototype.productArity__I = (function() {
+  return 3
+});
+$c_Lgame_Damaged.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else if ($is_Lgame_Damaged(x$1)) {
+    var Damaged$1 = $as_Lgame_Damaged(x$1);
+    var x = this.source$1;
+    var x$2 = Damaged$1.source$1;
+    if (((x === null) ? (x$2 === null) : x.equals__O__Z(x$2))) {
+      var x$3 = this.target$1;
+      var x$4 = Damaged$1.target$1;
+      var jsx$1 = ((x$3 === null) ? (x$4 === null) : x$3.equals__O__Z(x$4))
+    } else {
+      var jsx$1 = false
+    };
+    if (jsx$1) {
+      return (this.value$1 === Damaged$1.value$1)
+    } else {
+      return false
+    }
+  } else {
+    return false
+  }
+});
+$c_Lgame_Damaged.prototype.productElement__I__O = (function(x$1) {
+  switch (x$1) {
+    case 0: {
+      return this.source$1;
+      break
+    }
+    case 1: {
+      return this.target$1;
+      break
+    }
+    case 2: {
+      return this.value$1;
+      break
+    }
+    default: {
+      throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
+    }
+  }
+});
+$c_Lgame_Damaged.prototype.toString__T = (function() {
+  return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
+});
+$c_Lgame_Damaged.prototype.hashCode__I = (function() {
+  var acc = (-889275714);
+  acc = $m_sr_Statics$().mix__I__I__I(acc, $m_sr_Statics$().anyHash__O__I(this.source$1));
+  acc = $m_sr_Statics$().mix__I__I__I(acc, $m_sr_Statics$().anyHash__O__I(this.target$1));
+  acc = $m_sr_Statics$().mix__I__I__I(acc, this.value$1);
+  return $m_sr_Statics$().finalizeHash__I__I__I(acc, 3)
+});
+$c_Lgame_Damaged.prototype.productIterator__sc_Iterator = (function() {
+  return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
+});
+$c_Lgame_Damaged.prototype.init___Lmath_Position__Lmath_Position__I = (function(source, target, value) {
+  this.source$1 = source;
+  this.target$1 = target;
+  this.value$1 = value;
+  return this
+});
+function $is_Lgame_Damaged(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_Damaged)))
+}
+function $as_Lgame_Damaged(obj) {
+  return (($is_Lgame_Damaged(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "game.Damaged"))
+}
+function $isArrayOf_Lgame_Damaged(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lgame_Damaged)))
+}
+function $asArrayOf_Lgame_Damaged(obj, depth) {
+  return (($isArrayOf_Lgame_Damaged(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.Damaged;", depth))
+}
+var $d_Lgame_Damaged = new $TypeData().initClass({
+  Lgame_Damaged: 0
+}, false, "game.Damaged", {
+  Lgame_Damaged: 1,
+  O: 1,
+  Lgame_Event: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lgame_Damaged.prototype.$classData = $d_Lgame_Damaged;
+/** @constructor */
+function $c_Lgame_Died() {
+  $c_O.call(this);
+  this.source$1 = null
+}
+$c_Lgame_Died.prototype = new $h_O();
+$c_Lgame_Died.prototype.constructor = $c_Lgame_Died;
+/** @constructor */
+function $h_Lgame_Died() {
+  /*<skip>*/
+}
+$h_Lgame_Died.prototype = $c_Lgame_Died.prototype;
+$c_Lgame_Died.prototype.productPrefix__T = (function() {
+  return "Died"
+});
+$c_Lgame_Died.prototype.productArity__I = (function() {
+  return 1
+});
+$c_Lgame_Died.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else if ($is_Lgame_Died(x$1)) {
+    var Died$1 = $as_Lgame_Died(x$1);
+    var x = this.source$1;
+    var x$2 = Died$1.source$1;
+    return ((x === null) ? (x$2 === null) : x.equals__O__Z(x$2))
+  } else {
+    return false
+  }
+});
+$c_Lgame_Died.prototype.productElement__I__O = (function(x$1) {
+  switch (x$1) {
+    case 0: {
+      return this.source$1;
+      break
+    }
+    default: {
+      throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
+    }
+  }
+});
+$c_Lgame_Died.prototype.toString__T = (function() {
+  return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
+});
+$c_Lgame_Died.prototype.init___Lmath_Position = (function(source) {
+  this.source$1 = source;
+  return this
+});
+$c_Lgame_Died.prototype.hashCode__I = (function() {
+  var this$2 = $m_s_util_hashing_MurmurHash3$();
+  return this$2.productHash__s_Product__I__I(this, (-889275714))
+});
+$c_Lgame_Died.prototype.productIterator__sc_Iterator = (function() {
+  return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
+});
+function $is_Lgame_Died(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_Died)))
+}
+function $as_Lgame_Died(obj) {
+  return (($is_Lgame_Died(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "game.Died"))
+}
+function $isArrayOf_Lgame_Died(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lgame_Died)))
+}
+function $asArrayOf_Lgame_Died(obj, depth) {
+  return (($isArrayOf_Lgame_Died(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.Died;", depth))
+}
+var $d_Lgame_Died = new $TypeData().initClass({
+  Lgame_Died: 0
+}, false, "game.Died", {
+  Lgame_Died: 1,
+  O: 1,
+  Lgame_Event: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lgame_Died.prototype.$classData = $d_Lgame_Died;
+/** @constructor */
+function $c_Lgame_DoorOpened() {
+  $c_O.call(this);
+  this.source$1 = null;
+  this.target$1 = null
+}
+$c_Lgame_DoorOpened.prototype = new $h_O();
+$c_Lgame_DoorOpened.prototype.constructor = $c_Lgame_DoorOpened;
+/** @constructor */
+function $h_Lgame_DoorOpened() {
+  /*<skip>*/
+}
+$h_Lgame_DoorOpened.prototype = $c_Lgame_DoorOpened.prototype;
+$c_Lgame_DoorOpened.prototype.productPrefix__T = (function() {
+  return "DoorOpened"
+});
+$c_Lgame_DoorOpened.prototype.productArity__I = (function() {
+  return 2
+});
+$c_Lgame_DoorOpened.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else if ($is_Lgame_DoorOpened(x$1)) {
+    var DoorOpened$1 = $as_Lgame_DoorOpened(x$1);
+    var x = this.source$1;
+    var x$2 = DoorOpened$1.source$1;
+    if (((x === null) ? (x$2 === null) : x.equals__O__Z(x$2))) {
+      var x$3 = this.target$1;
+      var x$4 = DoorOpened$1.target$1;
+      return ((x$3 === null) ? (x$4 === null) : x$3.equals__O__Z(x$4))
+    } else {
+      return false
+    }
+  } else {
+    return false
+  }
+});
+$c_Lgame_DoorOpened.prototype.productElement__I__O = (function(x$1) {
+  switch (x$1) {
+    case 0: {
+      return this.source$1;
+      break
+    }
+    case 1: {
+      return this.target$1;
+      break
+    }
+    default: {
+      throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
+    }
+  }
+});
+$c_Lgame_DoorOpened.prototype.toString__T = (function() {
+  return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
+});
+$c_Lgame_DoorOpened.prototype.init___Lmath_Position__Lmath_Position = (function(source, target) {
+  this.source$1 = source;
+  this.target$1 = target;
+  return this
+});
+$c_Lgame_DoorOpened.prototype.hashCode__I = (function() {
+  var this$2 = $m_s_util_hashing_MurmurHash3$();
+  return this$2.productHash__s_Product__I__I(this, (-889275714))
+});
+$c_Lgame_DoorOpened.prototype.productIterator__sc_Iterator = (function() {
+  return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
+});
+function $is_Lgame_DoorOpened(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_DoorOpened)))
+}
+function $as_Lgame_DoorOpened(obj) {
+  return (($is_Lgame_DoorOpened(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "game.DoorOpened"))
+}
+function $isArrayOf_Lgame_DoorOpened(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lgame_DoorOpened)))
+}
+function $asArrayOf_Lgame_DoorOpened(obj, depth) {
+  return (($isArrayOf_Lgame_DoorOpened(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.DoorOpened;", depth))
+}
+var $d_Lgame_DoorOpened = new $TypeData().initClass({
+  Lgame_DoorOpened: 0
+}, false, "game.DoorOpened", {
+  Lgame_DoorOpened: 1,
+  O: 1,
+  Lgame_Event: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lgame_DoorOpened.prototype.$classData = $d_Lgame_DoorOpened;
+/** @constructor */
+function $c_Lgame_Dropped() {
+  $c_O.call(this);
+  this.source$1 = null;
+  this.amount$1 = 0;
+  this.item$1 = null
+}
+$c_Lgame_Dropped.prototype = new $h_O();
+$c_Lgame_Dropped.prototype.constructor = $c_Lgame_Dropped;
+/** @constructor */
+function $h_Lgame_Dropped() {
+  /*<skip>*/
+}
+$h_Lgame_Dropped.prototype = $c_Lgame_Dropped.prototype;
+$c_Lgame_Dropped.prototype.productPrefix__T = (function() {
+  return "Dropped"
+});
+$c_Lgame_Dropped.prototype.productArity__I = (function() {
+  return 3
+});
+$c_Lgame_Dropped.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else if ($is_Lgame_Dropped(x$1)) {
+    var Dropped$1 = $as_Lgame_Dropped(x$1);
+    var x = this.source$1;
+    var x$2 = Dropped$1.source$1;
+    if ((((x === null) ? (x$2 === null) : x.equals__O__Z(x$2)) && (this.amount$1 === Dropped$1.amount$1))) {
+      var x$3 = this.item$1;
+      var x$4 = Dropped$1.item$1;
+      return (x$3 === x$4)
+    } else {
+      return false
+    }
+  } else {
+    return false
+  }
+});
+$c_Lgame_Dropped.prototype.productElement__I__O = (function(x$1) {
+  switch (x$1) {
+    case 0: {
+      return this.source$1;
+      break
+    }
+    case 1: {
+      return this.amount$1;
+      break
+    }
+    case 2: {
+      return this.item$1;
+      break
+    }
+    default: {
+      throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
+    }
+  }
+});
+$c_Lgame_Dropped.prototype.toString__T = (function() {
+  return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
+});
+$c_Lgame_Dropped.prototype.init___Lmath_Position__I__Lgame_Item = (function(source, amount, item) {
+  this.source$1 = source;
+  this.amount$1 = amount;
+  this.item$1 = item;
+  return this
+});
+$c_Lgame_Dropped.prototype.hashCode__I = (function() {
+  var acc = (-889275714);
+  acc = $m_sr_Statics$().mix__I__I__I(acc, $m_sr_Statics$().anyHash__O__I(this.source$1));
+  acc = $m_sr_Statics$().mix__I__I__I(acc, this.amount$1);
+  acc = $m_sr_Statics$().mix__I__I__I(acc, $m_sr_Statics$().anyHash__O__I(this.item$1));
+  return $m_sr_Statics$().finalizeHash__I__I__I(acc, 3)
+});
+$c_Lgame_Dropped.prototype.productIterator__sc_Iterator = (function() {
+  return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
+});
+function $is_Lgame_Dropped(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_Dropped)))
+}
+function $as_Lgame_Dropped(obj) {
+  return (($is_Lgame_Dropped(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "game.Dropped"))
+}
+function $isArrayOf_Lgame_Dropped(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lgame_Dropped)))
+}
+function $asArrayOf_Lgame_Dropped(obj, depth) {
+  return (($isArrayOf_Lgame_Dropped(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.Dropped;", depth))
+}
+var $d_Lgame_Dropped = new $TypeData().initClass({
+  Lgame_Dropped: 0
+}, false, "game.Dropped", {
+  Lgame_Dropped: 1,
+  O: 1,
+  Lgame_Event: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lgame_Dropped.prototype.$classData = $d_Lgame_Dropped;
+/** @constructor */
 function $c_Lgame_FullyHeal$() {
   $c_O.call(this);
   this.description$1 = null
@@ -19742,6 +20299,97 @@ function $m_Lgame_Gold$() {
   };
   return $n_Lgame_Gold$
 }
+/** @constructor */
+function $c_Lgame_Held() {
+  $c_O.call(this);
+  this.source$1 = null;
+  this.item$1 = null
+}
+$c_Lgame_Held.prototype = new $h_O();
+$c_Lgame_Held.prototype.constructor = $c_Lgame_Held;
+/** @constructor */
+function $h_Lgame_Held() {
+  /*<skip>*/
+}
+$h_Lgame_Held.prototype = $c_Lgame_Held.prototype;
+$c_Lgame_Held.prototype.productPrefix__T = (function() {
+  return "Held"
+});
+$c_Lgame_Held.prototype.productArity__I = (function() {
+  return 2
+});
+$c_Lgame_Held.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else if ($is_Lgame_Held(x$1)) {
+    var Held$1 = $as_Lgame_Held(x$1);
+    var x = this.source$1;
+    var x$2 = Held$1.source$1;
+    if (((x === null) ? (x$2 === null) : x.equals__O__Z(x$2))) {
+      var x$3 = this.item$1;
+      var x$4 = Held$1.item$1;
+      return (x$3 === x$4)
+    } else {
+      return false
+    }
+  } else {
+    return false
+  }
+});
+$c_Lgame_Held.prototype.productElement__I__O = (function(x$1) {
+  switch (x$1) {
+    case 0: {
+      return this.source$1;
+      break
+    }
+    case 1: {
+      return this.item$1;
+      break
+    }
+    default: {
+      throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
+    }
+  }
+});
+$c_Lgame_Held.prototype.toString__T = (function() {
+  return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
+});
+$c_Lgame_Held.prototype.init___Lmath_Position__Lgame_Item = (function(source, item) {
+  this.source$1 = source;
+  this.item$1 = item;
+  return this
+});
+$c_Lgame_Held.prototype.hashCode__I = (function() {
+  var this$2 = $m_s_util_hashing_MurmurHash3$();
+  return this$2.productHash__s_Product__I__I(this, (-889275714))
+});
+$c_Lgame_Held.prototype.productIterator__sc_Iterator = (function() {
+  return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
+});
+function $is_Lgame_Held(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_Held)))
+}
+function $as_Lgame_Held(obj) {
+  return (($is_Lgame_Held(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "game.Held"))
+}
+function $isArrayOf_Lgame_Held(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lgame_Held)))
+}
+function $asArrayOf_Lgame_Held(obj, depth) {
+  return (($isArrayOf_Lgame_Held(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.Held;", depth))
+}
+var $d_Lgame_Held = new $TypeData().initClass({
+  Lgame_Held: 0
+}, false, "game.Held", {
+  Lgame_Held: 1,
+  O: 1,
+  Lgame_Event: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lgame_Held.prototype.$classData = $d_Lgame_Held;
 /** @constructor */
 function $c_Lgame_ItemHeld() {
   $c_O.call(this);
@@ -19939,42 +20587,49 @@ var $d_Lgame_ItemStash = new $TypeData().initClass({
 });
 $c_Lgame_ItemStash.prototype.$classData = $d_Lgame_ItemStash;
 /** @constructor */
-function $c_Lgame_Move() {
+function $c_Lgame_Moved() {
   $c_O.call(this);
+  this.source$1 = null;
   this.direction$1 = null
 }
-$c_Lgame_Move.prototype = new $h_O();
-$c_Lgame_Move.prototype.constructor = $c_Lgame_Move;
+$c_Lgame_Moved.prototype = new $h_O();
+$c_Lgame_Moved.prototype.constructor = $c_Lgame_Moved;
 /** @constructor */
-function $h_Lgame_Move() {
+function $h_Lgame_Moved() {
   /*<skip>*/
 }
-$h_Lgame_Move.prototype = $c_Lgame_Move.prototype;
-$c_Lgame_Move.prototype.productPrefix__T = (function() {
-  return "Move"
+$h_Lgame_Moved.prototype = $c_Lgame_Moved.prototype;
+$c_Lgame_Moved.prototype.productPrefix__T = (function() {
+  return "Moved"
 });
-$c_Lgame_Move.prototype.init___Lmath_Direction = (function(direction) {
-  this.direction$1 = direction;
-  return this
+$c_Lgame_Moved.prototype.productArity__I = (function() {
+  return 2
 });
-$c_Lgame_Move.prototype.productArity__I = (function() {
-  return 1
-});
-$c_Lgame_Move.prototype.equals__O__Z = (function(x$1) {
+$c_Lgame_Moved.prototype.equals__O__Z = (function(x$1) {
   if ((this === x$1)) {
     return true
-  } else if ($is_Lgame_Move(x$1)) {
-    var Move$1 = $as_Lgame_Move(x$1);
-    var x = this.direction$1;
-    var x$2 = Move$1.direction$1;
-    return (x === x$2)
+  } else if ($is_Lgame_Moved(x$1)) {
+    var Moved$1 = $as_Lgame_Moved(x$1);
+    var x = this.source$1;
+    var x$2 = Moved$1.source$1;
+    if (((x === null) ? (x$2 === null) : x.equals__O__Z(x$2))) {
+      var x$3 = this.direction$1;
+      var x$4 = Moved$1.direction$1;
+      return (x$3 === x$4)
+    } else {
+      return false
+    }
   } else {
     return false
   }
 });
-$c_Lgame_Move.prototype.productElement__I__O = (function(x$1) {
+$c_Lgame_Moved.prototype.productElement__I__O = (function(x$1) {
   switch (x$1) {
     case 0: {
+      return this.source$1;
+      break
+    }
+    case 1: {
       return this.direction$1;
       break
     }
@@ -19983,92 +20638,95 @@ $c_Lgame_Move.prototype.productElement__I__O = (function(x$1) {
     }
   }
 });
-$c_Lgame_Move.prototype.toString__T = (function() {
+$c_Lgame_Moved.prototype.toString__T = (function() {
   return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
 });
-$c_Lgame_Move.prototype.possibleOutcomes__sci_Set = (function() {
-  var array = [new $c_Lgame_Moved().init___Lmath_Direction(this.direction$1)];
-  if (($uI(array.length) === 0)) {
-    var jsx$1 = $m_sci_Set$EmptySet$()
-  } else {
-    var b = new $c_scm_SetBuilder().init___sc_Set($m_sci_Set$EmptySet$());
-    var i = 0;
-    var len = $uI(array.length);
-    while ((i < len)) {
-      var index = i;
-      var arg1 = array[index];
-      b.$$plus$eq__O__scm_SetBuilder(arg1);
-      i = ((1 + i) | 0)
-    };
-    var jsx$1 = b.elems$1
-  };
-  return $as_sci_Set(jsx$1)
+$c_Lgame_Moved.prototype.init___Lmath_Position__Lmath_Direction = (function(source, direction) {
+  this.source$1 = source;
+  this.direction$1 = direction;
+  return this
 });
-$c_Lgame_Move.prototype.hashCode__I = (function() {
+$c_Lgame_Moved.prototype.hashCode__I = (function() {
   var this$2 = $m_s_util_hashing_MurmurHash3$();
   return this$2.productHash__s_Product__I__I(this, (-889275714))
 });
-$c_Lgame_Move.prototype.productIterator__sc_Iterator = (function() {
+$c_Lgame_Moved.prototype.productIterator__sc_Iterator = (function() {
   return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
 });
-function $is_Lgame_Move(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_Move)))
+function $is_Lgame_Moved(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_Moved)))
 }
-function $as_Lgame_Move(obj) {
-  return (($is_Lgame_Move(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "game.Move"))
+function $as_Lgame_Moved(obj) {
+  return (($is_Lgame_Moved(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "game.Moved"))
 }
-function $isArrayOf_Lgame_Move(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lgame_Move)))
+function $isArrayOf_Lgame_Moved(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lgame_Moved)))
 }
-function $asArrayOf_Lgame_Move(obj, depth) {
-  return (($isArrayOf_Lgame_Move(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.Move;", depth))
+function $asArrayOf_Lgame_Moved(obj, depth) {
+  return (($isArrayOf_Lgame_Moved(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.Moved;", depth))
 }
-var $d_Lgame_Move = new $TypeData().initClass({
-  Lgame_Move: 0
-}, false, "game.Move", {
-  Lgame_Move: 1,
+var $d_Lgame_Moved = new $TypeData().initClass({
+  Lgame_Moved: 0
+}, false, "game.Moved", {
+  Lgame_Moved: 1,
   O: 1,
-  Lgame_ActionTarget: 1,
+  Lgame_Event: 1,
   s_Product: 1,
   s_Equals: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lgame_Move.prototype.$classData = $d_Lgame_Move;
+$c_Lgame_Moved.prototype.$classData = $d_Lgame_Moved;
 /** @constructor */
-function $c_Lgame_OpenDoor() {
+function $c_Lgame_PickedUp() {
   $c_O.call(this);
-  this.target$1 = null
+  this.source$1 = null;
+  this.amount$1 = 0;
+  this.item$1 = null
 }
-$c_Lgame_OpenDoor.prototype = new $h_O();
-$c_Lgame_OpenDoor.prototype.constructor = $c_Lgame_OpenDoor;
+$c_Lgame_PickedUp.prototype = new $h_O();
+$c_Lgame_PickedUp.prototype.constructor = $c_Lgame_PickedUp;
 /** @constructor */
-function $h_Lgame_OpenDoor() {
+function $h_Lgame_PickedUp() {
   /*<skip>*/
 }
-$h_Lgame_OpenDoor.prototype = $c_Lgame_OpenDoor.prototype;
-$c_Lgame_OpenDoor.prototype.productPrefix__T = (function() {
-  return "OpenDoor"
+$h_Lgame_PickedUp.prototype = $c_Lgame_PickedUp.prototype;
+$c_Lgame_PickedUp.prototype.productPrefix__T = (function() {
+  return "PickedUp"
 });
-$c_Lgame_OpenDoor.prototype.productArity__I = (function() {
-  return 1
+$c_Lgame_PickedUp.prototype.productArity__I = (function() {
+  return 3
 });
-$c_Lgame_OpenDoor.prototype.equals__O__Z = (function(x$1) {
+$c_Lgame_PickedUp.prototype.equals__O__Z = (function(x$1) {
   if ((this === x$1)) {
     return true
-  } else if ($is_Lgame_OpenDoor(x$1)) {
-    var OpenDoor$1 = $as_Lgame_OpenDoor(x$1);
-    var x = this.target$1;
-    var x$2 = OpenDoor$1.target$1;
-    return ((x === null) ? (x$2 === null) : x.equals__O__Z(x$2))
+  } else if ($is_Lgame_PickedUp(x$1)) {
+    var PickedUp$1 = $as_Lgame_PickedUp(x$1);
+    var x = this.source$1;
+    var x$2 = PickedUp$1.source$1;
+    if ((((x === null) ? (x$2 === null) : x.equals__O__Z(x$2)) && (this.amount$1 === PickedUp$1.amount$1))) {
+      var x$3 = this.item$1;
+      var x$4 = PickedUp$1.item$1;
+      return (x$3 === x$4)
+    } else {
+      return false
+    }
   } else {
     return false
   }
 });
-$c_Lgame_OpenDoor.prototype.productElement__I__O = (function(x$1) {
+$c_Lgame_PickedUp.prototype.productElement__I__O = (function(x$1) {
   switch (x$1) {
     case 0: {
-      return this.target$1;
+      return this.source$1;
+      break
+    }
+    case 1: {
+      return this.amount$1;
+      break
+    }
+    case 2: {
+      return this.item$1;
       break
     }
     default: {
@@ -20076,62 +20734,49 @@ $c_Lgame_OpenDoor.prototype.productElement__I__O = (function(x$1) {
     }
   }
 });
-$c_Lgame_OpenDoor.prototype.toString__T = (function() {
+$c_Lgame_PickedUp.prototype.toString__T = (function() {
   return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
 });
-$c_Lgame_OpenDoor.prototype.possibleOutcomes__sci_Set = (function() {
-  var array = [new $c_Lgame_DoorOpened().init___Lmath_Position(this.target$1)];
-  if (($uI(array.length) === 0)) {
-    var jsx$1 = $m_sci_Set$EmptySet$()
-  } else {
-    var b = new $c_scm_SetBuilder().init___sc_Set($m_sci_Set$EmptySet$());
-    var i = 0;
-    var len = $uI(array.length);
-    while ((i < len)) {
-      var index = i;
-      var arg1 = array[index];
-      b.$$plus$eq__O__scm_SetBuilder(arg1);
-      i = ((1 + i) | 0)
-    };
-    var jsx$1 = b.elems$1
-  };
-  return $as_sci_Set(jsx$1)
-});
-$c_Lgame_OpenDoor.prototype.init___Lmath_Position = (function(target) {
-  this.target$1 = target;
+$c_Lgame_PickedUp.prototype.init___Lmath_Position__I__Lgame_Item = (function(source, amount, item) {
+  this.source$1 = source;
+  this.amount$1 = amount;
+  this.item$1 = item;
   return this
 });
-$c_Lgame_OpenDoor.prototype.hashCode__I = (function() {
-  var this$2 = $m_s_util_hashing_MurmurHash3$();
-  return this$2.productHash__s_Product__I__I(this, (-889275714))
+$c_Lgame_PickedUp.prototype.hashCode__I = (function() {
+  var acc = (-889275714);
+  acc = $m_sr_Statics$().mix__I__I__I(acc, $m_sr_Statics$().anyHash__O__I(this.source$1));
+  acc = $m_sr_Statics$().mix__I__I__I(acc, this.amount$1);
+  acc = $m_sr_Statics$().mix__I__I__I(acc, $m_sr_Statics$().anyHash__O__I(this.item$1));
+  return $m_sr_Statics$().finalizeHash__I__I__I(acc, 3)
 });
-$c_Lgame_OpenDoor.prototype.productIterator__sc_Iterator = (function() {
+$c_Lgame_PickedUp.prototype.productIterator__sc_Iterator = (function() {
   return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
 });
-function $is_Lgame_OpenDoor(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_OpenDoor)))
+function $is_Lgame_PickedUp(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_PickedUp)))
 }
-function $as_Lgame_OpenDoor(obj) {
-  return (($is_Lgame_OpenDoor(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "game.OpenDoor"))
+function $as_Lgame_PickedUp(obj) {
+  return (($is_Lgame_PickedUp(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "game.PickedUp"))
 }
-function $isArrayOf_Lgame_OpenDoor(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lgame_OpenDoor)))
+function $isArrayOf_Lgame_PickedUp(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lgame_PickedUp)))
 }
-function $asArrayOf_Lgame_OpenDoor(obj, depth) {
-  return (($isArrayOf_Lgame_OpenDoor(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.OpenDoor;", depth))
+function $asArrayOf_Lgame_PickedUp(obj, depth) {
+  return (($isArrayOf_Lgame_PickedUp(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.PickedUp;", depth))
 }
-var $d_Lgame_OpenDoor = new $TypeData().initClass({
-  Lgame_OpenDoor: 0
-}, false, "game.OpenDoor", {
-  Lgame_OpenDoor: 1,
+var $d_Lgame_PickedUp = new $TypeData().initClass({
+  Lgame_PickedUp: 0
+}, false, "game.PickedUp", {
+  Lgame_PickedUp: 1,
   O: 1,
-  Lgame_ActionTarget: 1,
+  Lgame_Event: 1,
   s_Product: 1,
   s_Equals: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lgame_OpenDoor.prototype.$classData = $d_Lgame_OpenDoor;
+$c_Lgame_PickedUp.prototype.$classData = $d_Lgame_PickedUp;
 /** @constructor */
 function $c_Lgame_PotionDrank() {
   $c_O.call(this);
@@ -20231,35 +20876,35 @@ var $d_Lgame_PotionDrank = new $TypeData().initClass({
 });
 $c_Lgame_PotionDrank.prototype.$classData = $d_Lgame_PotionDrank;
 /** @constructor */
-function $c_Lgame_StrikeBeing() {
+function $c_Lgame_PotionDrinked() {
   $c_O.call(this);
-  this.damageRange$1 = null;
-  this.target$1 = null
+  this.source$1 = null;
+  this.potion$1 = null
 }
-$c_Lgame_StrikeBeing.prototype = new $h_O();
-$c_Lgame_StrikeBeing.prototype.constructor = $c_Lgame_StrikeBeing;
+$c_Lgame_PotionDrinked.prototype = new $h_O();
+$c_Lgame_PotionDrinked.prototype.constructor = $c_Lgame_PotionDrinked;
 /** @constructor */
-function $h_Lgame_StrikeBeing() {
+function $h_Lgame_PotionDrinked() {
   /*<skip>*/
 }
-$h_Lgame_StrikeBeing.prototype = $c_Lgame_StrikeBeing.prototype;
-$c_Lgame_StrikeBeing.prototype.productPrefix__T = (function() {
-  return "StrikeBeing"
+$h_Lgame_PotionDrinked.prototype = $c_Lgame_PotionDrinked.prototype;
+$c_Lgame_PotionDrinked.prototype.productPrefix__T = (function() {
+  return "PotionDrinked"
 });
-$c_Lgame_StrikeBeing.prototype.productArity__I = (function() {
+$c_Lgame_PotionDrinked.prototype.productArity__I = (function() {
   return 2
 });
-$c_Lgame_StrikeBeing.prototype.equals__O__Z = (function(x$1) {
+$c_Lgame_PotionDrinked.prototype.equals__O__Z = (function(x$1) {
   if ((this === x$1)) {
     return true
-  } else if ($is_Lgame_StrikeBeing(x$1)) {
-    var StrikeBeing$1 = $as_Lgame_StrikeBeing(x$1);
-    var x = this.damageRange$1;
-    var x$2 = StrikeBeing$1.damageRange$1;
+  } else if ($is_Lgame_PotionDrinked(x$1)) {
+    var PotionDrinked$1 = $as_Lgame_PotionDrinked(x$1);
+    var x = this.source$1;
+    var x$2 = PotionDrinked$1.source$1;
     if (((x === null) ? (x$2 === null) : x.equals__O__Z(x$2))) {
-      var x$3 = this.target$1;
-      var x$4 = StrikeBeing$1.target$1;
-      return ((x$3 === null) ? (x$4 === null) : x$3.equals__O__Z(x$4))
+      var x$3 = this.potion$1;
+      var x$4 = PotionDrinked$1.potion$1;
+      return (x$3 === x$4)
     } else {
       return false
     }
@@ -20267,14 +20912,14 @@ $c_Lgame_StrikeBeing.prototype.equals__O__Z = (function(x$1) {
     return false
   }
 });
-$c_Lgame_StrikeBeing.prototype.productElement__I__O = (function(x$1) {
+$c_Lgame_PotionDrinked.prototype.productElement__I__O = (function(x$1) {
   switch (x$1) {
     case 0: {
-      return this.damageRange$1;
+      return this.source$1;
       break
     }
     case 1: {
-      return this.target$1;
+      return this.potion$1;
       break
     }
     default: {
@@ -20282,63 +20927,136 @@ $c_Lgame_StrikeBeing.prototype.productElement__I__O = (function(x$1) {
     }
   }
 });
-$c_Lgame_StrikeBeing.prototype.toString__T = (function() {
+$c_Lgame_PotionDrinked.prototype.toString__T = (function() {
   return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
 });
-$c_Lgame_StrikeBeing.prototype.possibleOutcomes__sci_Set = (function() {
-  var array = [new $c_Lgame_LinearDamage().init___Lmath_Position__Lgame_ClosedInterval(this.target$1, this.damageRange$1)];
-  if (($uI(array.length) === 0)) {
-    var jsx$1 = $m_sci_Set$EmptySet$()
-  } else {
-    var b = new $c_scm_SetBuilder().init___sc_Set($m_sci_Set$EmptySet$());
-    var i = 0;
-    var len = $uI(array.length);
-    while ((i < len)) {
-      var index = i;
-      var arg1 = array[index];
-      b.$$plus$eq__O__scm_SetBuilder(arg1);
-      i = ((1 + i) | 0)
-    };
-    var jsx$1 = b.elems$1
-  };
-  return $as_sci_Set(jsx$1)
-});
-$c_Lgame_StrikeBeing.prototype.init___Lgame_ClosedInterval__Lmath_Position = (function(damageRange, target) {
-  this.damageRange$1 = damageRange;
-  this.target$1 = target;
+$c_Lgame_PotionDrinked.prototype.init___Lmath_Position__Lgame_Potion = (function(source, potion) {
+  this.source$1 = source;
+  this.potion$1 = potion;
   return this
 });
-$c_Lgame_StrikeBeing.prototype.hashCode__I = (function() {
+$c_Lgame_PotionDrinked.prototype.hashCode__I = (function() {
   var this$2 = $m_s_util_hashing_MurmurHash3$();
   return this$2.productHash__s_Product__I__I(this, (-889275714))
 });
-$c_Lgame_StrikeBeing.prototype.productIterator__sc_Iterator = (function() {
+$c_Lgame_PotionDrinked.prototype.productIterator__sc_Iterator = (function() {
   return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
 });
-function $is_Lgame_StrikeBeing(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_StrikeBeing)))
+function $is_Lgame_PotionDrinked(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_PotionDrinked)))
 }
-function $as_Lgame_StrikeBeing(obj) {
-  return (($is_Lgame_StrikeBeing(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "game.StrikeBeing"))
+function $as_Lgame_PotionDrinked(obj) {
+  return (($is_Lgame_PotionDrinked(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "game.PotionDrinked"))
 }
-function $isArrayOf_Lgame_StrikeBeing(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lgame_StrikeBeing)))
+function $isArrayOf_Lgame_PotionDrinked(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lgame_PotionDrinked)))
 }
-function $asArrayOf_Lgame_StrikeBeing(obj, depth) {
-  return (($isArrayOf_Lgame_StrikeBeing(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.StrikeBeing;", depth))
+function $asArrayOf_Lgame_PotionDrinked(obj, depth) {
+  return (($isArrayOf_Lgame_PotionDrinked(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.PotionDrinked;", depth))
 }
-var $d_Lgame_StrikeBeing = new $TypeData().initClass({
-  Lgame_StrikeBeing: 0
-}, false, "game.StrikeBeing", {
-  Lgame_StrikeBeing: 1,
+var $d_Lgame_PotionDrinked = new $TypeData().initClass({
+  Lgame_PotionDrinked: 0
+}, false, "game.PotionDrinked", {
+  Lgame_PotionDrinked: 1,
   O: 1,
-  Lgame_ActionTarget: 1,
+  Lgame_Event: 1,
   s_Product: 1,
   s_Equals: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lgame_StrikeBeing.prototype.$classData = $d_Lgame_StrikeBeing;
+$c_Lgame_PotionDrinked.prototype.$classData = $d_Lgame_PotionDrinked;
+/** @constructor */
+function $c_Lgame_Stashed() {
+  $c_O.call(this);
+  this.source$1 = null;
+  this.item$1 = null
+}
+$c_Lgame_Stashed.prototype = new $h_O();
+$c_Lgame_Stashed.prototype.constructor = $c_Lgame_Stashed;
+/** @constructor */
+function $h_Lgame_Stashed() {
+  /*<skip>*/
+}
+$h_Lgame_Stashed.prototype = $c_Lgame_Stashed.prototype;
+$c_Lgame_Stashed.prototype.productPrefix__T = (function() {
+  return "Stashed"
+});
+$c_Lgame_Stashed.prototype.productArity__I = (function() {
+  return 2
+});
+$c_Lgame_Stashed.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else if ($is_Lgame_Stashed(x$1)) {
+    var Stashed$1 = $as_Lgame_Stashed(x$1);
+    var x = this.source$1;
+    var x$2 = Stashed$1.source$1;
+    if (((x === null) ? (x$2 === null) : x.equals__O__Z(x$2))) {
+      var x$3 = this.item$1;
+      var x$4 = Stashed$1.item$1;
+      return (x$3 === x$4)
+    } else {
+      return false
+    }
+  } else {
+    return false
+  }
+});
+$c_Lgame_Stashed.prototype.productElement__I__O = (function(x$1) {
+  switch (x$1) {
+    case 0: {
+      return this.source$1;
+      break
+    }
+    case 1: {
+      return this.item$1;
+      break
+    }
+    default: {
+      throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
+    }
+  }
+});
+$c_Lgame_Stashed.prototype.toString__T = (function() {
+  return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
+});
+$c_Lgame_Stashed.prototype.init___Lmath_Position__Lgame_Item = (function(source, item) {
+  this.source$1 = source;
+  this.item$1 = item;
+  return this
+});
+$c_Lgame_Stashed.prototype.hashCode__I = (function() {
+  var this$2 = $m_s_util_hashing_MurmurHash3$();
+  return this$2.productHash__s_Product__I__I(this, (-889275714))
+});
+$c_Lgame_Stashed.prototype.productIterator__sc_Iterator = (function() {
+  return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
+});
+function $is_Lgame_Stashed(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_Stashed)))
+}
+function $as_Lgame_Stashed(obj) {
+  return (($is_Lgame_Stashed(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "game.Stashed"))
+}
+function $isArrayOf_Lgame_Stashed(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lgame_Stashed)))
+}
+function $asArrayOf_Lgame_Stashed(obj, depth) {
+  return (($isArrayOf_Lgame_Stashed(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.Stashed;", depth))
+}
+var $d_Lgame_Stashed = new $TypeData().initClass({
+  Lgame_Stashed: 0
+}, false, "game.Stashed", {
+  Lgame_Stashed: 1,
+  O: 1,
+  Lgame_Event: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lgame_Stashed.prototype.$classData = $d_Lgame_Stashed;
 /** @constructor */
 function $c_Lgame_TargetDies() {
   $c_O.call(this);
@@ -20852,169 +21570,6 @@ var $d_Lgame_TargetTaken = new $TypeData().initClass({
 });
 $c_Lgame_TargetTaken.prototype.$classData = $d_Lgame_TargetTaken;
 /** @constructor */
-function $c_Lgame_UseItem() {
-  $c_O.call(this);
-  this.being$1 = null;
-  this.item$1 = null
-}
-$c_Lgame_UseItem.prototype = new $h_O();
-$c_Lgame_UseItem.prototype.constructor = $c_Lgame_UseItem;
-/** @constructor */
-function $h_Lgame_UseItem() {
-  /*<skip>*/
-}
-$h_Lgame_UseItem.prototype = $c_Lgame_UseItem.prototype;
-$c_Lgame_UseItem.prototype.productPrefix__T = (function() {
-  return "UseItem"
-});
-$c_Lgame_UseItem.prototype.productArity__I = (function() {
-  return 2
-});
-$c_Lgame_UseItem.prototype.equals__O__Z = (function(x$1) {
-  if ((this === x$1)) {
-    return true
-  } else if ($is_Lgame_UseItem(x$1)) {
-    var UseItem$1 = $as_Lgame_UseItem(x$1);
-    var x = this.being$1;
-    var x$2 = UseItem$1.being$1;
-    if (((x === null) ? (x$2 === null) : x.equals__O__Z(x$2))) {
-      var x$3 = this.item$1;
-      var x$4 = UseItem$1.item$1;
-      return (x$3 === x$4)
-    } else {
-      return false
-    }
-  } else {
-    return false
-  }
-});
-$c_Lgame_UseItem.prototype.productElement__I__O = (function(x$1) {
-  switch (x$1) {
-    case 0: {
-      return this.being$1;
-      break
-    }
-    case 1: {
-      return this.item$1;
-      break
-    }
-    default: {
-      throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
-    }
-  }
-});
-$c_Lgame_UseItem.prototype.toString__T = (function() {
-  return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
-});
-$c_Lgame_UseItem.prototype.possibleOutcomes__sci_Set = (function() {
-  var x1 = this.item$1;
-  if ($is_Lgame_Potion(x1)) {
-    var x2 = $as_Lgame_Potion(x1);
-    var array = [new $c_Lgame_Drank().init___Lgame_Potion(x2)];
-    if (($uI(array.length) === 0)) {
-      var jsx$1 = $m_sci_Set$EmptySet$()
-    } else {
-      var b = new $c_scm_SetBuilder().init___sc_Set($m_sci_Set$EmptySet$());
-      var i = 0;
-      var len = $uI(array.length);
-      while ((i < len)) {
-        var index = i;
-        var arg1 = array[index];
-        b.$$plus$eq__O__scm_SetBuilder(arg1);
-        i = ((1 + i) | 0)
-      };
-      var jsx$1 = b.elems$1
-    };
-    return $as_sci_Set(jsx$1)
-  } else {
-    var x1$2 = this.being$1.body$1;
-    if ($is_Lgame_being_Handed(x1$2)) {
-      var x2$2 = $as_Lgame_being_Handed(x1$2);
-      var x1$3 = x2$2.holding__s_Option();
-      if ($is_s_Some(x1$3)) {
-        var x2$3 = $as_s_Some(x1$3);
-        var heldItem = $as_Lgame_Item(x2$3.value$2);
-        var array$1 = [new $c_Lgame_Swap().init___Lgame_Item__Lgame_Item(heldItem, this.item$1)];
-        if (($uI(array$1.length) === 0)) {
-          var jsx$2 = $m_sci_Set$EmptySet$()
-        } else {
-          var b$1 = new $c_scm_SetBuilder().init___sc_Set($m_sci_Set$EmptySet$());
-          var i$1 = 0;
-          var len$1 = $uI(array$1.length);
-          while ((i$1 < len$1)) {
-            var index$1 = i$1;
-            var arg1$1 = array$1[index$1];
-            b$1.$$plus$eq__O__scm_SetBuilder(arg1$1);
-            i$1 = ((1 + i$1) | 0)
-          };
-          var jsx$2 = b$1.elems$1
-        };
-        return $as_sci_Set(jsx$2)
-      } else {
-        var x = $m_s_None$();
-        if ((x === x1$3)) {
-          var array$2 = [new $c_Lgame_Hold().init___Lgame_Item(this.item$1)];
-          if (($uI(array$2.length) === 0)) {
-            var jsx$3 = $m_sci_Set$EmptySet$()
-          } else {
-            var b$2 = new $c_scm_SetBuilder().init___sc_Set($m_sci_Set$EmptySet$());
-            var i$2 = 0;
-            var len$2 = $uI(array$2.length);
-            while ((i$2 < len$2)) {
-              var index$2 = i$2;
-              var arg1$2 = array$2[index$2];
-              b$2.$$plus$eq__O__scm_SetBuilder(arg1$2);
-              i$2 = ((1 + i$2) | 0)
-            };
-            var jsx$3 = b$2.elems$1
-          };
-          return $as_sci_Set(jsx$3)
-        } else {
-          throw new $c_s_MatchError().init___O(x1$3)
-        }
-      }
-    } else {
-      return $as_sci_Set($m_s_Predef$().Set$2.apply__sc_Seq__sc_GenTraversable($m_sci_Nil$()))
-    }
-  }
-});
-$c_Lgame_UseItem.prototype.init___Lgame_being_Being__Lgame_Item = (function(being, item) {
-  this.being$1 = being;
-  this.item$1 = item;
-  return this
-});
-$c_Lgame_UseItem.prototype.hashCode__I = (function() {
-  var this$2 = $m_s_util_hashing_MurmurHash3$();
-  return this$2.productHash__s_Product__I__I(this, (-889275714))
-});
-$c_Lgame_UseItem.prototype.productIterator__sc_Iterator = (function() {
-  return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
-});
-function $is_Lgame_UseItem(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_UseItem)))
-}
-function $as_Lgame_UseItem(obj) {
-  return (($is_Lgame_UseItem(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "game.UseItem"))
-}
-function $isArrayOf_Lgame_UseItem(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lgame_UseItem)))
-}
-function $asArrayOf_Lgame_UseItem(obj, depth) {
-  return (($isArrayOf_Lgame_UseItem(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.UseItem;", depth))
-}
-var $d_Lgame_UseItem = new $TypeData().initClass({
-  Lgame_UseItem: 0
-}, false, "game.UseItem", {
-  Lgame_UseItem: 1,
-  O: 1,
-  Lgame_ActionTarget: 1,
-  s_Product: 1,
-  s_Equals: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lgame_UseItem.prototype.$classData = $d_Lgame_UseItem;
-/** @constructor */
 function $c_Lgame_being_ai_NoIntelligence$() {
   $c_O.call(this)
 }
@@ -21220,18 +21775,6 @@ $c_Ljava_io_PrintStream.prototype.println__T__V = (function(s) {
   this.print__T__V(s);
   this.java$lang$JSConsoleBasedPrintStream$$printString__T__V("\n")
 });
-function $is_Ljava_io_PrintStream(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ljava_io_PrintStream)))
-}
-function $as_Ljava_io_PrintStream(obj) {
-  return (($is_Ljava_io_PrintStream(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "java.io.PrintStream"))
-}
-function $isArrayOf_Ljava_io_PrintStream(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ljava_io_PrintStream)))
-}
-function $asArrayOf_Ljava_io_PrintStream(obj, depth) {
-  return (($isArrayOf_Ljava_io_PrintStream(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Ljava.io.PrintStream;", depth))
-}
 /** @constructor */
 function $c_Lmath_Direction$Down$() {
   $c_O.call(this)
@@ -22548,12 +23091,6 @@ function $isArrayOf_sc_GenSetLike(obj, depth) {
 function $asArrayOf_sc_GenSetLike(obj, depth) {
   return (($isArrayOf_sc_GenSetLike(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lscala.collection.GenSetLike;", depth))
 }
-function $f_sc_TraversableLike__to__scg_CanBuildFrom__O($thiz, cbf) {
-  var b = cbf.apply__scm_Builder();
-  $f_scm_Builder__sizeHint__sc_TraversableLike__V(b, $thiz);
-  b.$$plus$plus$eq__sc_TraversableOnce__scg_Growable($thiz.thisCollection__sc_Traversable());
-  return b.result__O()
-}
 function $f_sc_TraversableLike__flatMap__F1__scg_CanBuildFrom__O($thiz, f, bf) {
   var b = bf.apply__O__scm_Builder($thiz.repr__O());
   $thiz.foreach__F1__V(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this, f$1, b$1) {
@@ -22563,15 +23100,18 @@ function $f_sc_TraversableLike__flatMap__F1__scg_CanBuildFrom__O($thiz, f, bf) {
   })($thiz, f, b)));
   return b.result__O()
 }
+function $f_sc_TraversableLike__to__scg_CanBuildFrom__O($thiz, cbf) {
+  var b = cbf.apply__scm_Builder();
+  $f_scm_Builder__sizeHint__sc_TraversableLike__V(b, $thiz);
+  b.$$plus$plus$eq__sc_TraversableOnce__scg_Growable($thiz.thisCollection__sc_Traversable());
+  return b.result__O()
+}
 function $f_sc_TraversableLike__isPartLikelySynthetic$1__psc_TraversableLike__T__I__Z($thiz, fqn$1, partStart$1) {
   var firstChar = (65535 & $uI(fqn$1.charCodeAt(partStart$1)));
   return (((firstChar > 90) && (firstChar < 127)) || (firstChar < 65))
 }
 function $f_sc_TraversableLike__toString__T($thiz) {
   return $thiz.mkString__T__T__T__T(($thiz.stringPrefix__T() + "("), ", ", ")")
-}
-function $f_sc_TraversableLike__$$plus$plus$colon__sc_Traversable__scg_CanBuildFrom__O($thiz, that, bf) {
-  return that.$$plus$plus__sc_GenTraversableOnce__scg_CanBuildFrom__O($thiz.seq__sc_TraversableOnce(), new $c_sc_package$$anon$1().init___scg_CanBuildFrom(bf))
 }
 function $f_sc_TraversableLike__filterImpl__F1__Z__O($thiz, p, isFlipped) {
   var b = $thiz.newBuilder__scm_Builder();
@@ -22632,6 +23172,11 @@ function $f_sc_TraversableLike__groupBy__F1__sci_Map($thiz, f) {
   })($thiz, b)));
   return $as_sci_Map(b.elems$1)
 }
+function $f_sc_TraversableLike__builder$1__psc_TraversableLike__scg_CanBuildFrom__scm_Builder($thiz, bf$2) {
+  var b = bf$2.apply__O__scm_Builder($thiz.repr__O());
+  $f_scm_Builder__sizeHint__sc_TraversableLike__V(b, $thiz);
+  return b
+}
 function $f_sc_TraversableLike__map__F1__scg_CanBuildFrom__O($thiz, f, bf) {
   var b = $f_sc_TraversableLike__builder$1__psc_TraversableLike__scg_CanBuildFrom__scm_Builder($thiz, bf);
   $thiz.foreach__F1__V(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this, f$1, b$1) {
@@ -22640,11 +23185,6 @@ function $f_sc_TraversableLike__map__F1__scg_CanBuildFrom__O($thiz, f, bf) {
     })
   })($thiz, f, b)));
   return b.result__O()
-}
-function $f_sc_TraversableLike__builder$1__psc_TraversableLike__scg_CanBuildFrom__scm_Builder($thiz, bf$2) {
-  var b = bf$2.apply__O__scm_Builder($thiz.repr__O());
-  $f_scm_Builder__sizeHint__sc_TraversableLike__V(b, $thiz);
-  return b
 }
 function $f_sc_TraversableLike__stringPrefix__T($thiz) {
   var this$1 = $thiz.repr__O();
@@ -23439,258 +23979,6 @@ function $m_Lgame_Command$Up$() {
   return $n_Lgame_Command$Up$
 }
 /** @constructor */
-function $c_Lgame_Damaged() {
-  $c_O.call(this);
-  this.target$1 = null;
-  this.value$1 = 0
-}
-$c_Lgame_Damaged.prototype = new $h_O();
-$c_Lgame_Damaged.prototype.constructor = $c_Lgame_Damaged;
-/** @constructor */
-function $h_Lgame_Damaged() {
-  /*<skip>*/
-}
-$h_Lgame_Damaged.prototype = $c_Lgame_Damaged.prototype;
-$c_Lgame_Damaged.prototype.productPrefix__T = (function() {
-  return "Damaged"
-});
-$c_Lgame_Damaged.prototype.init___Lmath_Position__I = (function(target, value) {
-  this.target$1 = target;
-  this.value$1 = value;
-  return this
-});
-$c_Lgame_Damaged.prototype.productArity__I = (function() {
-  return 2
-});
-$c_Lgame_Damaged.prototype.equals__O__Z = (function(x$1) {
-  if ((this === x$1)) {
-    return true
-  } else if ($is_Lgame_Damaged(x$1)) {
-    var Damaged$1 = $as_Lgame_Damaged(x$1);
-    var x = this.target$1;
-    var x$2 = Damaged$1.target$1;
-    if (((x === null) ? (x$2 === null) : x.equals__O__Z(x$2))) {
-      return (this.value$1 === Damaged$1.value$1)
-    } else {
-      return false
-    }
-  } else {
-    return false
-  }
-});
-$c_Lgame_Damaged.prototype.productElement__I__O = (function(x$1) {
-  switch (x$1) {
-    case 0: {
-      return this.target$1;
-      break
-    }
-    case 1: {
-      return this.value$1;
-      break
-    }
-    default: {
-      throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
-    }
-  }
-});
-$c_Lgame_Damaged.prototype.toString__T = (function() {
-  return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
-});
-$c_Lgame_Damaged.prototype.hashCode__I = (function() {
-  var acc = (-889275714);
-  acc = $m_sr_Statics$().mix__I__I__I(acc, $m_sr_Statics$().anyHash__O__I(this.target$1));
-  acc = $m_sr_Statics$().mix__I__I__I(acc, this.value$1);
-  return $m_sr_Statics$().finalizeHash__I__I__I(acc, 2)
-});
-$c_Lgame_Damaged.prototype.productIterator__sc_Iterator = (function() {
-  return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
-});
-function $is_Lgame_Damaged(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_Damaged)))
-}
-function $as_Lgame_Damaged(obj) {
-  return (($is_Lgame_Damaged(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "game.Damaged"))
-}
-function $isArrayOf_Lgame_Damaged(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lgame_Damaged)))
-}
-function $asArrayOf_Lgame_Damaged(obj, depth) {
-  return (($isArrayOf_Lgame_Damaged(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.Damaged;", depth))
-}
-var $d_Lgame_Damaged = new $TypeData().initClass({
-  Lgame_Damaged: 0
-}, false, "game.Damaged", {
-  Lgame_Damaged: 1,
-  O: 1,
-  Lgame_CertainOutcome: 1,
-  Lgame_Outcome: 1,
-  s_Product: 1,
-  s_Equals: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lgame_Damaged.prototype.$classData = $d_Lgame_Damaged;
-/** @constructor */
-function $c_Lgame_DoorOpened() {
-  $c_O.call(this);
-  this.target$1 = null
-}
-$c_Lgame_DoorOpened.prototype = new $h_O();
-$c_Lgame_DoorOpened.prototype.constructor = $c_Lgame_DoorOpened;
-/** @constructor */
-function $h_Lgame_DoorOpened() {
-  /*<skip>*/
-}
-$h_Lgame_DoorOpened.prototype = $c_Lgame_DoorOpened.prototype;
-$c_Lgame_DoorOpened.prototype.productPrefix__T = (function() {
-  return "DoorOpened"
-});
-$c_Lgame_DoorOpened.prototype.productArity__I = (function() {
-  return 1
-});
-$c_Lgame_DoorOpened.prototype.equals__O__Z = (function(x$1) {
-  if ((this === x$1)) {
-    return true
-  } else if ($is_Lgame_DoorOpened(x$1)) {
-    var DoorOpened$1 = $as_Lgame_DoorOpened(x$1);
-    var x = this.target$1;
-    var x$2 = DoorOpened$1.target$1;
-    return ((x === null) ? (x$2 === null) : x.equals__O__Z(x$2))
-  } else {
-    return false
-  }
-});
-$c_Lgame_DoorOpened.prototype.productElement__I__O = (function(x$1) {
-  switch (x$1) {
-    case 0: {
-      return this.target$1;
-      break
-    }
-    default: {
-      throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
-    }
-  }
-});
-$c_Lgame_DoorOpened.prototype.toString__T = (function() {
-  return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
-});
-$c_Lgame_DoorOpened.prototype.init___Lmath_Position = (function(target) {
-  this.target$1 = target;
-  return this
-});
-$c_Lgame_DoorOpened.prototype.hashCode__I = (function() {
-  var this$2 = $m_s_util_hashing_MurmurHash3$();
-  return this$2.productHash__s_Product__I__I(this, (-889275714))
-});
-$c_Lgame_DoorOpened.prototype.productIterator__sc_Iterator = (function() {
-  return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
-});
-function $is_Lgame_DoorOpened(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_DoorOpened)))
-}
-function $as_Lgame_DoorOpened(obj) {
-  return (($is_Lgame_DoorOpened(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "game.DoorOpened"))
-}
-function $isArrayOf_Lgame_DoorOpened(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lgame_DoorOpened)))
-}
-function $asArrayOf_Lgame_DoorOpened(obj, depth) {
-  return (($isArrayOf_Lgame_DoorOpened(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.DoorOpened;", depth))
-}
-var $d_Lgame_DoorOpened = new $TypeData().initClass({
-  Lgame_DoorOpened: 0
-}, false, "game.DoorOpened", {
-  Lgame_DoorOpened: 1,
-  O: 1,
-  Lgame_CertainOutcome: 1,
-  Lgame_Outcome: 1,
-  s_Product: 1,
-  s_Equals: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lgame_DoorOpened.prototype.$classData = $d_Lgame_DoorOpened;
-/** @constructor */
-function $c_Lgame_Drank() {
-  $c_O.call(this);
-  this.potion$1 = null
-}
-$c_Lgame_Drank.prototype = new $h_O();
-$c_Lgame_Drank.prototype.constructor = $c_Lgame_Drank;
-/** @constructor */
-function $h_Lgame_Drank() {
-  /*<skip>*/
-}
-$h_Lgame_Drank.prototype = $c_Lgame_Drank.prototype;
-$c_Lgame_Drank.prototype.productPrefix__T = (function() {
-  return "Drank"
-});
-$c_Lgame_Drank.prototype.productArity__I = (function() {
-  return 1
-});
-$c_Lgame_Drank.prototype.equals__O__Z = (function(x$1) {
-  if ((this === x$1)) {
-    return true
-  } else if ($is_Lgame_Drank(x$1)) {
-    var Drank$1 = $as_Lgame_Drank(x$1);
-    var x = this.potion$1;
-    var x$2 = Drank$1.potion$1;
-    return (x === x$2)
-  } else {
-    return false
-  }
-});
-$c_Lgame_Drank.prototype.productElement__I__O = (function(x$1) {
-  switch (x$1) {
-    case 0: {
-      return this.potion$1;
-      break
-    }
-    default: {
-      throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
-    }
-  }
-});
-$c_Lgame_Drank.prototype.toString__T = (function() {
-  return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
-});
-$c_Lgame_Drank.prototype.init___Lgame_Potion = (function(potion) {
-  this.potion$1 = potion;
-  return this
-});
-$c_Lgame_Drank.prototype.hashCode__I = (function() {
-  var this$2 = $m_s_util_hashing_MurmurHash3$();
-  return this$2.productHash__s_Product__I__I(this, (-889275714))
-});
-$c_Lgame_Drank.prototype.productIterator__sc_Iterator = (function() {
-  return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
-});
-function $is_Lgame_Drank(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_Drank)))
-}
-function $as_Lgame_Drank(obj) {
-  return (($is_Lgame_Drank(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "game.Drank"))
-}
-function $isArrayOf_Lgame_Drank(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lgame_Drank)))
-}
-function $asArrayOf_Lgame_Drank(obj, depth) {
-  return (($isArrayOf_Lgame_Drank(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.Drank;", depth))
-}
-var $d_Lgame_Drank = new $TypeData().initClass({
-  Lgame_Drank: 0
-}, false, "game.Drank", {
-  Lgame_Drank: 1,
-  O: 1,
-  Lgame_CertainOutcome: 1,
-  Lgame_Outcome: 1,
-  s_Product: 1,
-  s_Equals: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lgame_Drank.prototype.$classData = $d_Lgame_Drank;
-/** @constructor */
 function $c_Lgame_HealthPotion$() {
   $c_O.call(this);
   this.slug$1 = null;
@@ -23760,381 +24048,6 @@ function $m_Lgame_HealthPotion$() {
   };
   return $n_Lgame_HealthPotion$
 }
-/** @constructor */
-function $c_Lgame_Hold() {
-  $c_O.call(this);
-  this.item$1 = null
-}
-$c_Lgame_Hold.prototype = new $h_O();
-$c_Lgame_Hold.prototype.constructor = $c_Lgame_Hold;
-/** @constructor */
-function $h_Lgame_Hold() {
-  /*<skip>*/
-}
-$h_Lgame_Hold.prototype = $c_Lgame_Hold.prototype;
-$c_Lgame_Hold.prototype.productPrefix__T = (function() {
-  return "Hold"
-});
-$c_Lgame_Hold.prototype.productArity__I = (function() {
-  return 1
-});
-$c_Lgame_Hold.prototype.equals__O__Z = (function(x$1) {
-  if ((this === x$1)) {
-    return true
-  } else if ($is_Lgame_Hold(x$1)) {
-    var Hold$1 = $as_Lgame_Hold(x$1);
-    var x = this.item$1;
-    var x$2 = Hold$1.item$1;
-    return (x === x$2)
-  } else {
-    return false
-  }
-});
-$c_Lgame_Hold.prototype.productElement__I__O = (function(x$1) {
-  switch (x$1) {
-    case 0: {
-      return this.item$1;
-      break
-    }
-    default: {
-      throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
-    }
-  }
-});
-$c_Lgame_Hold.prototype.toString__T = (function() {
-  return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
-});
-$c_Lgame_Hold.prototype.hashCode__I = (function() {
-  var this$2 = $m_s_util_hashing_MurmurHash3$();
-  return this$2.productHash__s_Product__I__I(this, (-889275714))
-});
-$c_Lgame_Hold.prototype.init___Lgame_Item = (function(item) {
-  this.item$1 = item;
-  return this
-});
-$c_Lgame_Hold.prototype.productIterator__sc_Iterator = (function() {
-  return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
-});
-function $is_Lgame_Hold(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_Hold)))
-}
-function $as_Lgame_Hold(obj) {
-  return (($is_Lgame_Hold(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "game.Hold"))
-}
-function $isArrayOf_Lgame_Hold(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lgame_Hold)))
-}
-function $asArrayOf_Lgame_Hold(obj, depth) {
-  return (($isArrayOf_Lgame_Hold(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.Hold;", depth))
-}
-var $d_Lgame_Hold = new $TypeData().initClass({
-  Lgame_Hold: 0
-}, false, "game.Hold", {
-  Lgame_Hold: 1,
-  O: 1,
-  Lgame_CertainOutcome: 1,
-  Lgame_Outcome: 1,
-  s_Product: 1,
-  s_Equals: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lgame_Hold.prototype.$classData = $d_Lgame_Hold;
-/** @constructor */
-function $c_Lgame_LinearDamage() {
-  $c_O.call(this);
-  this.target$1 = null;
-  this.valueRange$1 = null
-}
-$c_Lgame_LinearDamage.prototype = new $h_O();
-$c_Lgame_LinearDamage.prototype.constructor = $c_Lgame_LinearDamage;
-/** @constructor */
-function $h_Lgame_LinearDamage() {
-  /*<skip>*/
-}
-$h_Lgame_LinearDamage.prototype = $c_Lgame_LinearDamage.prototype;
-$c_Lgame_LinearDamage.prototype.productPrefix__T = (function() {
-  return "LinearDamage"
-});
-$c_Lgame_LinearDamage.prototype.productArity__I = (function() {
-  return 2
-});
-$c_Lgame_LinearDamage.prototype.equals__O__Z = (function(x$1) {
-  if ((this === x$1)) {
-    return true
-  } else if ($is_Lgame_LinearDamage(x$1)) {
-    var LinearDamage$1 = $as_Lgame_LinearDamage(x$1);
-    var x = this.target$1;
-    var x$2 = LinearDamage$1.target$1;
-    if (((x === null) ? (x$2 === null) : x.equals__O__Z(x$2))) {
-      var x$3 = this.valueRange$1;
-      var x$4 = LinearDamage$1.valueRange$1;
-      return ((x$3 === null) ? (x$4 === null) : x$3.equals__O__Z(x$4))
-    } else {
-      return false
-    }
-  } else {
-    return false
-  }
-});
-$c_Lgame_LinearDamage.prototype.productElement__I__O = (function(x$1) {
-  switch (x$1) {
-    case 0: {
-      return this.target$1;
-      break
-    }
-    case 1: {
-      return this.valueRange$1;
-      break
-    }
-    default: {
-      throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
-    }
-  }
-});
-$c_Lgame_LinearDamage.prototype.toString__T = (function() {
-  return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
-});
-$c_Lgame_LinearDamage.prototype.init___Lmath_Position__Lgame_ClosedInterval = (function(target, valueRange) {
-  this.target$1 = target;
-  this.valueRange$1 = valueRange;
-  return this
-});
-$c_Lgame_LinearDamage.prototype.outcomes__F1 = (function() {
-  var delta = ((this.valueRange$1.max$1 - this.valueRange$1.min$1) | 0);
-  var rand = $m_Lrandom_RNG$().nextPositiveInt__I__F1(delta);
-  var rand$1 = new $c_Lrandom_RNG$randOps().init___F1(rand).map__F1__F1(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this) {
-    return (function(x$1$2) {
-      var x$1 = $uI(x$1$2);
-      return ((x$1 + $this.valueRange$1.min$1) | 0)
-    })
-  })(this)));
-  return new $c_Lrandom_RNG$randOps().init___F1(rand$1).map__F1__F1(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2$1) {
-    return (function(i$2) {
-      var i = $uI(i$2);
-      var array = [new $c_Lgame_Damaged().init___Lmath_Position__I(this$2$1.target$1, i)];
-      if (($uI(array.length) === 0)) {
-        var jsx$1 = $m_sci_Set$EmptySet$()
-      } else {
-        var b = new $c_scm_SetBuilder().init___sc_Set($m_sci_Set$EmptySet$());
-        var i$1 = 0;
-        var len = $uI(array.length);
-        while ((i$1 < len)) {
-          var index = i$1;
-          var arg1 = array[index];
-          b.$$plus$eq__O__scm_SetBuilder(arg1);
-          i$1 = ((1 + i$1) | 0)
-        };
-        var jsx$1 = b.elems$1
-      };
-      return $as_sci_Set(jsx$1)
-    })
-  })(this)))
-});
-$c_Lgame_LinearDamage.prototype.hashCode__I = (function() {
-  var this$2 = $m_s_util_hashing_MurmurHash3$();
-  return this$2.productHash__s_Product__I__I(this, (-889275714))
-});
-$c_Lgame_LinearDamage.prototype.productIterator__sc_Iterator = (function() {
-  return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
-});
-function $is_Lgame_LinearDamage(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_LinearDamage)))
-}
-function $as_Lgame_LinearDamage(obj) {
-  return (($is_Lgame_LinearDamage(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "game.LinearDamage"))
-}
-function $isArrayOf_Lgame_LinearDamage(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lgame_LinearDamage)))
-}
-function $asArrayOf_Lgame_LinearDamage(obj, depth) {
-  return (($isArrayOf_Lgame_LinearDamage(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.LinearDamage;", depth))
-}
-var $d_Lgame_LinearDamage = new $TypeData().initClass({
-  Lgame_LinearDamage: 0
-}, false, "game.LinearDamage", {
-  Lgame_LinearDamage: 1,
-  O: 1,
-  Lgame_RandomOutcome: 1,
-  Lgame_Outcome: 1,
-  s_Product: 1,
-  s_Equals: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lgame_LinearDamage.prototype.$classData = $d_Lgame_LinearDamage;
-/** @constructor */
-function $c_Lgame_Moved() {
-  $c_O.call(this);
-  this.direction$1 = null
-}
-$c_Lgame_Moved.prototype = new $h_O();
-$c_Lgame_Moved.prototype.constructor = $c_Lgame_Moved;
-/** @constructor */
-function $h_Lgame_Moved() {
-  /*<skip>*/
-}
-$h_Lgame_Moved.prototype = $c_Lgame_Moved.prototype;
-$c_Lgame_Moved.prototype.productPrefix__T = (function() {
-  return "Moved"
-});
-$c_Lgame_Moved.prototype.init___Lmath_Direction = (function(direction) {
-  this.direction$1 = direction;
-  return this
-});
-$c_Lgame_Moved.prototype.productArity__I = (function() {
-  return 1
-});
-$c_Lgame_Moved.prototype.equals__O__Z = (function(x$1) {
-  if ((this === x$1)) {
-    return true
-  } else if ($is_Lgame_Moved(x$1)) {
-    var Moved$1 = $as_Lgame_Moved(x$1);
-    var x = this.direction$1;
-    var x$2 = Moved$1.direction$1;
-    return (x === x$2)
-  } else {
-    return false
-  }
-});
-$c_Lgame_Moved.prototype.productElement__I__O = (function(x$1) {
-  switch (x$1) {
-    case 0: {
-      return this.direction$1;
-      break
-    }
-    default: {
-      throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
-    }
-  }
-});
-$c_Lgame_Moved.prototype.toString__T = (function() {
-  return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
-});
-$c_Lgame_Moved.prototype.hashCode__I = (function() {
-  var this$2 = $m_s_util_hashing_MurmurHash3$();
-  return this$2.productHash__s_Product__I__I(this, (-889275714))
-});
-$c_Lgame_Moved.prototype.productIterator__sc_Iterator = (function() {
-  return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
-});
-function $is_Lgame_Moved(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_Moved)))
-}
-function $as_Lgame_Moved(obj) {
-  return (($is_Lgame_Moved(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "game.Moved"))
-}
-function $isArrayOf_Lgame_Moved(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lgame_Moved)))
-}
-function $asArrayOf_Lgame_Moved(obj, depth) {
-  return (($isArrayOf_Lgame_Moved(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.Moved;", depth))
-}
-var $d_Lgame_Moved = new $TypeData().initClass({
-  Lgame_Moved: 0
-}, false, "game.Moved", {
-  Lgame_Moved: 1,
-  O: 1,
-  Lgame_CertainOutcome: 1,
-  Lgame_Outcome: 1,
-  s_Product: 1,
-  s_Equals: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lgame_Moved.prototype.$classData = $d_Lgame_Moved;
-/** @constructor */
-function $c_Lgame_Swap() {
-  $c_O.call(this);
-  this.oldItem$1 = null;
-  this.newitem$1 = null
-}
-$c_Lgame_Swap.prototype = new $h_O();
-$c_Lgame_Swap.prototype.constructor = $c_Lgame_Swap;
-/** @constructor */
-function $h_Lgame_Swap() {
-  /*<skip>*/
-}
-$h_Lgame_Swap.prototype = $c_Lgame_Swap.prototype;
-$c_Lgame_Swap.prototype.init___Lgame_Item__Lgame_Item = (function(oldItem, newitem) {
-  this.oldItem$1 = oldItem;
-  this.newitem$1 = newitem;
-  return this
-});
-$c_Lgame_Swap.prototype.productPrefix__T = (function() {
-  return "Swap"
-});
-$c_Lgame_Swap.prototype.productArity__I = (function() {
-  return 2
-});
-$c_Lgame_Swap.prototype.equals__O__Z = (function(x$1) {
-  if ((this === x$1)) {
-    return true
-  } else if ($is_Lgame_Swap(x$1)) {
-    var Swap$1 = $as_Lgame_Swap(x$1);
-    var x = this.oldItem$1;
-    var x$2 = Swap$1.oldItem$1;
-    if ((x === x$2)) {
-      var x$3 = this.newitem$1;
-      var x$4 = Swap$1.newitem$1;
-      return (x$3 === x$4)
-    } else {
-      return false
-    }
-  } else {
-    return false
-  }
-});
-$c_Lgame_Swap.prototype.productElement__I__O = (function(x$1) {
-  switch (x$1) {
-    case 0: {
-      return this.oldItem$1;
-      break
-    }
-    case 1: {
-      return this.newitem$1;
-      break
-    }
-    default: {
-      throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
-    }
-  }
-});
-$c_Lgame_Swap.prototype.toString__T = (function() {
-  return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
-});
-$c_Lgame_Swap.prototype.hashCode__I = (function() {
-  var this$2 = $m_s_util_hashing_MurmurHash3$();
-  return this$2.productHash__s_Product__I__I(this, (-889275714))
-});
-$c_Lgame_Swap.prototype.productIterator__sc_Iterator = (function() {
-  return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
-});
-function $is_Lgame_Swap(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lgame_Swap)))
-}
-function $as_Lgame_Swap(obj) {
-  return (($is_Lgame_Swap(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "game.Swap"))
-}
-function $isArrayOf_Lgame_Swap(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lgame_Swap)))
-}
-function $asArrayOf_Lgame_Swap(obj, depth) {
-  return (($isArrayOf_Lgame_Swap(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lgame.Swap;", depth))
-}
-var $d_Lgame_Swap = new $TypeData().initClass({
-  Lgame_Swap: 0
-}, false, "game.Swap", {
-  Lgame_Swap: 1,
-  O: 1,
-  Lgame_CertainOutcome: 1,
-  Lgame_Outcome: 1,
-  s_Product: 1,
-  s_Equals: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lgame_Swap.prototype.$classData = $d_Lgame_Swap;
 /** @constructor */
 function $c_Lgame_Sword$() {
   $c_O.call(this);
@@ -25142,9 +25055,6 @@ var $d_s_concurrent_impl_Promise$DefaultPromise = new $TypeData().initClass({
   s_concurrent_Awaitable: 1
 });
 $c_s_concurrent_impl_Promise$DefaultPromise.prototype.$classData = $d_s_concurrent_impl_Promise$DefaultPromise;
-function $f_s_math_Numeric$IntIsIntegral__plus__I__I__I($thiz, x, y) {
-  return ((x + y) | 0)
-}
 /** @constructor */
 function $c_s_math_Ordering$Int$() {
   $c_O.call(this)
@@ -25672,9 +25582,6 @@ $c_Lgame_being_HumanoidBody.prototype.damageRange__Lgame_ClosedInterval = (funct
   };
   return new $c_Lgame_ClosedInterval().init___I__I(2, 4)
 });
-$c_Lgame_being_HumanoidBody.prototype.holding__s_Option = (function() {
-  return this.holding$1
-});
 $c_Lgame_being_HumanoidBody.prototype.productElement__I__O = (function(x$1) {
   switch (x$1) {
     case 0: {
@@ -25714,11 +25621,11 @@ $c_Lgame_being_HumanoidBody.prototype.hashCode__I = (function() {
   var this$2 = $m_s_util_hashing_MurmurHash3$();
   return this$2.productHash__s_Product__I__I(this, (-889275714))
 });
-$c_Lgame_being_HumanoidBody.prototype.game$being$Damagable$$undsetter$und$destroyed$und$eq__Z__V = (function(x$1) {
-  this.destroyed$1 = x$1
-});
 $c_Lgame_being_HumanoidBody.prototype.productIterator__sc_Iterator = (function() {
   return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
+});
+$c_Lgame_being_HumanoidBody.prototype.game$being$Damagable$$undsetter$und$destroyed$und$eq__Z__V = (function(x$1) {
+  this.destroyed$1 = x$1
 });
 $c_Lgame_being_HumanoidBody.prototype.health__I = (function() {
   return this.health$1
@@ -25755,7 +25662,6 @@ function $c_Lgame_being_Player$() {
   $c_O.call(this);
   this.name$1 = null;
   this.isProtagonist$1 = false;
-  this.viewportRange$1 = 0;
   this.lineOfLightRange$1 = 0.0;
   this.bodyFactory$1 = null;
   this.intelligenceFactory$1 = null;
@@ -25776,11 +25682,7 @@ $c_Lgame_being_Player$.prototype.init___ = (function() {
   $f_Lgame_Describable__$$init$__V(this);
   this.name$1 = "you";
   this.isProtagonist$1 = true;
-  this.viewportRange$1 = 6;
-  var a = this.viewportRange$1;
-  var a$1 = (2 * $uD($g.Math.pow(a, 2.0)));
-  var a$2 = $uD($g.Math.sqrt(a$1));
-  this.lineOfLightRange$1 = $uD($g.Math.ceil(a$2));
+  this.lineOfLightRange$1 = 10.0;
   this.bodyFactory$1 = new $c_Lgame_being_Player$$anon$1().init___();
   this.intelligenceFactory$1 = new $c_Lgame_being_Player$$anon$2().init___();
   return this
@@ -25796,9 +25698,6 @@ $c_Lgame_being_Player$.prototype.bodyFactory__Lgame_being_BodyFactory = (functio
 });
 $c_Lgame_being_Player$.prototype.productElement__I__O = (function(x$1) {
   throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
-});
-$c_Lgame_being_Player$.prototype.viewport__Lmath_Position__Lmath_Area = (function(position) {
-  return $m_Lmath_Area$().apply__Lmath_Position__Lmath_Position__Lmath_Area(new $c_Lmath_Position().init___I__I(((1 + ((position.x$1 - this.viewportRange$1) | 0)) | 0), ((1 + ((position.y$1 - this.viewportRange$1) | 0)) | 0)), new $c_Lmath_Position().init___I__I((((-1) + ((position.x$1 + this.viewportRange$1) | 0)) | 0), (((-1) + ((position.y$1 + this.viewportRange$1) | 0)) | 0)))
 });
 $c_Lgame_being_Player$.prototype.toString__T = (function() {
   return "Player"
@@ -26827,44 +26726,6 @@ function $m_Lgame_ClosedDoor$() {
   return $n_Lgame_ClosedDoor$
 }
 /** @constructor */
-function $c_s_math_Numeric$IntIsIntegral$() {
-  $c_O.call(this)
-}
-$c_s_math_Numeric$IntIsIntegral$.prototype = new $h_O();
-$c_s_math_Numeric$IntIsIntegral$.prototype.constructor = $c_s_math_Numeric$IntIsIntegral$;
-/** @constructor */
-function $h_s_math_Numeric$IntIsIntegral$() {
-  /*<skip>*/
-}
-$h_s_math_Numeric$IntIsIntegral$.prototype = $c_s_math_Numeric$IntIsIntegral$.prototype;
-$c_s_math_Numeric$IntIsIntegral$.prototype.init___ = (function() {
-  return this
-});
-var $d_s_math_Numeric$IntIsIntegral$ = new $TypeData().initClass({
-  s_math_Numeric$IntIsIntegral$: 0
-}, false, "scala.math.Numeric$IntIsIntegral$", {
-  s_math_Numeric$IntIsIntegral$: 1,
-  O: 1,
-  s_math_Numeric$IntIsIntegral: 1,
-  s_math_Integral: 1,
-  s_math_Numeric: 1,
-  s_math_Ordering: 1,
-  ju_Comparator: 1,
-  s_math_PartialOrdering: 1,
-  s_math_Equiv: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1,
-  s_math_Ordering$IntOrdering: 1
-});
-$c_s_math_Numeric$IntIsIntegral$.prototype.$classData = $d_s_math_Numeric$IntIsIntegral$;
-var $n_s_math_Numeric$IntIsIntegral$ = (void 0);
-function $m_s_math_Numeric$IntIsIntegral$() {
-  if ((!$n_s_math_Numeric$IntIsIntegral$)) {
-    $n_s_math_Numeric$IntIsIntegral$ = new $c_s_math_Numeric$IntIsIntegral$().init___()
-  };
-  return $n_s_math_Numeric$IntIsIntegral$
-}
-/** @constructor */
 function $c_sc_AbstractTraversable() {
   $c_O.call(this)
 }
@@ -26892,19 +26753,11 @@ $c_sc_AbstractTraversable.prototype.withFilter__F1__scg_FilterMonadic = (functio
 $c_sc_AbstractTraversable.prototype.foldLeft__O__F2__O = (function(z, op) {
   return $f_sc_TraversableOnce__foldLeft__O__F2__O(this, z, op)
 });
-$c_sc_AbstractTraversable.prototype.toVector__sci_Vector = (function() {
-  $m_sci_Vector$();
-  var cbf = $m_sc_IndexedSeq$().ReusableCBF$6;
-  return $as_sci_Vector($f_sc_TraversableLike__to__scg_CanBuildFrom__O(this, cbf))
-});
 $c_sc_AbstractTraversable.prototype.filter__F1__O = (function(p) {
   return this.filterImpl__F1__Z__O(p, false)
 });
 $c_sc_AbstractTraversable.prototype.filterImpl__F1__Z__O = (function(p, isFlipped) {
   return $f_sc_TraversableLike__filterImpl__F1__Z__O(this, p, isFlipped)
-});
-$c_sc_AbstractTraversable.prototype.$$plus$plus__sc_GenTraversableOnce__scg_CanBuildFrom__O = (function(that, bf) {
-  return $f_sc_TraversableLike__$$plus$plus__sc_GenTraversableOnce__scg_CanBuildFrom__O(this, that, bf)
 });
 $c_sc_AbstractTraversable.prototype.sizeHintIfCheap__I = (function() {
   return (-1)
@@ -26926,9 +26779,6 @@ $c_sc_AbstractTraversable.prototype.toSet__sci_Set = (function() {
   var cbf = new $c_scg_GenSetFactory$$anon$1().init___scg_GenSetFactory(this$1);
   return $as_sci_Set($f_sc_TraversableLike__to__scg_CanBuildFrom__O(this, cbf))
 });
-$c_sc_AbstractTraversable.prototype.isTraversableAgain__Z = (function() {
-  return true
-});
 $c_sc_AbstractTraversable.prototype.toMap__s_Predef$$less$colon$less__sci_Map = (function(ev) {
   var b = new $c_scm_MapBuilder().init___sc_GenMap($m_sci_Map$EmptyMap$());
   this.foreach__F1__V(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this, ev$1, b$1) {
@@ -26941,23 +26791,30 @@ $c_sc_AbstractTraversable.prototype.toMap__s_Predef$$less$colon$less__sci_Map = 
 $c_sc_AbstractTraversable.prototype.map__F1__scg_CanBuildFrom__O = (function(f, bf) {
   return $f_sc_TraversableLike__map__F1__scg_CanBuildFrom__O(this, f, bf)
 });
-$c_sc_AbstractTraversable.prototype.sum__s_math_Numeric__O = (function(num) {
-  return $f_sc_TraversableOnce__sum__s_math_Numeric__O(this, num)
-});
 $c_sc_AbstractTraversable.prototype.newBuilder__scm_Builder = (function() {
   return this.companion__scg_GenericCompanion().newBuilder__scm_Builder()
 });
 $c_sc_AbstractTraversable.prototype.stringPrefix__T = (function() {
   return $f_sc_TraversableLike__stringPrefix__T(this)
 });
+function $f_sc_SeqLike__lengthCompare__I__I($thiz, len) {
+  if ((len < 0)) {
+    return 1
+  } else {
+    var i = 0;
+    var it = $thiz.iterator__sc_Iterator();
+    while (it.hasNext__Z()) {
+      if ((i === len)) {
+        return (it.hasNext__Z() ? 1 : 0)
+      };
+      it.next__O();
+      i = ((1 + i) | 0)
+    };
+    return ((i - len) | 0)
+  }
+}
 function $f_sc_SeqLike__isEmpty__Z($thiz) {
   return ($thiz.lengthCompare__I__I(0) === 0)
-}
-function $f_sc_SeqLike__$$colon$plus__O__scg_CanBuildFrom__O($thiz, elem, bf) {
-  var b = bf.apply__O__scm_Builder($thiz.repr__O());
-  b.$$plus$plus$eq__sc_TraversableOnce__scg_Growable($thiz.thisCollection__sc_Seq());
-  b.$$plus$eq__O__scm_Builder(elem);
-  return b.result__O()
 }
 function $f_sc_SeqLike__indexWhere__F1__I__I($thiz, p, from) {
   var i = ((from > 0) ? from : 0);
@@ -26970,12 +26827,6 @@ function $f_sc_SeqLike__indexWhere__F1__I__I($thiz, p, from) {
     }
   };
   return (-1)
-}
-function $f_sc_SeqLike__$$plus$colon__O__scg_CanBuildFrom__O($thiz, elem, bf) {
-  var b = bf.apply__O__scm_Builder($thiz.repr__O());
-  b.$$plus$eq__O__scm_Builder(elem);
-  b.$$plus$plus$eq__sc_TraversableOnce__scg_Growable($thiz.thisCollection__sc_Seq());
-  return b.result__O()
 }
 function $is_sc_SeqLike(obj) {
   return (!(!((obj && obj.$classData) && obj.$classData.ancestors.sc_SeqLike)))
@@ -27556,11 +27407,6 @@ $c_sci_StringOps.prototype.indexWhere__F1__I__I = (function(p, from) {
 $c_sci_StringOps.prototype.slice__I__I__O = (function(from, until) {
   return $m_sci_StringOps$().slice$extension__T__I__I__T(this.repr$1, from, until)
 });
-$c_sci_StringOps.prototype.toVector__sci_Vector = (function() {
-  $m_sci_Vector$();
-  var cbf = $m_sc_IndexedSeq$().ReusableCBF$6;
-  return $as_sci_Vector($f_sc_TraversableLike__to__scg_CanBuildFrom__O(this, cbf))
-});
 $c_sci_StringOps.prototype.size__I = (function() {
   var $$this = this.repr$1;
   return $uI($$this.length)
@@ -27590,10 +27436,6 @@ $c_sci_StringOps.prototype.drop__I__O = (function(n) {
   var until = $uI($$this.length);
   return $m_sci_StringOps$().slice$extension__T__I__I__T(this.repr$1, n, until)
 });
-$c_sci_StringOps.prototype.thisCollection__sc_Seq = (function() {
-  var $$this = this.repr$1;
-  return new $c_sci_WrappedString().init___T($$this)
-});
 $c_sci_StringOps.prototype.tail__O = (function() {
   return $f_sc_IndexedSeqOptimized__tail__O(this)
 });
@@ -27622,9 +27464,6 @@ $c_sci_StringOps.prototype.$$div$colon__O__F2__O = (function(z, op) {
 $c_sci_StringOps.prototype.copyToArray__O__I__I__V = (function(xs, start, len) {
   $f_sc_IndexedSeqOptimized__copyToArray__O__I__I__V(this, xs, start, len)
 });
-$c_sci_StringOps.prototype.isTraversableAgain__Z = (function() {
-  return true
-});
 $c_sci_StringOps.prototype.hashCode__I = (function() {
   var $$this = this.repr$1;
   return $m_sjsr_RuntimeString$().hashCode__T__I($$this)
@@ -27647,9 +27486,6 @@ $c_sci_StringOps.prototype.toMap__s_Predef$$less$colon$less__sci_Map = (function
 });
 $c_sci_StringOps.prototype.map__F1__scg_CanBuildFrom__O = (function(f, bf) {
   return $f_sc_TraversableLike__map__F1__scg_CanBuildFrom__O(this, f, bf)
-});
-$c_sci_StringOps.prototype.sum__s_math_Numeric__O = (function(num) {
-  return $f_sc_TraversableOnce__sum__s_math_Numeric__O(this, num)
 });
 $c_sci_StringOps.prototype.newBuilder__scm_Builder = (function() {
   return new $c_scm_StringBuilder().init___()
@@ -27800,6 +27636,9 @@ function $h_sc_AbstractSeq() {
 $h_sc_AbstractSeq.prototype = $c_sc_AbstractSeq.prototype;
 $c_sc_AbstractSeq.prototype.indexOf__O__I__I = (function(elem, from) {
   return $f_sc_GenSeqLike__indexOf__O__I__I(this, elem, from)
+});
+$c_sc_AbstractSeq.prototype.lengthCompare__I__I = (function(len) {
+  return $f_sc_SeqLike__lengthCompare__I__I(this, len)
 });
 $c_sc_AbstractSeq.prototype.isEmpty__Z = (function() {
   return $f_sc_SeqLike__isEmpty__Z(this)
@@ -31183,11 +31022,11 @@ $c_sci_ListMap$Node.prototype.removeInternal__p6__O__sci_ListMap__sci_List__sci_
 $c_sci_ListMap$Node.prototype.apply__O__O = (function(k) {
   return this.applyInternal__p6__sci_ListMap__O__O(this, k)
 });
-$c_sci_ListMap$Node.prototype.$$minus__O__scg_Subtractable = (function(elem) {
-  return this.removeInternal__p6__O__sci_ListMap__sci_List__sci_ListMap(elem, this, $m_sci_Nil$())
-});
 $c_sci_ListMap$Node.prototype.value__O = (function() {
   return this.value$6
+});
+$c_sci_ListMap$Node.prototype.$$minus__O__scg_Subtractable = (function(elem) {
+  return this.removeInternal__p6__O__sci_ListMap__sci_List__sci_ListMap(elem, this, $m_sci_Nil$())
 });
 $c_sci_ListMap$Node.prototype.isEmpty__Z = (function() {
   return false
@@ -31259,6 +31098,9 @@ $c_sci_ListMap$Node.prototype.$$minus__O__sci_ListMap = (function(k) {
 $c_sci_ListMap$Node.prototype.get__O__s_Option = (function(k) {
   return this.getInternal__p6__sci_ListMap__O__s_Option(this, k)
 });
+$c_sci_ListMap$Node.prototype.contains__O__Z = (function(k) {
+  return this.containsInternal__p6__sci_ListMap__O__Z(this, k)
+});
 $c_sci_ListMap$Node.prototype.init___sci_ListMap__O__O = (function($$outer, key, value) {
   this.key$6 = key;
   this.value$6 = value;
@@ -31268,9 +31110,6 @@ $c_sci_ListMap$Node.prototype.init___sci_ListMap__O__O = (function($$outer, key,
     this.$$outer$6 = $$outer
   };
   return this
-});
-$c_sci_ListMap$Node.prototype.contains__O__Z = (function(k) {
-  return this.containsInternal__p6__sci_ListMap__O__Z(this, k)
 });
 $c_sci_ListMap$Node.prototype.containsInternal__p6__sci_ListMap__O__Z = (function(cur, k) {
   _containsInternal: while (true) {
@@ -31333,6 +31172,287 @@ var $d_sci_ListMap$Node = new $TypeData().initClass({
   Ljava_io_Serializable: 1
 });
 $c_sci_ListMap$Node.prototype.$classData = $d_sci_ListMap$Node;
+/** @constructor */
+function $c_sci_Range() {
+  $c_sc_AbstractSeq.call(this);
+  this.start$4 = 0;
+  this.end$4 = 0;
+  this.step$4 = 0;
+  this.isEmpty$4 = false;
+  this.scala$collection$immutable$Range$$numRangeElements$4 = 0;
+  this.scala$collection$immutable$Range$$lastElement$4 = 0
+}
+$c_sci_Range.prototype = new $h_sc_AbstractSeq();
+$c_sci_Range.prototype.constructor = $c_sci_Range;
+/** @constructor */
+function $h_sci_Range() {
+  /*<skip>*/
+}
+$h_sci_Range.prototype = $c_sci_Range.prototype;
+$c_sci_Range.prototype.seq__sc_TraversableOnce = (function() {
+  return this
+});
+$c_sci_Range.prototype.isInclusive__Z = (function() {
+  return false
+});
+$c_sci_Range.prototype.head__O = (function() {
+  return this.head__I()
+});
+$c_sci_Range.prototype.apply__I__O = (function(idx) {
+  return this.apply$mcII$sp__I__I(idx)
+});
+$c_sci_Range.prototype.apply__O__O = (function(v1) {
+  var idx = $uI(v1);
+  return this.apply$mcII$sp__I__I(idx)
+});
+$c_sci_Range.prototype.isEmpty__Z = (function() {
+  return this.isEmpty$4
+});
+$c_sci_Range.prototype.longLength__p4__J = (function() {
+  var t = this.gap__p4__J();
+  var lo = t.lo$2;
+  var hi$1 = t.hi$2;
+  var value = this.step$4;
+  var hi = (value >> 31);
+  var this$1 = $m_sjsr_RuntimeLong$();
+  var lo$1 = this$1.divideImpl__I__I__I__I__I(lo, hi$1, value, hi);
+  var hi$2 = this$1.scala$scalajs$runtime$RuntimeLong$$hiReturn$f;
+  var value$1 = (this.hasStub__p4__Z() ? 1 : 0);
+  var hi$3 = (value$1 >> 31);
+  var lo$2 = ((lo$1 + value$1) | 0);
+  var hi$4 = ((((-2147483648) ^ lo$2) < ((-2147483648) ^ lo$1)) ? ((1 + ((hi$2 + hi$3) | 0)) | 0) : ((hi$2 + hi$3) | 0));
+  return new $c_sjsr_RuntimeLong().init___I__I(lo$2, hi$4)
+});
+$c_sci_Range.prototype.thisCollection__sc_Traversable = (function() {
+  return this
+});
+$c_sci_Range.prototype.locationAfterN__p4__I__I = (function(n) {
+  return ((this.start$4 + $imul(this.step$4, n)) | 0)
+});
+$c_sci_Range.prototype.equals__O__Z = (function(other) {
+  if ($is_sci_Range(other)) {
+    var x2 = $as_sci_Range(other);
+    if (this.isEmpty$4) {
+      return x2.isEmpty$4
+    } else if (($f_sc_TraversableOnce__nonEmpty__Z(x2) && (this.start$4 === x2.start$4))) {
+      var l0 = this.last__I();
+      return ((l0 === x2.last__I()) && ((this.start$4 === l0) || (this.step$4 === x2.step$4)))
+    } else {
+      return false
+    }
+  } else {
+    return $f_sc_GenSeqLike__equals__O__Z(this, other)
+  }
+});
+$c_sci_Range.prototype.apply$mcII$sp__I__I = (function(idx) {
+  this.scala$collection$immutable$Range$$validateMaxLength__V();
+  if (((idx < 0) || (idx >= this.scala$collection$immutable$Range$$numRangeElements$4))) {
+    throw new $c_jl_IndexOutOfBoundsException().init___T(("" + idx))
+  } else {
+    return ((this.start$4 + $imul(this.step$4, idx)) | 0)
+  }
+});
+$c_sci_Range.prototype.init___I__I__I = (function(start, end, step) {
+  this.start$4 = start;
+  this.end$4 = end;
+  this.step$4 = step;
+  this.isEmpty$4 = ((((start > end) && (step > 0)) || ((start < end) && (step < 0))) || ((start === end) && (!this.isInclusive__Z())));
+  if ((step === 0)) {
+    var jsx$1;
+    throw new $c_jl_IllegalArgumentException().init___T("step cannot be 0.")
+  } else if (this.isEmpty$4) {
+    var jsx$1 = 0
+  } else {
+    var t = this.longLength__p4__J();
+    var lo = t.lo$2;
+    var hi = t.hi$2;
+    var jsx$1 = (((hi === 0) ? (((-2147483648) ^ lo) > (-1)) : (hi > 0)) ? (-1) : lo)
+  };
+  this.scala$collection$immutable$Range$$numRangeElements$4 = jsx$1;
+  switch (step) {
+    case 1: {
+      var jsx$2 = (this.isInclusive__Z() ? end : (((-1) + end) | 0));
+      break
+    }
+    case (-1): {
+      var jsx$2 = (this.isInclusive__Z() ? end : ((1 + end) | 0));
+      break
+    }
+    default: {
+      var t$1 = this.gap__p4__J();
+      var lo$1 = t$1.lo$2;
+      var hi$2 = t$1.hi$2;
+      var hi$1 = (step >> 31);
+      var this$1 = $m_sjsr_RuntimeLong$();
+      var lo$2 = this$1.remainderImpl__I__I__I__I__I(lo$1, hi$2, step, hi$1);
+      var jsx$2 = ((lo$2 !== 0) ? ((end - lo$2) | 0) : (this.isInclusive__Z() ? end : ((end - step) | 0)))
+    }
+  };
+  this.scala$collection$immutable$Range$$lastElement$4 = jsx$2;
+  return this
+});
+$c_sci_Range.prototype.companion__scg_GenericCompanion = (function() {
+  return $m_sci_IndexedSeq$()
+});
+$c_sci_Range.prototype.toString__T = (function() {
+  var preposition = (this.isInclusive__Z() ? "to" : "until");
+  var stepped = ((this.step$4 === 1) ? "" : new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array([" by ", ""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([this.step$4])));
+  var prefix = (this.isEmpty$4 ? "empty " : ((!this.isExact__p4__Z()) ? "inexact " : ""));
+  return new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["", "Range ", " ", " ", "", ""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([prefix, this.start$4, preposition, this.end$4, stepped]))
+});
+$c_sci_Range.prototype.foreach__F1__V = (function(f) {
+  if ((!this.isEmpty$4)) {
+    var i = this.start$4;
+    while (true) {
+      f.apply__O__O(i);
+      if ((i === this.scala$collection$immutable$Range$$lastElement$4)) {
+        return (void 0)
+      };
+      i = ((i + this.step$4) | 0)
+    }
+  }
+});
+$c_sci_Range.prototype.hasStub__p4__Z = (function() {
+  return (this.isInclusive__Z() || (!this.isExact__p4__Z()))
+});
+$c_sci_Range.prototype.copy__I__I__I__sci_Range = (function(start, end, step) {
+  return new $c_sci_Range().init___I__I__I(start, end, step)
+});
+$c_sci_Range.prototype.tail__sci_Range = (function() {
+  if (this.isEmpty$4) {
+    $m_sci_Nil$().tail__sci_List()
+  };
+  return this.drop__I__sci_Range(1)
+});
+$c_sci_Range.prototype.size__I = (function() {
+  return this.length__I()
+});
+$c_sci_Range.prototype.iterator__sc_Iterator = (function() {
+  return new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(this, 0, this.length__I())
+});
+$c_sci_Range.prototype.scala$collection$immutable$Range$$validateMaxLength__V = (function() {
+  if ((this.scala$collection$immutable$Range$$numRangeElements$4 < 0)) {
+    $m_sci_Range$().scala$collection$immutable$Range$$fail__I__I__I__Z__sr_Nothing$(this.start$4, this.end$4, this.step$4, this.isInclusive__Z())
+  }
+});
+$c_sci_Range.prototype.length__I = (function() {
+  return ((this.scala$collection$immutable$Range$$numRangeElements$4 < 0) ? $m_sci_Range$().scala$collection$immutable$Range$$fail__I__I__I__Z__sr_Nothing$(this.start$4, this.end$4, this.step$4, this.isInclusive__Z()) : this.scala$collection$immutable$Range$$numRangeElements$4)
+});
+$c_sci_Range.prototype.seq__sc_Seq = (function() {
+  return this
+});
+$c_sci_Range.prototype.sizeHintIfCheap__I = (function() {
+  return this.length__I()
+});
+$c_sci_Range.prototype.drop__I__sci_Range = (function(n) {
+  if (((n <= 0) || this.isEmpty$4)) {
+    return this
+  } else if (((n >= this.scala$collection$immutable$Range$$numRangeElements$4) && (this.scala$collection$immutable$Range$$numRangeElements$4 >= 0))) {
+    var value = this.end$4;
+    return new $c_sci_Range().init___I__I__I(value, value, this.step$4)
+  } else {
+    return this.copy__I__I__I__sci_Range(this.locationAfterN__p4__I__I(n), this.end$4, this.step$4)
+  }
+});
+$c_sci_Range.prototype.isExact__p4__Z = (function() {
+  var t = this.gap__p4__J();
+  var lo = t.lo$2;
+  var hi$1 = t.hi$2;
+  var value = this.step$4;
+  var hi = (value >> 31);
+  var this$1 = $m_sjsr_RuntimeLong$();
+  var lo$1 = this$1.remainderImpl__I__I__I__I__I(lo, hi$1, value, hi);
+  var hi$2 = this$1.scala$scalajs$runtime$RuntimeLong$$hiReturn$f;
+  return ((lo$1 === 0) && (hi$2 === 0))
+});
+$c_sci_Range.prototype.drop__I__O = (function(n) {
+  return this.drop__I__sci_Range(n)
+});
+$c_sci_Range.prototype.thisCollection__sc_Seq = (function() {
+  return this
+});
+$c_sci_Range.prototype.tail__O = (function() {
+  return this.tail__sci_Range()
+});
+$c_sci_Range.prototype.toSeq__sc_Seq = (function() {
+  return this
+});
+$c_sci_Range.prototype.last__I = (function() {
+  if (this.isEmpty$4) {
+    var this$1 = $m_sci_Nil$();
+    return $uI($f_sc_LinearSeqOptimized__last__O(this$1))
+  } else {
+    return this.scala$collection$immutable$Range$$lastElement$4
+  }
+});
+$c_sci_Range.prototype.hashCode__I = (function() {
+  return $m_s_util_hashing_MurmurHash3$().seqHash__sc_Seq__I(this)
+});
+$c_sci_Range.prototype.head__I = (function() {
+  return (this.isEmpty$4 ? $m_sci_Nil$().head__sr_Nothing$() : this.start$4)
+});
+$c_sci_Range.prototype.gap__p4__J = (function() {
+  var value = this.end$4;
+  var hi = (value >> 31);
+  var value$1 = this.start$4;
+  var hi$1 = (value$1 >> 31);
+  var lo = ((value - value$1) | 0);
+  var hi$2 = ((((-2147483648) ^ lo) > ((-2147483648) ^ value)) ? (((-1) + ((hi - hi$1) | 0)) | 0) : ((hi - hi$1) | 0));
+  return new $c_sjsr_RuntimeLong().init___I__I(lo, hi$2)
+});
+function $is_sci_Range(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.sci_Range)))
+}
+function $as_sci_Range(obj) {
+  return (($is_sci_Range(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "scala.collection.immutable.Range"))
+}
+function $isArrayOf_sci_Range(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.sci_Range)))
+}
+function $asArrayOf_sci_Range(obj, depth) {
+  return (($isArrayOf_sci_Range(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lscala.collection.immutable.Range;", depth))
+}
+var $d_sci_Range = new $TypeData().initClass({
+  sci_Range: 0
+}, false, "scala.collection.immutable.Range", {
+  sci_Range: 1,
+  sc_AbstractSeq: 1,
+  sc_AbstractIterable: 1,
+  sc_AbstractTraversable: 1,
+  O: 1,
+  sc_Traversable: 1,
+  sc_TraversableLike: 1,
+  scg_HasNewBuilder: 1,
+  scg_FilterMonadic: 1,
+  sc_TraversableOnce: 1,
+  sc_GenTraversableOnce: 1,
+  sc_GenTraversableLike: 1,
+  sc_Parallelizable: 1,
+  sc_GenTraversable: 1,
+  scg_GenericTraversableTemplate: 1,
+  sc_Iterable: 1,
+  sc_GenIterable: 1,
+  sc_GenIterableLike: 1,
+  sc_IterableLike: 1,
+  s_Equals: 1,
+  sc_Seq: 1,
+  s_PartialFunction: 1,
+  F1: 1,
+  sc_GenSeq: 1,
+  sc_GenSeqLike: 1,
+  sc_SeqLike: 1,
+  sci_IndexedSeq: 1,
+  sci_Seq: 1,
+  sci_Iterable: 1,
+  sci_Traversable: 1,
+  s_Immutable: 1,
+  sc_IndexedSeq: 1,
+  sc_IndexedSeqLike: 1,
+  sc_CustomParallelizable: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_sci_Range.prototype.$classData = $d_sci_Range;
 /** @constructor */
 function $c_sci_Stream() {
   $c_sc_AbstractSeq.call(this)
@@ -31456,25 +31576,6 @@ $c_sci_Stream.prototype.iterator__sc_Iterator = (function() {
 });
 $c_sci_Stream.prototype.find__F1__s_Option = (function(p) {
   return $f_sc_LinearSeqOptimized__find__F1__s_Option(this, p)
-});
-$c_sci_Stream.prototype.$$plus$plus__sc_GenTraversableOnce__scg_CanBuildFrom__O = (function(that, bf) {
-  if ($is_sci_Stream$StreamBuilder(bf.apply__O__scm_Builder(this))) {
-    if (this.isEmpty__Z()) {
-      var x$1 = that.toStream__sci_Stream()
-    } else {
-      var hd = this.head__O();
-      var tl = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function($this, that$1) {
-        return (function() {
-          var x = $as_sci_Stream($this.tail__O()).$$plus$plus__sc_GenTraversableOnce__scg_CanBuildFrom__O(that$1, ($m_sci_Stream$(), new $c_sci_Stream$StreamCanBuildFrom().init___()));
-          return $as_sci_Stream(x)
-        })
-      })(this, that));
-      var x$1 = new $c_sci_Stream$Cons().init___O__F0(hd, tl)
-    };
-    return x$1
-  } else {
-    return $f_sc_TraversableLike__$$plus$plus__sc_GenTraversableOnce__scg_CanBuildFrom__O(this, that, bf)
-  }
 });
 $c_sci_Stream.prototype.length__I = (function() {
   var len = 0;
@@ -32422,9 +32523,6 @@ $c_sci_List.prototype.indexWhere__F1__I__I = (function(p, from) {
 $c_sci_List.prototype.$$colon$colon$colon__sci_List__sci_List = (function(prefix) {
   return (this.isEmpty__Z() ? prefix : (prefix.isEmpty__Z() ? this : new $c_scm_ListBuffer().init___().$$plus$plus$eq__sc_TraversableOnce__scm_ListBuffer(prefix).prependToList__sci_List__sci_List(this)))
 });
-$c_sci_List.prototype.$$plus$colon__O__scg_CanBuildFrom__O = (function(elem, bf) {
-  return ($is_scg_GenTraversableFactory$GenericCanBuildFrom(bf) ? new $c_sci_$colon$colon().init___O__sci_List(elem, this) : $f_sc_SeqLike__$$plus$colon__O__scg_CanBuildFrom__O(this, elem, bf))
-});
 $c_sci_List.prototype.iterator__sc_Iterator = (function() {
   return new $c_sc_LinearSeqLike$$anon$1().init___sc_LinearSeqLike(this)
 });
@@ -32506,6 +32604,69 @@ function $isArrayOf_sci_List(obj, depth) {
 function $asArrayOf_sci_List(obj, depth) {
   return (($isArrayOf_sci_List(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lscala.collection.immutable.List;", depth))
 }
+/** @constructor */
+function $c_sci_Range$Inclusive() {
+  $c_sci_Range.call(this)
+}
+$c_sci_Range$Inclusive.prototype = new $h_sci_Range();
+$c_sci_Range$Inclusive.prototype.constructor = $c_sci_Range$Inclusive;
+/** @constructor */
+function $h_sci_Range$Inclusive() {
+  /*<skip>*/
+}
+$h_sci_Range$Inclusive.prototype = $c_sci_Range$Inclusive.prototype;
+$c_sci_Range$Inclusive.prototype.isInclusive__Z = (function() {
+  return true
+});
+$c_sci_Range$Inclusive.prototype.init___I__I__I = (function(start, end, step) {
+  $c_sci_Range.prototype.init___I__I__I.call(this, start, end, step);
+  return this
+});
+$c_sci_Range$Inclusive.prototype.copy__I__I__I__sci_Range = (function(start, end, step) {
+  return new $c_sci_Range$Inclusive().init___I__I__I(start, end, step)
+});
+var $d_sci_Range$Inclusive = new $TypeData().initClass({
+  sci_Range$Inclusive: 0
+}, false, "scala.collection.immutable.Range$Inclusive", {
+  sci_Range$Inclusive: 1,
+  sci_Range: 1,
+  sc_AbstractSeq: 1,
+  sc_AbstractIterable: 1,
+  sc_AbstractTraversable: 1,
+  O: 1,
+  sc_Traversable: 1,
+  sc_TraversableLike: 1,
+  scg_HasNewBuilder: 1,
+  scg_FilterMonadic: 1,
+  sc_TraversableOnce: 1,
+  sc_GenTraversableOnce: 1,
+  sc_GenTraversableLike: 1,
+  sc_Parallelizable: 1,
+  sc_GenTraversable: 1,
+  scg_GenericTraversableTemplate: 1,
+  sc_Iterable: 1,
+  sc_GenIterable: 1,
+  sc_GenIterableLike: 1,
+  sc_IterableLike: 1,
+  s_Equals: 1,
+  sc_Seq: 1,
+  s_PartialFunction: 1,
+  F1: 1,
+  sc_GenSeq: 1,
+  sc_GenSeqLike: 1,
+  sc_SeqLike: 1,
+  sci_IndexedSeq: 1,
+  sci_Seq: 1,
+  sci_Iterable: 1,
+  sci_Traversable: 1,
+  s_Immutable: 1,
+  sc_IndexedSeq: 1,
+  sc_IndexedSeqLike: 1,
+  sc_CustomParallelizable: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_sci_Range$Inclusive.prototype.$classData = $d_sci_Range$Inclusive;
 /** @constructor */
 function $c_sci_Stream$Cons() {
   $c_sci_Stream.call(this);
@@ -32806,9 +32967,6 @@ $c_sci_Vector.prototype.init___I__I__I = (function(startIndex, endIndex, focus) 
 $c_sci_Vector.prototype.display5$und$eq__AO__V = (function(x$1) {
   this.display5$4 = x$1
 });
-$c_sci_Vector.prototype.$$colon$plus__O__scg_CanBuildFrom__O = (function(elem, bf) {
-  return ((((bf === ($m_sci_IndexedSeq$(), $m_sc_IndexedSeq$().ReusableCBF$6)) || (bf === $m_sci_Seq$().ReusableCBFInstance$2)) || (bf === $m_sc_Seq$().ReusableCBFInstance$2)) ? this.appendBack__O__sci_Vector(elem) : $f_sc_SeqLike__$$colon$plus__O__scg_CanBuildFrom__O(this, elem, bf))
-});
 $c_sci_Vector.prototype.companion__scg_GenericCompanion = (function() {
   return $m_sci_Vector$()
 });
@@ -32847,117 +33005,17 @@ $c_sci_Vector.prototype.cleanLeftEdge__p4__I__V = (function(cutIndex) {
 $c_sci_Vector.prototype.display0__AO = (function() {
   return this.display0$4
 });
-$c_sci_Vector.prototype.display2$und$eq__AO__V = (function(x$1) {
-  this.display2$4 = x$1
-});
 $c_sci_Vector.prototype.display4__AO = (function() {
   return this.display4$4
 });
-$c_sci_Vector.prototype.shiftTopLevel__p4__I__I__V = (function(oldLeft, newLeft) {
-  var x1 = (((-1) + this.depth$4) | 0);
-  switch (x1) {
-    case 0: {
-      var array = this.display0$4;
-      this.display0$4 = $f_sci_VectorPointer__copyRange__AO__I__I__AO(this, array, oldLeft, newLeft);
-      break
-    }
-    case 1: {
-      var array$1 = this.display1$4;
-      this.display1$4 = $f_sci_VectorPointer__copyRange__AO__I__I__AO(this, array$1, oldLeft, newLeft);
-      break
-    }
-    case 2: {
-      var array$2 = this.display2$4;
-      this.display2$4 = $f_sci_VectorPointer__copyRange__AO__I__I__AO(this, array$2, oldLeft, newLeft);
-      break
-    }
-    case 3: {
-      var array$3 = this.display3$4;
-      this.display3$4 = $f_sci_VectorPointer__copyRange__AO__I__I__AO(this, array$3, oldLeft, newLeft);
-      break
-    }
-    case 4: {
-      var array$4 = this.display4$4;
-      this.display4$4 = $f_sci_VectorPointer__copyRange__AO__I__I__AO(this, array$4, oldLeft, newLeft);
-      break
-    }
-    case 5: {
-      var array$5 = this.display5$4;
-      this.display5$4 = $f_sci_VectorPointer__copyRange__AO__I__I__AO(this, array$5, oldLeft, newLeft);
-      break
-    }
-    default: {
-      throw new $c_s_MatchError().init___O(x1)
-    }
-  }
+$c_sci_Vector.prototype.display2$und$eq__AO__V = (function(x$1) {
+  this.display2$4 = x$1
 });
 $c_sci_Vector.prototype.tail__sci_Vector = (function() {
   if ($f_sc_SeqLike__isEmpty__Z(this)) {
     throw new $c_jl_UnsupportedOperationException().init___T("empty.tail")
   };
   return this.drop__I__sci_Vector(1)
-});
-$c_sci_Vector.prototype.toVector__sci_Vector = (function() {
-  return this
-});
-$c_sci_Vector.prototype.appendBack__O__sci_Vector = (function(value) {
-  if ((this.endIndex$4 !== this.startIndex$4)) {
-    var blockIndex = ((-32) & this.endIndex$4);
-    var lo = (31 & this.endIndex$4);
-    if ((this.endIndex$4 !== blockIndex)) {
-      var s = new $c_sci_Vector().init___I__I__I(this.startIndex$4, ((1 + this.endIndex$4) | 0), blockIndex);
-      var depth = this.depth$4;
-      $f_sci_VectorPointer__initFrom__sci_VectorPointer__I__V(s, this, depth);
-      s.dirty$4 = this.dirty$4;
-      s.gotoPosWritable__p4__I__I__I__V(this.focus$4, blockIndex, (this.focus$4 ^ blockIndex));
-      s.display0$4.set(lo, value);
-      return s
-    } else {
-      var shift = (this.startIndex$4 & (~(((-1) + (1 << $imul(5, (((-1) + this.depth$4) | 0)))) | 0)));
-      var shiftBlocks = ((this.startIndex$4 >>> $imul(5, (((-1) + this.depth$4) | 0))) | 0);
-      if ((shift !== 0)) {
-        if ((this.depth$4 > 1)) {
-          var newBlockIndex = ((blockIndex - shift) | 0);
-          var newFocus = ((this.focus$4 - shift) | 0);
-          var s$2 = new $c_sci_Vector().init___I__I__I(((this.startIndex$4 - shift) | 0), ((((1 + this.endIndex$4) | 0) - shift) | 0), newBlockIndex);
-          var depth$1 = this.depth$4;
-          $f_sci_VectorPointer__initFrom__sci_VectorPointer__I__V(s$2, this, depth$1);
-          s$2.dirty$4 = this.dirty$4;
-          s$2.shiftTopLevel__p4__I__I__V(shiftBlocks, 0);
-          s$2.gotoFreshPosWritable__p4__I__I__I__V(newFocus, newBlockIndex, (newFocus ^ newBlockIndex));
-          s$2.display0$4.set(lo, value);
-          return s$2
-        } else {
-          var newBlockIndex$2 = (((-32) + blockIndex) | 0);
-          var newFocus$2 = this.focus$4;
-          var s$3 = new $c_sci_Vector().init___I__I__I(((this.startIndex$4 - shift) | 0), ((((1 + this.endIndex$4) | 0) - shift) | 0), newBlockIndex$2);
-          var depth$2 = this.depth$4;
-          $f_sci_VectorPointer__initFrom__sci_VectorPointer__I__V(s$3, this, depth$2);
-          s$3.dirty$4 = this.dirty$4;
-          s$3.shiftTopLevel__p4__I__I__V(shiftBlocks, 0);
-          s$3.gotoPosWritable__p4__I__I__I__V(newFocus$2, newBlockIndex$2, (newFocus$2 ^ newBlockIndex$2));
-          s$3.display0$4.set(((32 - shift) | 0), value);
-          return s$3
-        }
-      } else {
-        var newFocus$3 = this.focus$4;
-        var s$4 = new $c_sci_Vector().init___I__I__I(this.startIndex$4, ((1 + this.endIndex$4) | 0), blockIndex);
-        var depth$3 = this.depth$4;
-        $f_sci_VectorPointer__initFrom__sci_VectorPointer__I__V(s$4, this, depth$3);
-        s$4.dirty$4 = this.dirty$4;
-        s$4.gotoFreshPosWritable__p4__I__I__I__V(newFocus$3, blockIndex, (newFocus$3 ^ blockIndex));
-        s$4.display0$4.set(lo, value);
-        return s$4
-      }
-    }
-  } else {
-    var elems = $newArrayObject($d_O.getArrayOf(), [32]);
-    elems.set(0, value);
-    var s$5 = new $c_sci_Vector().init___I__I__I(0, 1, 0);
-    s$5.depth$4 = 1;
-    s$5.display0$4 = elems;
-    return s$5
-  }
 });
 $c_sci_Vector.prototype.preClean__p4__I__V = (function(depth) {
   this.depth$4 = depth;
@@ -33001,49 +33059,11 @@ $c_sci_Vector.prototype.preClean__p4__I__V = (function(depth) {
     }
   }
 });
-$c_sci_Vector.prototype.$$plus$colon__O__scg_CanBuildFrom__O = (function(elem, bf) {
-  return ((((bf === ($m_sci_IndexedSeq$(), $m_sc_IndexedSeq$().ReusableCBF$6)) || (bf === $m_sci_Seq$().ReusableCBFInstance$2)) || (bf === $m_sc_Seq$().ReusableCBFInstance$2)) ? this.appendFront__O__sci_Vector(elem) : $f_sc_SeqLike__$$plus$colon__O__scg_CanBuildFrom__O(this, elem, bf))
-});
 $c_sci_Vector.prototype.iterator__sc_Iterator = (function() {
   return this.iterator__sci_VectorIterator()
 });
 $c_sci_Vector.prototype.display1$und$eq__AO__V = (function(x$1) {
   this.display1$4 = x$1
-});
-$c_sci_Vector.prototype.$$plus$plus__sc_GenTraversableOnce__scg_CanBuildFrom__O = (function(that, bf) {
-  if ((((bf === ($m_sci_IndexedSeq$(), $m_sc_IndexedSeq$().ReusableCBF$6)) || (bf === $m_sci_Seq$().ReusableCBFInstance$2)) || (bf === $m_sc_Seq$().ReusableCBFInstance$2))) {
-    if (that.isEmpty__Z()) {
-      return this
-    } else {
-      var again = ((!that.isTraversableAgain__Z()) ? that.toVector__sci_Vector() : that.seq__sc_TraversableOnce());
-      var x1 = again.size__I();
-      switch (x1) {
-        default: {
-          if (((x1 <= 2) || (x1 < ((this.length__I() >>> 5) | 0)))) {
-            var v = new $c_sr_ObjectRef().init___O(this);
-            again.foreach__F1__V(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this, v$1) {
-              return (function(x$2) {
-                v$1.elem$1 = $as_sci_Vector($as_sci_Vector(v$1.elem$1).$$colon$plus__O__scg_CanBuildFrom__O(x$2, ($m_sci_Vector$(), $m_sc_IndexedSeq$().ReusableCBF$6)))
-              })
-            })(this, v)));
-            return $as_sci_Vector(v.elem$1)
-          } else if (((this.length__I() < ((x1 >>> 5) | 0)) && $is_sci_Vector(again))) {
-            var v$2 = $as_sci_Vector(again);
-            var ri = new $c_sci_Vector$$anon$1().init___sci_Vector(this);
-            while (ri.hasNext__Z()) {
-              var x$1 = ri.next__O();
-              v$2 = $as_sci_Vector(v$2.$$plus$colon__O__scg_CanBuildFrom__O(x$1, ($m_sci_Vector$(), $m_sc_IndexedSeq$().ReusableCBF$6)))
-            };
-            return v$2
-          } else {
-            return $f_sc_TraversableLike__$$plus$plus__sc_GenTraversableOnce__scg_CanBuildFrom__O(this, again, bf)
-          }
-        }
-      }
-    }
-  } else {
-    return $f_sc_TraversableLike__$$plus$plus__sc_GenTraversableOnce__scg_CanBuildFrom__O(this, that.seq__sc_TraversableOnce(), bf)
-  }
 });
 $c_sci_Vector.prototype.length__I = (function() {
   return ((this.endIndex$4 - this.startIndex$4) | 0)
@@ -33053,14 +33073,6 @@ $c_sci_Vector.prototype.seq__sc_Seq = (function() {
 });
 $c_sci_Vector.prototype.display4$und$eq__AO__V = (function(x$1) {
   this.display4$4 = x$1
-});
-$c_sci_Vector.prototype.gotoFreshPosWritable__p4__I__I__I__V = (function(oldIndex, newIndex, xor) {
-  if (this.dirty$4) {
-    $f_sci_VectorPointer__gotoFreshPosWritable1__I__I__I__V(this, oldIndex, newIndex, xor)
-  } else {
-    $f_sci_VectorPointer__gotoFreshPosWritable0__I__I__I__V(this, oldIndex, newIndex, xor);
-    this.dirty$4 = true
-  }
 });
 $c_sci_Vector.prototype.sizeHintIfCheap__I = (function() {
   return this.length__I()
@@ -33083,6 +33095,11 @@ $c_sci_Vector.prototype.thisCollection__sc_Seq = (function() {
 $c_sci_Vector.prototype.toSeq__sc_Seq = (function() {
   return this
 });
+$c_sci_Vector.prototype.iterator__sci_VectorIterator = (function() {
+  var s = new $c_sci_VectorIterator().init___I__I(this.startIndex$4, this.endIndex$4);
+  this.initIterator__sci_VectorIterator__V(s);
+  return s
+});
 $c_sci_Vector.prototype.requiredDepth__p4__I__I = (function(xor) {
   if ((xor < 32)) {
     return 1
@@ -33099,11 +33116,6 @@ $c_sci_Vector.prototype.requiredDepth__p4__I__I = (function(xor) {
   } else {
     throw new $c_jl_IllegalArgumentException().init___()
   }
-});
-$c_sci_Vector.prototype.iterator__sci_VectorIterator = (function() {
-  var s = new $c_sci_VectorIterator().init___I__I(this.startIndex$4, this.endIndex$4);
-  this.initIterator__sci_VectorIterator__V(s);
-  return s
 });
 $c_sci_Vector.prototype.zeroLeft__p4__AO__I__V = (function(array, index) {
   var i = 0;
@@ -33138,77 +33150,6 @@ $c_sci_Vector.prototype.dropFront0__p4__I__sci_Vector = (function(cutIndex) {
 $c_sci_Vector.prototype.display0$und$eq__AO__V = (function(x$1) {
   this.display0$4 = x$1
 });
-$c_sci_Vector.prototype.appendFront__O__sci_Vector = (function(value) {
-  if ((this.endIndex$4 !== this.startIndex$4)) {
-    var blockIndex = ((-32) & (((-1) + this.startIndex$4) | 0));
-    var lo = (31 & (((-1) + this.startIndex$4) | 0));
-    if ((this.startIndex$4 !== ((32 + blockIndex) | 0))) {
-      var s = new $c_sci_Vector().init___I__I__I((((-1) + this.startIndex$4) | 0), this.endIndex$4, blockIndex);
-      var depth = this.depth$4;
-      $f_sci_VectorPointer__initFrom__sci_VectorPointer__I__V(s, this, depth);
-      s.dirty$4 = this.dirty$4;
-      s.gotoPosWritable__p4__I__I__I__V(this.focus$4, blockIndex, (this.focus$4 ^ blockIndex));
-      s.display0$4.set(lo, value);
-      return s
-    } else {
-      var freeSpace = (((1 << $imul(5, this.depth$4)) - this.endIndex$4) | 0);
-      var shift = (freeSpace & (~(((-1) + (1 << $imul(5, (((-1) + this.depth$4) | 0)))) | 0)));
-      var shiftBlocks = ((freeSpace >>> $imul(5, (((-1) + this.depth$4) | 0))) | 0);
-      if ((shift !== 0)) {
-        if ((this.depth$4 > 1)) {
-          var newBlockIndex = ((blockIndex + shift) | 0);
-          var newFocus = ((this.focus$4 + shift) | 0);
-          var s$2 = new $c_sci_Vector().init___I__I__I((((((-1) + this.startIndex$4) | 0) + shift) | 0), ((this.endIndex$4 + shift) | 0), newBlockIndex);
-          var depth$1 = this.depth$4;
-          $f_sci_VectorPointer__initFrom__sci_VectorPointer__I__V(s$2, this, depth$1);
-          s$2.dirty$4 = this.dirty$4;
-          s$2.shiftTopLevel__p4__I__I__V(0, shiftBlocks);
-          s$2.gotoFreshPosWritable__p4__I__I__I__V(newFocus, newBlockIndex, (newFocus ^ newBlockIndex));
-          s$2.display0$4.set(lo, value);
-          return s$2
-        } else {
-          var newBlockIndex$2 = ((32 + blockIndex) | 0);
-          var newFocus$2 = this.focus$4;
-          var s$3 = new $c_sci_Vector().init___I__I__I((((((-1) + this.startIndex$4) | 0) + shift) | 0), ((this.endIndex$4 + shift) | 0), newBlockIndex$2);
-          var depth$2 = this.depth$4;
-          $f_sci_VectorPointer__initFrom__sci_VectorPointer__I__V(s$3, this, depth$2);
-          s$3.dirty$4 = this.dirty$4;
-          s$3.shiftTopLevel__p4__I__I__V(0, shiftBlocks);
-          s$3.gotoPosWritable__p4__I__I__I__V(newFocus$2, newBlockIndex$2, (newFocus$2 ^ newBlockIndex$2));
-          s$3.display0$4.set((((-1) + shift) | 0), value);
-          return s$3
-        }
-      } else if ((blockIndex < 0)) {
-        var move = (((1 << $imul(5, ((1 + this.depth$4) | 0))) - (1 << $imul(5, this.depth$4))) | 0);
-        var newBlockIndex$3 = ((blockIndex + move) | 0);
-        var newFocus$3 = ((this.focus$4 + move) | 0);
-        var s$4 = new $c_sci_Vector().init___I__I__I((((((-1) + this.startIndex$4) | 0) + move) | 0), ((this.endIndex$4 + move) | 0), newBlockIndex$3);
-        var depth$3 = this.depth$4;
-        $f_sci_VectorPointer__initFrom__sci_VectorPointer__I__V(s$4, this, depth$3);
-        s$4.dirty$4 = this.dirty$4;
-        s$4.gotoFreshPosWritable__p4__I__I__I__V(newFocus$3, newBlockIndex$3, (newFocus$3 ^ newBlockIndex$3));
-        s$4.display0$4.set(lo, value);
-        return s$4
-      } else {
-        var newFocus$4 = this.focus$4;
-        var s$5 = new $c_sci_Vector().init___I__I__I((((-1) + this.startIndex$4) | 0), this.endIndex$4, blockIndex);
-        var depth$4 = this.depth$4;
-        $f_sci_VectorPointer__initFrom__sci_VectorPointer__I__V(s$5, this, depth$4);
-        s$5.dirty$4 = this.dirty$4;
-        s$5.gotoFreshPosWritable__p4__I__I__I__V(newFocus$4, blockIndex, (newFocus$4 ^ blockIndex));
-        s$5.display0$4.set(lo, value);
-        return s$5
-      }
-    }
-  } else {
-    var elems = $newArrayObject($d_O.getArrayOf(), [32]);
-    elems.set(31, value);
-    var s$6 = new $c_sci_Vector().init___I__I__I(31, 32, 0);
-    s$6.depth$4 = 1;
-    s$6.display0$4 = elems;
-    return s$6
-  }
-});
 $c_sci_Vector.prototype.drop__I__sci_Vector = (function(n) {
   if ((n <= 0)) {
     return this
@@ -33219,26 +33160,14 @@ $c_sci_Vector.prototype.drop__I__sci_Vector = (function(n) {
     return this$1.NIL$6
   }
 });
+$c_sci_Vector.prototype.display3$und$eq__AO__V = (function(x$1) {
+  this.display3$4 = x$1
+});
 $c_sci_Vector.prototype.copyRight__p4__AO__I__AO = (function(array, left) {
   var copy = $newArrayObject($d_O.getArrayOf(), [array.u.length]);
   $systemArraycopy(array, left, copy, left, ((copy.u.length - left) | 0));
   return copy
 });
-$c_sci_Vector.prototype.display3$und$eq__AO__V = (function(x$1) {
-  this.display3$4 = x$1
-});
-function $is_sci_Vector(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.sci_Vector)))
-}
-function $as_sci_Vector(obj) {
-  return (($is_sci_Vector(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "scala.collection.immutable.Vector"))
-}
-function $isArrayOf_sci_Vector(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.sci_Vector)))
-}
-function $asArrayOf_sci_Vector(obj, depth) {
-  return (($isArrayOf_sci_Vector(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lscala.collection.immutable.Vector;", depth))
-}
 var $d_sci_Vector = new $TypeData().initClass({
   sci_Vector: 0
 }, false, "scala.collection.immutable.Vector", {
@@ -34184,10 +34113,6 @@ $c_scm_ListBuffer.prototype.toMap__s_Predef$$less$colon$less__sci_Map = (functio
     these = $as_sci_List(these.tail__O())
   };
   return $as_sci_Map(b.elems$1)
-});
-$c_scm_ListBuffer.prototype.sum__s_math_Numeric__O = (function(num) {
-  var this$1 = this.scala$collection$mutable$ListBuffer$$start$6;
-  return $f_sc_TraversableOnce__sum__s_math_Numeric__O(this$1, num)
 });
 $c_scm_ListBuffer.prototype.clear__V = (function() {
   this.scala$collection$mutable$ListBuffer$$start$6 = $m_sci_Nil$();
