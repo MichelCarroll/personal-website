@@ -1,0 +1,38 @@
+name: Deploy to S3
+
+on:
+  push:
+    branches: [ master ]
+
+  workflow_dispatch:
+  
+env:
+  AWS_S3_BUCKET_NAME: michelcarroll-static-website
+
+permissions:
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: "3.0"
+        bundler-cache: true
+    - name: "Build Site"
+      run: bundle exec jekyll build
+      env:
+        JEKYLL_ENV: production
+
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-region: us-east-1
+        role-to-assume: ${{ secrets.PROD_ROLE }}
+        role-session-name: OIDCSession
+        
+    - name: "Deploy to AWS S3"
+      run: aws s3 sync ./_site/ s3://${{ secrets.AWS_S3_BUCKET_NAME }} --acl public-read --delete --cache-control max-age=604800
