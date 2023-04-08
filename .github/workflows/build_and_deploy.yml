@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
   
 env:
-  AWS_S3_BUCKET_NAME: michelcarroll-static-website
+  AWS_S3_BUCKET_NAME: mcar.dev
 
 permissions:
   id-token: write
