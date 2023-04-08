@@ -103,6 +103,8 @@ defaults:
       # can be overridden in the front matter for a specific post
       hidden: false
 
+repository: michelcarroll/michelcarroll.github.io
+
 plugins:
   - jekyll-seo-tag
   - jekyll-gist
