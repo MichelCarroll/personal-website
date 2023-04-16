@@ -17,10 +17,9 @@ My motivations for building this were:
 - To gain a better mastery of the Rust 🦀 programming language, WebAssembly, and their ecosystems
 - As a proof of concept for more complex data-driven and browser-based roguelike games
 - As a tribute to the roguelike game genre
-- For fun, of course :smile:
+- For fun, of course 😊
 
 Demo: [https://mcar.dev/assets/demo/rusty-roguelike/index.html](https://mcar.dev/assets/demo/rusty-roguelike/index.html)
-(arrow keys to move)
-
-Codebase: [https://github.com/MichelCarroll/rusty-roguelike] (https://github.com/MichelCarroll/rusty-roguelike)
+(arrow keys to move)  
+Codebase: [https://github.com/MichelCarroll/rusty-roguelike](https://github.com/MichelCarroll/rusty-roguelike)
 
