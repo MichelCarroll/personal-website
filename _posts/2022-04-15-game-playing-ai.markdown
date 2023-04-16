@@ -1,5 +1,5 @@
 ---
-title: "🧠🎮🐍 Game-playing AI using Minimax and heuristic methods"
+title: "🧠🎮🐍 Game-playing AI using Minimax, A* and heuristic methods"
 layout: post
 date: 2022-04-15 00:00
 tag: ai, games, python
