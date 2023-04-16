@@ -1,8 +1,10 @@
 ---
-title: "🎮 Scalarogue, a roguelike game prototype in Scala"
+title: "Scalarogue, a roguelike game prototype in Scala 🎮"
 layout: post
 date: 2017-09-01 00:00
-tag: scala, games
+tag: 
+- scala
+- games
 headerImage: false
 projects: true
 hidden: true
@@ -18,6 +20,5 @@ My motivations for building this were:
 - For fun and as a tribute to the roguelike game genre 😊
 
 Demo: [https://mcar.dev/assets/demo/scalarogue/index.html](https://mcar.dev/assets/demo/scalarogue/index.html)
-(arrow keys to move)
+(arrow keys to move)  
 Codebase: [https://github.com/MichelCarroll/Scalarogue](https://github.com/MichelCarroll/Scalarogue)
-

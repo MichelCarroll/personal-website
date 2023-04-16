@@ -1,8 +1,10 @@
 ---
-title: "🦀🎮 Roguelike game prototype in Rust & WebAssembly"
+title: "Roguelike game prototype in Rust & WebAssembly 🦀🎮"
 layout: post
 date: 2023-03-15 00:00
-tag: rust, games
+tag: 
+- rust
+- games
 headerImage: false
 projects: true
 hidden: true

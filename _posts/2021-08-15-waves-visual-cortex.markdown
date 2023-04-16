@@ -1,8 +1,11 @@
 ---
-title: "🧠📊🐍 Analysis of traveling waves in the visual cortex"
+title: "Analysis of traveling waves in the visual cortex 🧠📊🐍"
 layout: post
 date: 2022-04-15 00:00
-tag: biology, data analysis, python
+tag: 
+- biology
+- data analysis 
+- python
 headerImage: false
 projects: true
 hidden: true
@@ -15,6 +18,6 @@ I conducted some independent research on [local field potential](https://en.wiki
 
 I primarily used Python and Jupyter notebooks, as well as [AWS Batch](https://aws.amazon.com/batch/) to run heavy computations.
 
-Report: [https://mcar.dev/assets/files/TravellingWavesLabReport.pdf](https://mcar.dev/assets/files/TravellingWavesLabReport.pdf)
+Report: [https://mcar.dev/assets/files/TravellingWavesLabReport.pdf](https://mcar.dev/assets/files/TravellingWavesLabReport.pdf)  
 Codebase: [https://github.com/MichelCarroll/lfp-data-analysis](https://github.com/MichelCarroll/lfp-data-analysis)
 
