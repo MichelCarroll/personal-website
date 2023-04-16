@@ -1,8 +1,8 @@
 # main text of home
 title: Michel Carroll
-bio: I architect and develop cutting-edge AI products for tech startups.
+bio: I build quality AI software products for tech startups.
 
-description: A blog about technology and stuff related
+description: Resume and compilation of personal projects.
 
 # if it's an external image, update below for true
 # better with square images
@@ -40,19 +40,19 @@ linkedin: michelcarroll
 github: MichelCarroll
 email: michel@rogodata.com
 
-authors:
-  johndoe:
-    name: John Doe
-    bio: A Man who travels the world eating noodles
-    external-image: false
-    picture: assets/images/profile.jpg
-    twitter: johndoe
-  jamesfoster:
-    name: James Foster
-    bio: A Man who develops software with coffee
-    external-image: false
-    picture: assets/images/james.jpg
-    twitter: jamesfoster
+# authors:
+#   johndoe:
+#     name: John Doe
+#     bio: A Man who travels the world eating noodles
+#     external-image: false
+#     picture: assets/images/profile.jpg
+#     twitter: johndoe
+#   jamesfoster:
+#     name: James Foster
+#     bio: A Man who develops software with coffee
+#     external-image: false
+#     picture: assets/images/james.jpg
+#     twitter: jamesfoster
 
 # do you want a larger site? change the option below
 # options: [normal, large] | default: normal
