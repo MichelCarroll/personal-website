@@ -31,9 +31,9 @@ Include PDF, Codebase
 
 In context of undergraduate summer lab work for Anmar lab.
 
-Game-playing AI using heuristic search tree method 
+Game-playing AI using Minimax and heuristic methods
 ============
-- date: 2022-04-01
+- date: 2022-04-15
 - tags: ai, games, python
 
 Include PDF, Codebase

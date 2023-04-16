@@ -11,7 +11,7 @@ author: michelcarroll
 externalLink: false
 ---
 
-I wrote a small [roguelike game](https://en.wikipedia.org/wiki/Roguelike) prototype in Rust. It uses ECS to coordinate the various game components and systems, leveraging the [specs](https://github.com/amethyst/specs) crate. In order to make it more easily accessible and shareable, I target WebAssembly to run it in the browser.
+I wrote a small [roguelike game](https://en.wikipedia.org/wiki/Roguelike) prototype in Rust. It uses ECS to coordinate the various game components and systems, leveraging the [specs](https://github.com/amethyst/specs) crate. I target WebAssembly to run it in the browser.
 
 My motivations for building this were:
 - To gain a better mastery of the Rust 🦀 programming language, WebAssembly, and their ecosystems
