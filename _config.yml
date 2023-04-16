@@ -1,6 +1,6 @@
 # main text of home
 title: Michel Carroll
-bio: I build quality AI software products for tech startups.
+bio: I build high-quality AI software products for ambitious startups.
 
 description: Resume and compilation of personal projects.
 
@@ -30,7 +30,7 @@ analytics-google: G-G20NHTCKB8
 # if you don't want comments in your posts, leave categories empty
 disqus:
   shortname: github # enter this from your disqus account
-  categories: [blog, project] # only show disqus for posts that have these categories
+  categories: [] # only show disqus for posts that have these categories
 
 # if you don't have any of social below, comment the line
 # facebook: myfacebook
@@ -40,19 +40,12 @@ linkedin: michelcarroll
 github: MichelCarroll
 email: michel@rogodata.com
 
-# authors:
-#   johndoe:
-#     name: John Doe
-#     bio: A Man who travels the world eating noodles
-#     external-image: false
-#     picture: assets/images/profile.jpg
-#     twitter: johndoe
-#   jamesfoster:
-#     name: James Foster
-#     bio: A Man who develops software with coffee
-#     external-image: false
-#     picture: assets/images/james.jpg
-#     twitter: jamesfoster
+authors:
+  michelcarroll:
+    name: Michel Carroll
+    bio: I build high-quality AI software products for ambitious startups.
+    external-image: false
+    picture: assets/images/profile.jpeg
 
 # do you want a larger site? change the option below
 # options: [normal, large] | default: normal
